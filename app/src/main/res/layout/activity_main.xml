@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:fillViewport="true">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fullForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lexend"
+            android:text="Select LMP: "
+
+            android:textColor="@color/blue"
+            android:textSize="32dp" />
+
+
+        <TextView
+            android:id="@+id/lmpFullForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginLeft="16sp"
+            android:fontFamily="@font/lexend"
+            android:text="LMP: Last Menstrual Period: "
+
+            android:textColor="@color/grey"
+            android:textSize="14sp"/>
+
+
+        <!-- DatePicker widget for selecting a date -->
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20sp"
+            android:datePickerMode="calendar"
+            android:outlineAmbientShadowColor="@color/grey"
+            android:outlineSpotShadowColor="@color/pink"/>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/pogTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="POG (Period Of Gestation)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/twPog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/pogTitle"
+                    android:layout_marginBottom="16sp"
+
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/lexend"
+                    android:text="Select Date"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginTop="16sp"
+            android:layout_height="132dp"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/eddTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="EDD (Estimated Date Of Delivery)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/eddFullForm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eddTitle"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:layout_centerHorizontal="true"
+                    android:text="9 months + 7Days from LMP"/>
+                <TextView
+                    android:id="@+id/twEdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/eddFullForm"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/lexend"
+                    android:layout_centerHorizontal="true"
+                    android:text="Select Date"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnUltraSound"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_margin="16sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/lexend"
+            android:onClick="onCalculateWeeksButtonClick"
+            android:text="Ultrasound Dates"
+            android:backgroundTint="@color/blue"
+            android:textSize="18sp"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnDoctorAppointment"
+
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="16sp"
+            android:fontFamily="@font/lexend"
+            android:textSize="18sp"
+            android:onClick="onCalculateWeeksButtonClick"
+            android:text="Doctor Visit Schedule" />
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

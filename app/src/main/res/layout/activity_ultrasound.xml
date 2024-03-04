@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fullForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="30sp"
+            android:fontFamily="@font/lexend"
+            android:text="Ultra Sonography(USG) "
+
+            android:textColor="@color/blue"
+            android:textSize="32dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/usg1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="USG 1 (Dating | Visibility Scan)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/usg1Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg1Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="6-8 Weeks from LMP"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/usg1DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg1Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usg1DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/usg1Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+<androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+    android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/usg2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="USG 2 (Nuchal Transluency Scan)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/usg2Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg2Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="11-13 Weeks + 6 Days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/usg2DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg2Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usg2DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/usg2Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+<androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+    android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/usg3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="USG 3 (Anomaly Scan)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/usg3Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg3Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="18-20 Weeks of LMP"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/usg3DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg3Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usg3DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/usg3Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+<androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+    android:layout_marginBottom="25sp"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/usg4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="USG 4 (Growth Scan)"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/usg4Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg4Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="30 -32 Weeks of LMP"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/usg4DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/usg4Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/usg4DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/usg4Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

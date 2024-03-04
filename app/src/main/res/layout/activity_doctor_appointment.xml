@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fullForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="30sp"
+            android:fontFamily="@font/lexend"
+            android:text="Doctor's appointment tentative dates "
+
+            android:textColor="@color/blue"
+            android:textSize="32dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/visit1Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 1"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit1Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit1Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="30 days after LMP to 13 weeks + 6 days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+                
+                <TextView
+                    android:id="@+id/visit1DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit1Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit1DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit1Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 2 "
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit2Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit2Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP + 20 Weeks + 6 Days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit2DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit2Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit2DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit2Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 3"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit3Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit3Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP+26 Weeks of LMP + 6 days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit3DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit3Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit3DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit3Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+            android:layout_marginBottom="25sp"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 4"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit4Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit4Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP + 30 Weeks + 6 Days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit4DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit4Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit4DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit4Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/visit5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 5"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit5Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit5Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="30 days after LMP to 13 weeks + 6 days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/visit5DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit5Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit5DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit5Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit6Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 6 "
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit6Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit6Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP + 20 Weeks + 6 Days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit6DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit6Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit6DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit6Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit7Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 7"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit7Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit7Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP+26 Weeks of LMP + 6 days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit7DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit7Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit7DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/blue"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit7Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
+            android:layout_marginEnd="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#32CDCED2"
+            android:layout_marginBottom="25sp"
+
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/visit8Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginEnd="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="Visit 8"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/visit8Period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit8Title"
+                    android:layout_marginLeft="16sp"
+                    android:fontFamily="@font/lexend"
+                    android:text="LMP + 30 Weeks + 6 Days"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
+
+
+
+                <TextView
+                    android:id="@+id/visit8DatesFromLMP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignWithParentIfMissing="true"
+                    android:layout_below="@+id/visit8Period"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginBottom="10sp"
+
+                    android:fontFamily="@font/lexend"
+                    android:text="Dates From LMP"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visit8DatesFromLMP"
+                    android:outlineAmbientShadowColor="@color/white"
+                    android:outlineSpotShadowColor="@color/white"
+                    app:cardBackgroundColor="@color/pink"
+
+                    app:cardMaxElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/visit8Dates"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:fontFamily="@font/lexend"
+                        android:textSize="20sp"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+                        android:layout_centerHorizontal="true"
+
+
+
+                        android:text="22-11-2023 to 4-12-2023 "
+                        android:textColor="@color/white"></TextView>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
