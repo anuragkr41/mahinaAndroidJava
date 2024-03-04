@@ -460,7 +460,7 @@
                     android:layout_below="@+id/visit5Title"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/lexend"
-                    android:text="30 days after LMP to 13 weeks + 6 days"
+                    android:text="LMP + 34 weeks + 6 days"
                     android:textColor="@color/grey"
                     android:textSize="12sp" />
 
@@ -475,7 +475,7 @@
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
-                    android:text="Dates From LMP"
+                    android:text="Visit between the below Dates"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
 
@@ -551,7 +551,7 @@
                     android:layout_below="@+id/visit6Title"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/lexend"
-                    android:text="LMP + 20 Weeks + 6 Days"
+                    android:text="LMP + 36 Weeks + 6 Days"
                     android:textColor="@color/grey"
                     android:textSize="12sp" />
 
@@ -643,7 +643,7 @@
                     android:layout_below="@+id/visit7Title"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/lexend"
-                    android:text="LMP+26 Weeks of LMP + 6 days"
+                    android:text="LMP + 38 Weeks + 6 days"
                     android:textColor="@color/grey"
                     android:textSize="12sp" />
 
@@ -738,7 +738,7 @@
                     android:layout_below="@+id/visit8Title"
                     android:layout_marginLeft="16sp"
                     android:fontFamily="@font/lexend"
-                    android:text="LMP + 30 Weeks + 6 Days"
+                    android:text="LMP + 40 Weeks + 6 Days"
                     android:textColor="@color/grey"
                     android:textSize="12sp" />
 
