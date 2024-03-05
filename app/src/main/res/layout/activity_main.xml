@@ -52,6 +52,17 @@
             android:outlineAmbientShadowColor="@color/grey"
             android:outlineSpotShadowColor="@color/pink"/>
 
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save LMP"
+            android:layout_marginBottom="40sp"
+            android:layout_marginStart="16sp"
+            android:layout_centerHorizontal="true"
+
+            />
+
 
 
         <androidx.cardview.widget.CardView

@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.calculations.LastMenstrualPeriod;
+
+import java.time.LocalDate;
 
 
 public class UltraSound extends AppCompatActivity {
@@ -18,24 +21,21 @@ public class UltraSound extends AppCompatActivity {
         setContentView(R.layout.activity_ultrasound);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
 
-        String usg1Range = DatesHelper.getUSG1DateRange.apply(MainActivity.lmp);
-//        Log.d("UltraSound DR1", "Date Range: " + usg1Range);
+        String usg1Range = DatesHelper.getUSG1DateRange.apply(lmp);
         TextView textViewUsg1 = findViewById(R.id.usg1Dates);
         textViewUsg1.setText(usg1Range);
 
-        String usg2Range = DatesHelper.getUSG2DateRange.apply(MainActivity.lmp);
-        Log.d("UltraSound DR2", "Date Range: " + usg2Range);
+        String usg2Range = DatesHelper.getUSG2DateRange.apply(lmp);
         TextView textViewUsg2 = findViewById(R.id.usg2Dates);
         textViewUsg2.setText(usg2Range);
 
-        String usg3Range = DatesHelper.getUSG3DateRange.apply(MainActivity.lmp);
-        Log.d("UltraSound DR3", "Date Range: " + usg3Range);
+        String usg3Range = DatesHelper.getUSG3DateRange.apply(lmp);
         TextView textViewUsg3 = findViewById(R.id.usg3Dates);
         textViewUsg3.setText(usg3Range);
 
-        String usg4Range = DatesHelper.getUSG4DateRange.apply(MainActivity.lmp);
-        Log.d("UltraSound DR4", "Date Range: " + usg4Range);
+        String usg4Range = DatesHelper.getUSG4DateRange.apply(lmp);
         TextView textViewUsg4 = findViewById(R.id.usg4Dates);
         textViewUsg4.setText(usg4Range);
 

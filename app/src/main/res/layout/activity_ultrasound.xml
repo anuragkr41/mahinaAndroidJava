@@ -17,7 +17,6 @@
             android:id="@+id/fullForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_marginStart="16dp"
 
             android:layout_marginTop="20sp"
@@ -25,7 +24,7 @@
             android:fontFamily="@font/lexend"
             android:text="@string/usgTitle"
             android:textColor="@color/blue"
-            android:textSize="32dp" />
+            android:textSize="32sp" />
 
 
         <androidx.cardview.widget.CardView

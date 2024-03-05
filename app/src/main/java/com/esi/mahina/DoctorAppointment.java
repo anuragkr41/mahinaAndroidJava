@@ -8,23 +8,27 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.esi.mahina.calculations.AppointmentsHelper;
+import com.esi.mahina.calculations.LastMenstrualPeriod;
+
+import java.time.LocalDate;
 
 public class DoctorAppointment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_appointment);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        String visit1Range = AppointmentsHelper.getVisit1DateRange.apply(MainActivity.lmp);
-         String visit2Range = AppointmentsHelper.getVisit2DateRange.apply(MainActivity.lmp);
-         String visit3Range = AppointmentsHelper.getVisit3DateRange.apply(MainActivity.lmp);
-         String visit4Range = AppointmentsHelper.getVisit4DateRange.apply(MainActivity.lmp);
-         String visit5Range = AppointmentsHelper.getVisit5DateRange.apply(MainActivity.lmp);
-         String visit6Range = AppointmentsHelper.getVisit6DateRange.apply(MainActivity.lmp);
-         String visit7Range = AppointmentsHelper.getVisit7DateRange.apply(MainActivity.lmp);
-         String visit8Range = AppointmentsHelper.getVisit8DateRange.apply(MainActivity.lmp);
+        String visit1Range = AppointmentsHelper.getVisit1DateRange.apply(lmp);
+         String visit2Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 20);
+         String visit3Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 26);
+         String visit4Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 30);
+         String visit5Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp,34);
+         String visit6Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp,36);
+         String visit7Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp,38);
+         String visit8Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp,40);
 
 
         TextView textViewVisit1 = findViewById(R.id.visit1Dates);

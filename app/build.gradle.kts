@@ -30,6 +30,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     buildToolsVersion = "30.0.3"
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {

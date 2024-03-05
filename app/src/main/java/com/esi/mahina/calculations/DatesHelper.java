@@ -11,7 +11,7 @@ import java.util.function.Function;
 
 public class DatesHelper {
     private static LocalDate todayDate = LocalDate.now();
-    LocalDate lmp = MainActivity.lmp;
+    LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
 
     public static LocalDate captureLocalDateFromDatePicker(DatePicker datePicker) {
         int year = datePicker.getYear();
@@ -36,10 +36,6 @@ public class DatesHelper {
         }
         return numberOfWeeks+" Weeks "+numberOfDays+" Days";
     };
-
-
-
-
 
 //    Function to generate the expected Date of Delivery
     public static Function<LocalDate, String> getExpectedDateOfDelivery = (lmp)->{
