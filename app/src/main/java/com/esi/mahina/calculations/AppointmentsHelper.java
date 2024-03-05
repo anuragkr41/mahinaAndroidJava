@@ -36,8 +36,8 @@ public class AppointmentsHelper {
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
     public static Function<LocalDate, String> getVisit6DateRange = (lmp)->{
-        LocalDate beginDate=lmp.plusDays(36);
-        LocalDate endDate=(lmp.plusWeeks(13)).plusDays(6);
+        LocalDate beginDate=lmp.plusWeeks(36);
+        LocalDate endDate=beginDate.plusDays(6);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
