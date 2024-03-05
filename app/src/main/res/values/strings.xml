@@ -1,4 +1,32 @@
 <resources>
+
+<!--    Splash Screen Strings-->
+
     <string name="app_name">Mahina</string>
+    <string name="byEsi">By ESI Govind Puri Haridwar</string>
+    <string name="developer">Designed and Developed By Anurag Kumar</string>
+
+<!--    USG STrings-->
+
+    <string name="usgTitle">Ultra Sonography(USG) </string>
+
+    <string name="usg1Name">USG 1 (Dating | Visibility Scan) </string>
+    <string name="usg1Duration">6-8 Weeks from LMP </string>
+
+    <string name="datesFromLMP">Dates From LMP </string>
+
+    <string name="usg2Name">USG 2 (Nuchal Translucency Scan) </string>
+    <string name="usg2Duration">11-13 Weeks + 6 Days </string>
+
+    <string name="usg3Name">USG 3 (Anomaly Scan) </string>
+    <string name="usg3Duration">18-20 Weeks of LMP</string>
+
+    <string name="usg4Name">USG 4 (Growth Scan) </string>
+    <string name="usg4Duration">30 -32 Weeks of LMP </string>
+
+<!--Doctor Appointment Strings-->
 
 </resources>
+
+
+

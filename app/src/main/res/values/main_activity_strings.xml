@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lmpSelect">Select LMP: </string>
+    <string name="lmpFullForm">LMP: Last Menstrual Period: </string>
+    <string name="pogFullForm">POG (Period Of Gestation)</string>
+    <string name="dateSelect">Select Date </string>
+    <string name="eddFullForm">EDD (Estimated Date Of Delivery)</string>
+    <string name="eddFormula">9 months + 7Days from LMP</string>
+    <string name="ultrasoundDates">Ultrasound Dates</string>
+    <string name="doctorVisitSchedule">Doctor Visit Schedule</string>
+
+</resources>

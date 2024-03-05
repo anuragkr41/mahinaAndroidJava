@@ -12,35 +12,31 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/fullForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
 
             android:layout_marginTop="16dp"
             android:fontFamily="@font/lexend"
-            android:text="Select LMP: "
+            android:text="@string/lmpSelect"
 
             android:textColor="@color/blue"
-            android:textSize="32dp" />
+            android:textSize="32sp" />
 
 
         <TextView
             android:id="@+id/lmpFullForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerHorizontal="true"
 
-            android:layout_marginLeft="16sp"
+            android:layout_marginStart="16sp"
             android:fontFamily="@font/lexend"
-            android:text="LMP: Last Menstrual Period: "
+            android:text="@string/lmpFullForm"
 
             android:textColor="@color/grey"
             android:textSize="14sp"/>
@@ -79,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16sp"
                     android:fontFamily="@font/lexend"
-                    android:text="POG (Period Of Gestation)"
+                    android:text="@string/pogFullForm"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
 
@@ -93,7 +89,7 @@
 
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/lexend"
-                    android:text="Select Date"
+                    android:text="@string/dateSelect"
                     android:textColor="@color/grey"
                     android:textSize="20sp" />
 
@@ -123,7 +119,7 @@
                     android:layout_marginEnd="16sp"
                     android:layout_marginBottom="5sp"
                     android:fontFamily="@font/lexend"
-                    android:text="EDD (Estimated Date Of Delivery)"
+                    android:text="@string/eddFullForm"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
                 <TextView
@@ -136,7 +132,7 @@
                     android:layout_marginBottom="5sp"
                     android:fontFamily="@font/lexend"
                     android:layout_centerHorizontal="true"
-                    android:text="9 months + 7Days from LMP"/>
+                    android:text="@string/eddFormula"/>
                 <TextView
                     android:id="@+id/twEdd"
                     android:layout_width="wrap_content"
@@ -146,7 +142,7 @@
                     android:textSize="20sp"
                     android:fontFamily="@font/lexend"
                     android:layout_centerHorizontal="true"
-                    android:text="Select Date"/>
+                    android:text="@string/dateSelect"/>
 
             </RelativeLayout>
 
@@ -160,8 +156,7 @@
             android:layout_marginTop="16sp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/lexend"
-            android:onClick="onCalculateWeeksButtonClick"
-            android:text="Ultrasound Dates"
+            android:text="@string/ultrasoundDates"
             android:backgroundTint="@color/blue"
             android:textSize="18sp"
             android:textAlignment="center" />
@@ -174,8 +169,7 @@
             android:layout_margin="16sp"
             android:fontFamily="@font/lexend"
             android:textSize="18sp"
-            android:onClick="onCalculateWeeksButtonClick"
-            android:text="Doctor Visit Schedule" />
+            android:text="@string/doctorVisitSchedule" />
 
 
     </LinearLayout>

@@ -18,7 +18,7 @@
         android:id="@+id/logoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mahina"
+        android:text="@string/app_name"
         android:textColor="@color/blue"
         android:fontFamily="@font/lexend_exa"
         android:textSize="32sp"
@@ -28,7 +28,7 @@
      <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="By ESI Govind Puri Haridwar"
+        android:text="@string/byEsi"
         android:textColor="@color/grey"
         android:fontFamily="@font/lexend"
         android:textSize="18sp"
@@ -39,7 +39,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Designed and Developed By Anurag Kumar"
+        android:text="@string/developer"
         android:textColor="@color/blue"
         android:fontFamily="@font/lexend"
         android:textSize="12sp"
