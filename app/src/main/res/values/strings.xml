@@ -25,7 +25,9 @@
     <string name="usg4Name">USG 4 (Growth Scan) </string>
     <string name="usg4Duration">30 -32 Weeks of LMP </string>
 
-<!--Doctor Appointment Strings-->
+    <!--Doctor Appointment Strings-->
+    <string name="whoAppointmentDates">These dates are calculated as per WHO guidelines</string>
+
 
 </resources>
 
