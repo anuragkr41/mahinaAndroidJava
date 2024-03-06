@@ -78,42 +78,23 @@
             <RelativeLayout
                 android:id="@+id/relativeLayout2Main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/savedLmp">
 
-                <RelativeLayout
-                    android:layout_width="135dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true">
+
 
                     <Button
                         android:id="@+id/save"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="16sp"
+                        android:layout_centerVertical="true"
 
                         android:layout_marginEnd="16sp"
                         android:fontFamily="@font/lexend"
                         android:text="Save LMP" />
 
-
-                    <Button
-                        android:id="@+id/edit"
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/save"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="16sp"
-                        android:layout_marginBottom="16sp"
-                        android:backgroundTint="@color/blue"
-
-                        android:fontFamily="@font/lexend"
-                        android:text="Edit LMP" />
-
-
-                </RelativeLayout>
 
 
                 <RelativeLayout

@@ -22,7 +22,7 @@
             android:layout_marginLeft="16dp"
 
             android:layout_marginTop="20sp"
-            android:layout_marginBottom="30sp"
+            android:layout_marginBottom="10sp"
             android:fontFamily="@font/lexend"
             android:text="Doctor's appointment tentative dates "
 
@@ -35,11 +35,40 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
 
-            android:layout_marginBottom="30sp"
+            android:layout_marginBottom="10sp"
             android:fontFamily="@font/lexend"
             android:text="@string/whoAppointmentDates"
             android:textColor="@color/blue"
             android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lmpText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+
+                android:layout_marginBottom="20sp"
+                android:fontFamily="@font/lexend"
+                android:text="LMP: "
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lmpForDocVisitCalc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:layout_toRightOf="@+id/lmpText"
+                android:fontFamily="@font/lexend"
+                android:text="Date Here"
+                android:textColor="@color/blue"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
 
 
         <androidx.cardview.widget.CardView

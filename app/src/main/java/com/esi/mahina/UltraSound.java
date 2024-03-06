@@ -11,9 +11,12 @@ import com.esi.mahina.calculations.DatesHelper;
 import com.esi.mahina.calculations.LastMenstrualPeriod;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class UltraSound extends AppCompatActivity {
+
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,11 @@ public class UltraSound extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+        TextView tvLMP = findViewById(R.id.lmpForUSGCalc);
+        tvLMP.setText(lmp.format(formatter));
+
+
+
 
         String usg1Range = DatesHelper.getUSG1DateRange.apply(lmp);
         TextView textViewUsg1 = findViewById(R.id.usg1Dates);

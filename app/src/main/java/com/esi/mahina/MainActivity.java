@@ -23,13 +23,8 @@ import java.time.format.DateTimeFormatter;
 public class MainActivity extends AppCompatActivity {
     private DatePicker datePicker;
     private LastMenstrualPeriod lastMenstrualCycle = LastMenstrualPeriod.getInstance() ;
-
     ActivityMainBinding binding;
-
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         this.datePicker=findViewById(R.id.datePicker);
         binding.save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        We first have to check if there is a saved LMP already
-
-
         //This is your saved date
         LocalDate savedDate = loadDate();
         setPogAndEDD(savedDate);
@@ -81,12 +70,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewSavedLMPInfo = findViewById(R.id.savedLmp);
         textViewSavedLMPInfo.setText("Your LMP is set to \n"+savedDate.format(formatter));
 
-//        SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
-//        String date = preferences.getString("savedLmpDate","");
-//        Log.d("--Date Variable--", date);
-//        Log.d("--LMP Variable--", lastMenstrualCycle.getLMP().toString());
-
-        //Loading data on start is working fine.
+        //Loading date on start is working fine.
 
         datePicker.init(
                 datePicker.getYear(),
@@ -95,36 +79,29 @@ public class MainActivity extends AppCompatActivity {
                 (view, year, monthOfYear, dayOfMonth) -> {
                     // Update LocalDate whenever the date changes in date picker
                     LocalDate selectedDate = DatesHelper.captureLocalDateFromDatePicker(datePicker);
-
                     lastMenstrualCycle.setLMP(selectedDate);
                     setPogAndEDD(selectedDate);
-
                 }
         );
-
      }
 
     private void setPogAndEDD(LocalDate date) {
 
         String pog= DatesHelper.getPeriodOfGestation.apply(date);
-
         TextView textViewPog = findViewById(R.id.twPog);
-
         textViewPog.setText(pog);
 
         String edd= DatesHelper.getExpectedDateOfDelivery.apply(date);
-
         TextView textViewEdd = findViewById(R.id.twEdd);
-
         textViewEdd.setText(edd);
     }
 
 
     private void saveDate() {
-        SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
         String savedLmpDate =  lastMenstrualCycle.getLMP().toString();
 
+        SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
         editor.putString("savedLmpDate", savedLmpDate);
         editor.apply();
 

@@ -11,18 +11,29 @@ import com.esi.mahina.calculations.AppointmentsHelper;
 import com.esi.mahina.calculations.LastMenstrualPeriod;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class DoctorAppointment extends AppCompatActivity {
 
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_appointment);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+        TextView tvLMP = findViewById(R.id.lmpForDocVisitCalc);
+        tvLMP.setText(lmp.format(formatter));
+
+
         String visit1Range = AppointmentsHelper.getVisit1DateRange.apply(lmp);
-         String visit2Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 20);
+        String visit2Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 20);
          String visit3Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 26);
          String visit4Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp, 30);
          String visit5Range = AppointmentsHelper.getVisit2To8DateRange.apply(lmp,34);
