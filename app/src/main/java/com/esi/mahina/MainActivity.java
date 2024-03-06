@@ -18,6 +18,7 @@ import com.esi.mahina.calculations.LastMenstrualPeriod;
 import com.esi.mahina.databinding.ActivityMainBinding;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class MainActivity extends AppCompatActivity {
     private DatePicker datePicker;
@@ -68,9 +69,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        loadDate();
-        Log.d("Saved Variable", lastMenstrualCycle.getLMP().toString());
+        SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+        String date = preferences.getString("lmpDate","");
+        if(!date.isEmpty()) {
+            loadDate();
+            Log.d("Saved Variable", lastMenstrualCycle.getLMP().toString());
 
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+
+
+            TextView textViewSavedLMPInfo = findViewById(R.id.savedLmp);
+//
+            textViewSavedLMPInfo.setText("Your LMP is set to \n"+lastMenstrualCycle.getLMP().format(formatter));
+
+            String pog= DatesHelper.getPeriodOfGestation.apply(lastMenstrualCycle.getLMP());
+//
+            TextView textViewPog = findViewById(R.id.twPog);
+//
+            textViewPog.setText(pog);
+
+            String edd= DatesHelper.getExpectedDateOfDelivery.apply(lastMenstrualCycle.getLMP());
+//
+            TextView textViewEdd = findViewById(R.id.twEdd);
+//
+            textViewEdd.setText(edd);
+
+        }
 
         datePicker.init(
                 datePicker.getYear(),
@@ -82,6 +106,21 @@ public class MainActivity extends AppCompatActivity {
                     // Now, you have the updated LocalDate, you can use it as needed
                     // Example: Log the selected date
 //                    Log.d("MainActivity", "Selected Date: " + selectedDate);
+
+                    if(!date.isEmpty()){
+                        String pog= DatesHelper.getPeriodOfGestation.apply(lastMenstrualCycle.getLMP());
+//
+                        TextView textViewPog = findViewById(R.id.twPog);
+//
+                        textViewPog.setText(pog);
+
+                        String edd= DatesHelper.getExpectedDateOfDelivery.apply(lastMenstrualCycle.getLMP());
+//
+                        TextView textViewEdd = findViewById(R.id.twEdd);
+//
+                        textViewEdd.setText(edd);
+
+                    }
 
                     lastMenstrualCycle.setLMP(selectedDate);
 
@@ -98,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
 //
                     textViewEdd.setText(edd);
 
+
+
 //                    Log.d("MainActivity", "EDD Date: " + DatesHelper.getExpectedDateOfDelivery.apply(lmp));
 
                 }
@@ -111,7 +152,10 @@ public class MainActivity extends AppCompatActivity {
         String lmpDate =  lastMenstrualCycle.getLMP().toString();
         editor.putString("lmpDate", lmpDate);
         editor.apply();
+        TextView textViewSavedLMPInfo = findViewById(R.id.savedLmp);
+        textViewSavedLMPInfo.setText("Your LMP is set to "+lastMenstrualCycle.getLMP().toString());
         Toast.makeText(this, "Data is Saved", Toast.LENGTH_SHORT).show();
+
     }
     private void loadDate(){
         SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);

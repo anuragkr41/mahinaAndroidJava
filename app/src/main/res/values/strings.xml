@@ -9,6 +9,7 @@
 <!--    USG STrings-->
 
     <string name="usgTitle">Ultra Sonography(USG) </string>
+    <string name="whoUSG">USG Schedule as per WHO guidelines</string>
 
     <string name="usg1Name">USG 1 (Dating | Visibility Scan) </string>
     <string name="usg1Duration">6-8 Weeks from LMP </string>

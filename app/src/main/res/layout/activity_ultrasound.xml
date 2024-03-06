@@ -20,11 +20,22 @@
             android:layout_marginStart="16dp"
 
             android:layout_marginTop="20sp"
-            android:layout_marginBottom="30sp"
+            android:layout_marginBottom="10sp"
             android:fontFamily="@font/lexend"
             android:text="@string/usgTitle"
             android:textColor="@color/blue"
             android:textSize="32sp" />
+ <TextView
+            android:id="@+id/whoGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+
+            android:layout_marginBottom="30sp"
+            android:fontFamily="@font/lexend"
+            android:text="@string/whoUSG"
+            android:textColor="@color/blue"
+            android:textSize="12sp" />
 
 
         <androidx.cardview.widget.CardView

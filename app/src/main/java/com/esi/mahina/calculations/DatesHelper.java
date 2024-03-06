@@ -2,8 +2,6 @@ package com.esi.mahina.calculations;
 
 import android.widget.DatePicker;
 
-import com.esi.mahina.MainActivity;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -22,9 +20,6 @@ public class DatesHelper {
         return LocalDate.of(year, month + 1, dayOfMonth); // month is zero-based in DatePicker
     }
 
-
-
-
 //    Function to create the Period of Gestation
     public static Function<LocalDate, String> getPeriodOfGestation = (lmp)->{
 
@@ -39,27 +34,14 @@ public class DatesHelper {
 
 //    Function to generate the expected Date of Delivery
     public static Function<LocalDate, String> getExpectedDateOfDelivery = (lmp)->{
+
         lmp = lmp.plusMonths(9);
         lmp = lmp.plusDays(7);
 
-        int dd = lmp.getDayOfMonth();
-        int yy = lmp.getYear();
-        int mm = lmp.getMonthValue();
-    String monthName = DatesHelper.getMonthName(lmp);
-    return dd+" "+monthName+" "+yy;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy");
+        return lmp.format(formatter);
+
     };
-
-    //Utility Function to give name of the month
-    private static String getMonthName(LocalDate date){
-        if (date == null) {
-            return "";
-        }
-        String s = date.getMonth().toString();
-        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
-
-    }
-
-
 
 //    *************UltraSound Dates**************
 
@@ -100,13 +82,5 @@ public class DatesHelper {
 
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
-
-
-//    *************Doctor Appointment Dates**************
-
-
-
-
-
 
 }
