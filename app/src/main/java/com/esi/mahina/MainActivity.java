@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
 import com.esi.mahina.calculations.LastMenstrualPeriod;
 import com.esi.mahina.databinding.ActivityMainBinding;
@@ -25,16 +27,25 @@ public class MainActivity extends AppCompatActivity {
     private LastMenstrualPeriod lastMenstrualCycle = LastMenstrualPeriod.getInstance() ;
     ActivityMainBinding binding;
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+    private static final String PREFS_NAME = "MyPrefs";
+    private static final String SWITCH_STATE = "switchState";
+    private Switch mySwitch;
+
+    private GeneralSettings generalSettings;
+
+
+//    private GeneralSettings generalSettings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         // Buttons Click Listeners
         Button buttonNavigate = findViewById(R.id.btnUltraSound);
@@ -46,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         Button buttonNavigateDoctorAppointment = findViewById(R.id.btnDoctorAppointment);
+
         buttonNavigateDoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
                 saveDate();
             }
         });
+
+//        Testing switch state.
+            Switch enableDisableSwitch = findViewById(R.id.enableDisableNotification);
+            generalSettings = new GeneralSettings(this);
+            generalSettings.initialize(enableDisableSwitch);
+
+            Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
+            
 
         //This is your saved date
         LocalDate savedDate = loadDate();
@@ -83,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                     setPogAndEDD(selectedDate);
                 }
         );
+
+
      }
 
     private void setPogAndEDD(LocalDate date) {

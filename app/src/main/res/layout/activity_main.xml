@@ -116,7 +116,7 @@
                         android:textSize="18sp" />
 
                     <Switch
-                        android:id="@+id/switch1"
+                        android:id="@+id/enableDisableNotification"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
