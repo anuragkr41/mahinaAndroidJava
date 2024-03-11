@@ -3,6 +3,7 @@ package com.esi.mahina;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,10 +15,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.esi.mahina.Notifications.NotificationSender;
 import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
 import com.esi.mahina.calculations.LastMenstrualPeriod;
 import com.esi.mahina.databinding.ActivityMainBinding;
+import com.esi.mahina.Notifications.NotificationScheduler;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private GeneralSettings generalSettings;
 
-
-//    private GeneralSettings generalSettings;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
 
 
         // Buttons Click Listeners
@@ -57,10 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         Button buttonNavigateDoctorAppointment = findViewById(R.id.btnDoctorAppointment);
-
         buttonNavigateDoctorAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +78,23 @@ public class MainActivity extends AppCompatActivity {
             generalSettings.initialize(enableDisableSwitch);
 
             Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
-            
+
+//         Testing notificaiton for 10 Seconds
+        Context appContext = getApplicationContext();
+
+        // Call the scheduleNotification method with the application context
+
+        LocalDate date= LocalDate.now();
+        NotificationScheduler.scheduleNotification(appContext, date, "Anurag", "This is Testing");
+
+
+
+
+        //        NotificationScheduler.scheduleNotification(context);
+
+//        Send USG Notification
+        NotificationSender usgNotificationSender = new NotificationSender();
+        usgNotificationSender.pushUSGNotifications();
 
         //This is your saved date
         LocalDate savedDate = loadDate();
@@ -105,8 +116,6 @@ public class MainActivity extends AppCompatActivity {
                     setPogAndEDD(selectedDate);
                 }
         );
-
-
      }
 
     private void setPogAndEDD(LocalDate date) {

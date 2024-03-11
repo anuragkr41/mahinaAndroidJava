@@ -2,6 +2,9 @@ package com.esi.mahina.calculations;
 
 import android.widget.DatePicker;
 
+import com.esi.mahina.Settings.GeneralSettings;
+import com.esi.mahina.dates.USGDates;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -10,6 +13,8 @@ import java.util.function.Function;
 public class DatesHelper {
     private static LocalDate todayDate = LocalDate.now();
     LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+
+
 
     public static LocalDate captureLocalDateFromDatePicker(DatePicker datePicker) {
         int year = datePicker.getYear();
@@ -52,12 +57,19 @@ public class DatesHelper {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
+        USGDates.setUsg1Date(beginDate);
+
+
+
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
     public static Function<LocalDate, String> getUSG2DateRange = (lmp)->{
         LocalDate beginDate=lmp.plusWeeks(11);
         LocalDate endDate=lmp.plusWeeks(13);
         endDate=endDate.plusDays(6);
+
+        USGDates.setUsg2Date(beginDate);
+
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
@@ -68,6 +80,8 @@ public class DatesHelper {
         LocalDate beginDate=lmp.plusWeeks(18);
         LocalDate endDate=lmp.plusWeeks(20);
 
+        USGDates.setUsg3Date(beginDate);
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
@@ -77,6 +91,7 @@ public class DatesHelper {
         LocalDate beginDate=lmp.plusWeeks(30);
         LocalDate endDate=lmp.plusWeeks(32);
 
+        USGDates.setUsg4Date(beginDate);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 

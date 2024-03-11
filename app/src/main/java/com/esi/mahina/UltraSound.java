@@ -2,11 +2,13 @@ package com.esi.mahina;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
 import com.esi.mahina.calculations.LastMenstrualPeriod;
 
@@ -18,6 +20,8 @@ public class UltraSound extends AppCompatActivity {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
+    private GeneralSettings generalSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,8 @@ public class UltraSound extends AppCompatActivity {
         TextView tvLMP = findViewById(R.id.lmpForUSGCalc);
         tvLMP.setText(lmp.format(formatter));
 
+
+        Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
 
 
 

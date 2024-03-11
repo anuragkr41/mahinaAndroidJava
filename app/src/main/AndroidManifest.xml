@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATION" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Mahina"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="default"/>
+        <receiver android:name=".Notifications.NotificationScheduler" />
+
+
+
+
         <activity
             android:name=".DoctorAppointment"
             android:exported="false" />
@@ -31,6 +46,7 @@
 
             <!-- SecondActivity configuration -->
         </activity>
+
     </application>
 
 </manifest>
