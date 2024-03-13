@@ -42,8 +42,6 @@ public class NotificationUtils {
         // Show the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
-
-
     }
 
     // Create the notification channel

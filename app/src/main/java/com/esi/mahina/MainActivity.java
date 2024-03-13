@@ -83,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
             if(generalSettings.isNotificationAllowed()){
                 //code to send notification..
+                Log.d("Initial Notification:: state", "NF="+generalSettings.isNotificationAllowed());
+
             }
 
 
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         //        Send USG Notification
         NotificationSender usgNotificationSender = new NotificationSender(getApplicationContext());
 
-//        usgNotificationSender.pushUSGNotifications();
+        usgNotificationSender.pushUSGNotifications(getApplicationContext());
     }
 
     private void setPogAndEDD(LocalDate date) {
@@ -199,21 +201,10 @@ public class MainActivity extends AppCompatActivity {
             USGDates.setUsg2Date(LocalDate.parse(usg2Date));
             USGDates.setUsg3Date(LocalDate.parse(usg3Date));
             USGDates.setUsg4Date(LocalDate.parse(usg4Date));
-//            Log.d("Load USG1", USGDates.getUsg1Date().toString());
-//            Log.d("Load USG2", USGDates.getUsg2Date().toString());
-//            Log.d("Load USG3", USGDates.getUsg3Date().toString());
-
-//            USGDates.setUsg2Date(LocalDate.parse(usg2Date));
-//            USGDates.setUsg3Date(LocalDate.parse(usg3Date));
-//            USGDates.setUsg4Date(LocalDate.parse(usg4Date));
         }
 
         else {
             lastMenstrualCycle.setLMP(LocalDate.now());
-//            USGDates.setUsg1Date(LocalDate.now());
-//            USGDates.setUsg2Date(LocalDate.now());
-//            USGDates.setUsg3Date(LocalDate.now());
-//            USGDates.setUsg4Date(LocalDate.now());
         }
         return lastMenstrualCycle.getLMP();
     }

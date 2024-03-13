@@ -2,6 +2,7 @@ package com.esi.mahina;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,10 @@ public class UltraSound extends AppCompatActivity {
         TextView tvLMP = findViewById(R.id.lmpForUSGCalc);
         tvLMP.setText(lmp.format(formatter));
 
+
+        Switch notificationSwitch;
+        generalSettings=new GeneralSettings(getApplicationContext());
+//        generalSettings.initialize();
 
         Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
 
