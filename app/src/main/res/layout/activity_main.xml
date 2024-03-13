@@ -99,8 +99,9 @@
 
                 <RelativeLayout
                     android:layout_width="240sp"
-                    android:layout_height="100sp"
-                    android:layout_marginTop="24sp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginBottom="16sp">
 
                     <TextView
                         android:id="@+id/savedLmp"
@@ -108,20 +109,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16sp"
-                        android:layout_marginBottom="10sp"
                         android:fontFamily="@font/lexend"
-                        android:text="Your LMP is not Set"
+                        android:text="Your LMP is not Set. There is not saved date. Enable notification"
 
                         android:textColor="@color/grey"
                         android:textSize="18sp" />
 
                     <Switch
                         android:id="@+id/enableDisableNotification"
+                        android:layout_below="@+id/savedLmp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginBottom="21dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="16sp"
                         android:fontFamily="@font/lexend"
                         android:text="Dates Notifications" />
 

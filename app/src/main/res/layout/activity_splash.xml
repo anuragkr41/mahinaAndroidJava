@@ -25,16 +25,21 @@
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         />
-     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/byEsi"
-        android:textColor="@color/grey"
-        android:fontFamily="@font/lexend"
-        android:textSize="18sp"
-        android:layout_below="@+id/logoText"
-        android:layout_centerHorizontal="true"
-        />
+
+<!--    -->
+<!--     <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/byEsi"-->
+<!--        android:textColor="@color/grey"-->
+<!--        android:fontFamily="@font/lexend"-->
+<!--        android:textSize="18sp"-->
+<!--        android:layout_below="@+id/logoText"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        />-->
+<!--    -->
+
+
      <TextView
 
         android:layout_width="wrap_content"

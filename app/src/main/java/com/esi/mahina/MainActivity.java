@@ -2,9 +2,13 @@ package com.esi.mahina;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +18,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.esi.mahina.Notifications.NotificationScheduler;
 import com.esi.mahina.Notifications.NotificationSender;
 import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
@@ -47,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
+        // Check if the app has the POST_NOTIFICATIONS permission
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // If the permission is not granted, request it
+            // This will typically happen on devices running Android 8.0 (Oreo) or above
+            ActivityCompat.requestPermissions((MainActivity) getApplicationContext(), new String[]{Manifest.permission.POST_NOTIFICATIONS}, 123);
+            return;
+        }
+
+
         // Buttons Click Listeners
         Button buttonNavigate = findViewById(R.id.btnUltraSound);
         buttonNavigate.setOnClickListener(new View.OnClickListener() {
@@ -74,29 +88,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        Testing switch state.
-            Switch enableDisableSwitch = findViewById(R.id.enableDisableNotification);
-            generalSettings = new GeneralSettings(this);
-            generalSettings.initialize(enableDisableSwitch);
-
-            Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
-
-            if(generalSettings.isNotificationAllowed()){
-                //code to send notification..
-                Log.d("Initial Notification:: state", "NF="+generalSettings.isNotificationAllowed());
-
-            }
-
-
-//         Testing notificaiton for 10 Seconds
-//        Context appContext = getApplicationContext();
-
-        // Call the scheduleNotification method with the application context
-
-//        LocalDate date= LocalDate.now();
-//        NotificationScheduler.scheduleNotification(appContext, date, "Anurag", "This is Testing");
-
-//                NotificationScheduler.scheduleNotification(getApplicationContext());
 
 
 
@@ -128,22 +119,41 @@ public class MainActivity extends AppCompatActivity {
             Log.d("preferences", entry.getKey() + ": " + entry.getValue().toString());
         }
 
+        String errorMessage= "";
+
         try {
             Log.d("USG1 Static Date:", USGDates.getUsg1Date().toString());
             Log.d("USG2 Static Date:", USGDates.getUsg2Date().toString());
             Log.d("USG3 Static Date:", USGDates.getUsg3Date().toString());
             Log.d("USG4 Static Date:", USGDates.getUsg4Date().toString());
         }catch (NullPointerException e){
-            e.printStackTrace();
+            Log.d("NPE-Anu",e.getMessage());
+            errorMessage = "There is no saved Date. Save the LMP first for notifications and calculations";
+            Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
+            textViewSavedLMPInfo.setText("There is no saved Date. Save Date and enable Notifications");
+
         }
 
+        //        Testing switch state.
+        Switch enableDisableSwitch = findViewById(R.id.enableDisableNotification);
+        generalSettings = new GeneralSettings(this);
+        generalSettings.initialize(enableDisableSwitch);
 
 
 
-        //        Send USG Notification
-        NotificationSender usgNotificationSender = new NotificationSender(getApplicationContext());
+        if(generalSettings.isNotificationAllowed()){
+            //code to send notification..
+            Log.d("Initial Notification:: state", "NF="+generalSettings.isNotificationAllowed());
+            //        Send USG Notification
+            NotificationSender usgNotificationSender = new NotificationSender(getApplicationContext());
 
-        usgNotificationSender.pushUSGNotifications(getApplicationContext());
+            boolean status = usgNotificationSender.pushUSGNotifications(getApplicationContext());
+
+            Log.d("Trying Harder", " status = "+status);
+            if(!status){
+                textViewSavedLMPInfo.setText("You must save the date before enabling notifications");
+            }
+        }
     }
 
     private void setPogAndEDD(LocalDate date) {

@@ -3,7 +3,8 @@ package com.esi.mahina.dates;
 import java.time.LocalDate;
 
 // Create a singleton class for the LastMenstrualPeriod
-
+// A better design could have been taking Dates and static variable as LMP and arrays of Dates
+// as USG1, Appointment, then a Dates helper function to populate visits. functions to calcul.
 public class LastMenstrualPeriod {
     private static LastMenstrualPeriod instance;
     private LastMenstrualPeriod() {
