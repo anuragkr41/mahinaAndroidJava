@@ -2,7 +2,6 @@ package com.esi.mahina;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
-import com.esi.mahina.calculations.LastMenstrualPeriod;
+import com.esi.mahina.dates.LastMenstrualPeriod;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

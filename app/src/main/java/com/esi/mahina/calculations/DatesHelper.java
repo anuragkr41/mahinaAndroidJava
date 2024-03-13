@@ -2,17 +2,18 @@ package com.esi.mahina.calculations;
 
 import android.widget.DatePicker;
 
-import com.esi.mahina.Settings.GeneralSettings;
+import com.esi.mahina.dates.LastMenstrualPeriod;
 import com.esi.mahina.dates.USGDates;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class DatesHelper {
     private static LocalDate todayDate = LocalDate.now();
-    LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+//    LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
 
 
 
@@ -59,10 +60,12 @@ public class DatesHelper {
 
         USGDates.setUsg1Date(beginDate);
 
-
-
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
+
+    public static UnaryOperator<LocalDate>getUSG1Date = lmp -> lmp.plusWeeks(6);
+
+
     public static Function<LocalDate, String> getUSG2DateRange = (lmp)->{
         LocalDate beginDate=lmp.plusWeeks(11);
         LocalDate endDate=lmp.plusWeeks(13);
@@ -75,6 +78,8 @@ public class DatesHelper {
 
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
+    public static UnaryOperator<LocalDate>getUSG2Date = lmp -> lmp.plusWeeks(11);
+
     public static Function<LocalDate, String> getUSG3DateRange = (lmp)->{
 
         LocalDate beginDate=lmp.plusWeeks(18);
@@ -87,6 +92,9 @@ public class DatesHelper {
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
 
     };
+
+    public static UnaryOperator<LocalDate>getUSG3Date = lmp -> lmp.plusWeeks(18);
+
     public static Function<LocalDate, String> getUSG4DateRange = (lmp)->{
         LocalDate beginDate=lmp.plusWeeks(30);
         LocalDate endDate=lmp.plusWeeks(32);
@@ -97,5 +105,8 @@ public class DatesHelper {
 
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
+
+    public static UnaryOperator<LocalDate>getUSG4Date = lmp -> lmp.plusWeeks(30);
+
 
 }

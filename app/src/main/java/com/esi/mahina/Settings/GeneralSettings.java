@@ -11,15 +11,11 @@ public class GeneralSettings implements Notifications, Language{
     private Switch enableDisableNotification;
     private static final String SHARED_PREF_NAME = "MyAppPreferences";
     private static final String NOTIFICATION_STATUS_KEY = "notificationStatus";
-
     public GeneralSettings(Context context) {
         // Initialize the SharedPreferences with the provided context
         preferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-
         // The rest of your initialization code remains unchanged
     }
-
-
     public  void initialize(Switch swithcView) {
         enableDisableNotification = swithcView;
 

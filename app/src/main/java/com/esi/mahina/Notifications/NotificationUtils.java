@@ -34,27 +34,11 @@ public class NotificationUtils {
             return;
         }
 
-        // Create a custom layout for the notification
-        RemoteViews customLayout = new RemoteViews(context.getPackageName(), R.layout.custom_notification_layout);
-
-        // Set the text in the custom layout
-        customLayout.setTextViewText(R.id.notificationTitle, title);
-        customLayout.setTextViewText(R.id.notificationText, message);
-        customLayout.setTextColor(R.id.notificationText, context.getColor(R.color.grey));
-        customLayout.setTextColor(R.id.notificationTitle, context.getColor(R.color.grey));
-
-        // Build the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.mahinalogo) // Use your logo drawable as the small icon
-                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
-                .setCustomContentView(customLayout)
-                .setCustomBigContentView(customLayout)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setColor(Color.parseColor("#32CC76A1"))
-                .setColorized(true)
+                .setContentTitle(title)
+                .setContentText(message)
                 .setAutoCancel(true);
-
-
         // Show the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(NOTIFICATION_ID, builder.build());

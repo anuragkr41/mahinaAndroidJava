@@ -3,7 +3,6 @@ package com.esi.mahina;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,12 +17,15 @@ import android.widget.Toast;
 import com.esi.mahina.Notifications.NotificationSender;
 import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
-import com.esi.mahina.calculations.LastMenstrualPeriod;
+import com.esi.mahina.dates.LastMenstrualPeriod;
 import com.esi.mahina.databinding.ActivityMainBinding;
-import com.esi.mahina.Notifications.NotificationScheduler;
+import com.esi.mahina.dates.USGDates;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private DatePicker datePicker;
@@ -79,22 +81,22 @@ public class MainActivity extends AppCompatActivity {
 
             Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
 
+            if(generalSettings.isNotificationAllowed()){
+                //code to send notification..
+            }
+
+
 //         Testing notificaiton for 10 Seconds
-        Context appContext = getApplicationContext();
+//        Context appContext = getApplicationContext();
 
         // Call the scheduleNotification method with the application context
 
-        LocalDate date= LocalDate.now();
-        NotificationScheduler.scheduleNotification(appContext, date, "Anurag", "This is Testing");
+//        LocalDate date= LocalDate.now();
+//        NotificationScheduler.scheduleNotification(appContext, date, "Anurag", "This is Testing");
+
+//                NotificationScheduler.scheduleNotification(getApplicationContext());
 
 
-
-
-        //        NotificationScheduler.scheduleNotification(context);
-
-//        Send USG Notification
-        NotificationSender usgNotificationSender = new NotificationSender();
-        usgNotificationSender.pushUSGNotifications();
 
         //This is your saved date
         LocalDate savedDate = loadDate();
@@ -114,9 +116,33 @@ public class MainActivity extends AppCompatActivity {
                     LocalDate selectedDate = DatesHelper.captureLocalDateFromDatePicker(datePicker);
                     lastMenstrualCycle.setLMP(selectedDate);
                     setPogAndEDD(selectedDate);
+
                 }
         );
-     }
+
+        SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
+        Map<String, ?> allEntries = preferences.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.d("preferences", entry.getKey() + ": " + entry.getValue().toString());
+        }
+
+        try {
+            Log.d("USG1 Static Date:", USGDates.getUsg1Date().toString());
+            Log.d("USG2 Static Date:", USGDates.getUsg2Date().toString());
+            Log.d("USG3 Static Date:", USGDates.getUsg3Date().toString());
+            Log.d("USG4 Static Date:", USGDates.getUsg4Date().toString());
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+
+
+
+
+        //        Send USG Notification
+        NotificationSender usgNotificationSender = new NotificationSender(getApplicationContext());
+
+//        usgNotificationSender.pushUSGNotifications();
+    }
 
     private void setPogAndEDD(LocalDate date) {
 
@@ -132,11 +158,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void saveDate() {
         String savedLmpDate =  lastMenstrualCycle.getLMP().toString();
-
+        setUSGDates(lastMenstrualCycle.getLMP());
         SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("savedLmpDate", savedLmpDate);
+        editor.putString("savedUSG1Date", (USGDates.getUsg1Date()).toString());
+        editor.putString("savedUSG2Date", (USGDates.getUsg2Date()).toString());
+        editor.putString("savedUSG3Date", (USGDates.getUsg3Date()).toString());
+        editor.putString("savedUSG4Date", (USGDates.getUsg4Date()).toString());
         editor.apply();
+
 
         String dateToShow =lastMenstrualCycle.getLMP().format(formatter);
 
@@ -145,14 +176,44 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Data is Saved", Toast.LENGTH_SHORT).show();
 
     }
+
+    private void setUSGDates(LocalDate lmp) {
+        USGDates.setUsg1Date(DatesHelper.getUSG1Date.apply(lmp));
+        USGDates.setUsg2Date(DatesHelper.getUSG2Date.apply(lmp));
+        USGDates.setUsg3Date(DatesHelper.getUSG3Date.apply(lmp));
+        USGDates.setUsg4Date(DatesHelper.getUSG4Date.apply(lmp));
+    }
+
+
     private LocalDate loadDate(){
         SharedPreferences preferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
         String date = preferences.getString("savedLmpDate","");
+        String usg1Date = preferences.getString("savedUSG1Date", "");
+        String usg2Date = preferences.getString("savedUSG2Date", "");
+        String usg3Date = preferences.getString("savedUSG3Date", "");
+        String usg4Date = preferences.getString("savedUSG4Date", "");
+
         if(!date.isEmpty()){
             lastMenstrualCycle.setLMP(LocalDate.parse(date));
+            USGDates.setUsg1Date(LocalDate.parse(usg1Date));
+            USGDates.setUsg2Date(LocalDate.parse(usg2Date));
+            USGDates.setUsg3Date(LocalDate.parse(usg3Date));
+            USGDates.setUsg4Date(LocalDate.parse(usg4Date));
+//            Log.d("Load USG1", USGDates.getUsg1Date().toString());
+//            Log.d("Load USG2", USGDates.getUsg2Date().toString());
+//            Log.d("Load USG3", USGDates.getUsg3Date().toString());
+
+//            USGDates.setUsg2Date(LocalDate.parse(usg2Date));
+//            USGDates.setUsg3Date(LocalDate.parse(usg3Date));
+//            USGDates.setUsg4Date(LocalDate.parse(usg4Date));
         }
+
         else {
             lastMenstrualCycle.setLMP(LocalDate.now());
+//            USGDates.setUsg1Date(LocalDate.now());
+//            USGDates.setUsg2Date(LocalDate.now());
+//            USGDates.setUsg3Date(LocalDate.now());
+//            USGDates.setUsg4Date(LocalDate.now());
         }
         return lastMenstrualCycle.getLMP();
     }

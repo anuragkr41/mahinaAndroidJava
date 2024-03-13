@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.esi.mahina.calculations.AppointmentsHelper;
-import com.esi.mahina.calculations.LastMenstrualPeriod;
+import com.esi.mahina.dates.LastMenstrualPeriod;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
