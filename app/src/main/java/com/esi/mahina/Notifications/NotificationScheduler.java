@@ -30,8 +30,8 @@ public class NotificationScheduler extends BroadcastReceiver {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 00);
-        calendar.set(Calendar.MINUTE, 53);
+        calendar.set(Calendar.HOUR_OF_DAY, 01);
+        calendar.set(Calendar.MINUTE, 05);
         calendar.set(Calendar.SECOND, 0);
 
         calendar.set(Calendar.YEAR, date.getYear());

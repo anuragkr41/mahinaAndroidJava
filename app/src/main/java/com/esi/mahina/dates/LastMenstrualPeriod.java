@@ -7,6 +7,10 @@ import java.time.LocalDate;
 // as USG1, Appointment, then a Dates helper function to populate visits. functions to calcul.
 public class LastMenstrualPeriod {
     private static LastMenstrualPeriod instance;
+
+    // Field to store the last menstrual period date
+    private LocalDate lmp;
+
     private LastMenstrualPeriod() {
     }
     public static LastMenstrualPeriod getInstance() {
@@ -16,8 +20,7 @@ public class LastMenstrualPeriod {
         return instance;
     }
 
-    // Field to store the last menstrual period date
-    private LocalDate lmp;
+
 
 //    Getters and Setters
     public void setLMP(LocalDate lmp) {

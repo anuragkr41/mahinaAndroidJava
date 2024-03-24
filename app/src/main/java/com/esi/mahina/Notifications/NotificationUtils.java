@@ -5,15 +5,13 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Build;
-import android.widget.RemoteViews;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.esi.mahina.MainActivity;
+import com.esi.mahina.activities.PatientActivity;
 import com.esi.mahina.R;
 
 public class NotificationUtils {
@@ -30,7 +28,7 @@ public class NotificationUtils {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             // If the permission is not granted, request it
             // This will typically happen on devices running Android 8.0 (Oreo) or above
-            ActivityCompat.requestPermissions((MainActivity) context, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 123);
+            ActivityCompat.requestPermissions((PatientActivity) context, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 123);
             return;
         }
 

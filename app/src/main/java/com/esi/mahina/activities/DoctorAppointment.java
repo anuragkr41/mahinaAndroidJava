@@ -1,4 +1,4 @@
-package com.esi.mahina;
+package com.esi.mahina.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.esi.mahina.R;
 import com.esi.mahina.calculations.AppointmentsHelper;
 import com.esi.mahina.dates.LastMenstrualPeriod;
 

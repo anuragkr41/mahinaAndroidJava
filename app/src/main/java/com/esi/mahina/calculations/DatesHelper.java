@@ -14,6 +14,7 @@ import java.util.function.UnaryOperator;
 public class DatesHelper {
     private static LocalDate todayDate = LocalDate.now();
 //    LocalDate lmp = LastMenstrualPeriod.getInstance().getLMP();
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
 
 
@@ -58,7 +59,7 @@ public class DatesHelper {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
-        USGDates.setUsg1Date(beginDate);
+        USGDates.usg1Date = (beginDate);
 
         return  beginDate.format(formatter) + " to "  + endDate.format(formatter);
     };
@@ -71,7 +72,7 @@ public class DatesHelper {
         LocalDate endDate=lmp.plusWeeks(13);
         endDate=endDate.plusDays(6);
 
-        USGDates.setUsg2Date(beginDate);
+        USGDates.usg2Date = (beginDate);
 
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
@@ -85,7 +86,7 @@ public class DatesHelper {
         LocalDate beginDate=lmp.plusWeeks(18);
         LocalDate endDate=lmp.plusWeeks(20);
 
-        USGDates.setUsg3Date(beginDate);
+        USGDates.usg3Date = (beginDate);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
@@ -99,7 +100,7 @@ public class DatesHelper {
         LocalDate beginDate=lmp.plusWeeks(30);
         LocalDate endDate=lmp.plusWeeks(32);
 
-        USGDates.setUsg4Date(beginDate);
+        USGDates.usg4Date = (beginDate);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
