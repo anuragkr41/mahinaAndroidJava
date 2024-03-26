@@ -13,6 +13,7 @@ public class LastMenstrualPeriod {
 
     private LastMenstrualPeriod() {
     }
+
     public static LastMenstrualPeriod getInstance() {
         if (instance == null) {
             instance = new LastMenstrualPeriod();
@@ -20,14 +21,12 @@ public class LastMenstrualPeriod {
         return instance;
     }
 
-
-
-//    Getters and Setters
-    public void setLMP(LocalDate lmp) {
-        this.lmp = lmp;
-    }
-
     public LocalDate getLMP() {
         return lmp;
+    }
+
+    //    Getters and Setters
+    public void setLMP(LocalDate lmp) {
+        this.lmp = lmp;
     }
 }

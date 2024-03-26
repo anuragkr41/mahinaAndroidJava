@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.PatientActivity"
-    android:fillViewport="true">
-
-
+    android:fillViewport="true"
+    tools:context=".activities.patientActivities.PatientActivity">
 
 
     <RelativeLayout
@@ -39,9 +37,7 @@
             android:text="@string/lmpFullForm"
 
             android:textColor="@color/grey"
-            android:textSize="14sp"/>
-
-
+            android:textSize="14sp" />
 
 
         <!-- DatePicker widget for selecting a date -->
@@ -55,18 +51,14 @@
             android:layout_marginTop="20sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="20sp"
-            android:datePickerMode="calendar"
-            android:outlineAmbientShadowColor="@color/grey"
-            android:outlineSpotShadowColor="@color/pink" />
-
-
+            android:datePickerMode="calendar" />
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPog"
             android:layout_width="match_parent"
-            android:layout_below="@+id/datePicker"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/datePicker"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
 
@@ -96,9 +88,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/pogTitle"
-                    android:layout_marginBottom="16sp"
-
                     android:layout_centerHorizontal="true"
+
+                    android:layout_marginBottom="16sp"
                     android:fontFamily="@font/lexend"
                     android:text="@string/dateSelect"
                     android:textColor="@color/grey"
@@ -112,16 +104,17 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardEDD"
             android:layout_width="match_parent"
-            android:layout_marginTop="16sp"
-            android:layout_below="@+id/cardPog"
             android:layout_height="132dp"
+            android:layout_below="@+id/cardPog"
             android:layout_marginStart="16sp"
+            android:layout_marginTop="16sp"
             android:layout_marginEnd="16sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -138,27 +131,29 @@
                     android:text="@string/eddFullForm"
                     android:textColor="@color/blue"
                     android:textSize="20sp" />
+
                 <TextView
                     android:id="@+id/eddFullForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/eddTitle"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="5sp"
                     android:fontFamily="@font/lexend"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/eddFormula"/>
+                    android:text="@string/eddFormula"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/twEdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/eddFullForm"
-                    android:textColor="@color/grey"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/lexend"
                     android:layout_centerHorizontal="true"
-                    android:text="@string/dateSelect"/>
+                    android:fontFamily="@font/lexend"
+                    android:text="@string/dateSelect"
+                    android:textColor="@color/grey"
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 
@@ -172,8 +167,8 @@
             android:layout_below="@+id/cardEDD"
             android:layout_marginStart="16sp"
             android:layout_marginTop="16sp"
-            android:layout_marginBottom="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#33CC76A1"
@@ -211,8 +206,7 @@
                     android:textSize="12sp" />
 
 
-
-<!--                Insert Cards Here-->
+                <!--                Insert Cards Here-->
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/usg1Dates"
@@ -232,52 +226,46 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                    <TextView
-                        android:id="@+id/USG1Title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginStart="16sp"
-                        android:layout_marginTop="16sp"
-                        android:layout_marginEnd="16sp"
-                        android:fontFamily="@font/lexend"
-                        android:text="USG 1: Dating | Visibility Scan"
-                        android:textColor="@color/blue"
-                        android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/USG1Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="16sp"
+                            android:layout_marginTop="16sp"
+                            android:layout_marginEnd="16sp"
+                            android:fontFamily="@font/lexend"
+                            android:text="USG 1: Dating | Visibility Scan"
+                            android:textColor="@color/blue"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/LMPDescriptionUSG1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/USG1Title"
-                        android:fontFamily="@font/lexend"
-                        android:text="6-8 Weeks of LMP "
-                        android:layout_marginStart="22sp"
-                        android:textColor="@color/grey"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/LMPDescriptionUSG1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/USG1Title"
+                            android:layout_marginStart="22sp"
+                            android:fontFamily="@font/lexend"
+                            android:text="6-8 Weeks of LMP "
+                            android:textColor="@color/grey"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:id="@+id/usg1DatesFromLMP"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/LMPDescriptionUSG1"
-                            android:textColor="@color/grey"
-                            android:textSize="20sp"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginBottom="10sp"
                             android:fontFamily="@font/lexend"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/dateSelect"/>
+                            android:text="@string/dateSelect"
+                            android:textColor="@color/grey"
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
 
 
-
-
-
                 </androidx.cardview.widget.CardView>
-
-
-
 
 
                 <androidx.cardview.widget.CardView
@@ -318,9 +306,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/USG2Title"
+                            android:layout_marginStart="22sp"
                             android:fontFamily="@font/lexend"
                             android:text="11-13 Weeks + 6 days from LMP "
-                            android:layout_marginStart="22sp"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -329,16 +317,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/LMPDescriptionUSG2"
-                            android:textColor="@color/grey"
-                            android:textSize="20sp"
-                            android:fontFamily="@font/lexend"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/dateSelect"/>
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/dateSelect"
+                            android:textColor="@color/grey"
+                            android:textSize="20sp" />
 
                     </RelativeLayout>
-
-
-
 
 
                 </androidx.cardview.widget.CardView>
@@ -381,9 +366,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/USG3Title"
+                            android:layout_marginStart="22sp"
                             android:fontFamily="@font/lexend"
                             android:text="18-20 Weeks + 6 days from LMP "
-                            android:layout_marginStart="22sp"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -392,23 +377,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/LMPDescriptionUSG3"
-                            android:textColor="@color/grey"
-                            android:textSize="20sp"
-                            android:fontFamily="@font/lexend"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/dateSelect"/>
-
-
-
-
-
-
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/dateSelect"
+                            android:textColor="@color/grey"
+                            android:textSize="20sp" />
 
 
                     </RelativeLayout>
-
-
-
 
 
                 </androidx.cardview.widget.CardView>
@@ -452,9 +428,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/USG4Title"
+                            android:layout_marginStart="22sp"
                             android:fontFamily="@font/lexend"
                             android:text="18-20 Weeks + 6 days from LMP "
-                            android:layout_marginStart="22sp"
                             android:textColor="@color/grey"
                             android:textSize="12sp" />
 
@@ -463,49 +439,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/LMPDescriptionUSG4"
-                            android:textColor="@color/grey"
-                            android:textSize="20sp"
-                            android:fontFamily="@font/lexend"
                             android:layout_centerHorizontal="true"
-                            android:text="@string/dateSelect"/>
-
-
-
-
-
-
+                            android:fontFamily="@font/lexend"
+                            android:text="@string/dateSelect"
+                            android:textColor="@color/grey"
+                            android:textSize="20sp" />
 
 
                     </RelativeLayout>
 
 
-
-
-
                 </androidx.cardview.widget.CardView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </RelativeLayout>
@@ -518,10 +462,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardUSG"
             android:layout_marginStart="16sp"
-            android:layout_marginBottom="16sp"
-
             android:layout_marginTop="16sp"
+
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#1A120A8F"

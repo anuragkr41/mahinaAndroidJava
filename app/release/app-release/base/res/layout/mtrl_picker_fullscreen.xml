@@ -1,26 +1,2 @@
-
- 
-;
-android*http://schemas.android.com/apk/res/android)LinearLayout"W
-*http://schemas.android.com/apk/res/androidgravitycenter_horizontal"(¯„2:8"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"(õ„2:0ÿÿÿÿÿÿÿÿÿ"R
-*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0"}
-*http://schemas.android.com/apk/res/androidid@+id/mtrl_picker_fullscreen"(Ğ„2%
-#§‚¤øid/mtrl_picker_fullscreen0*z
-rinclude"glayout%@layout/mtrl_picker_header_fullscreen"22
-0Û€°ø$layout/mtrl_picker_header_fullscreen0ÿÿ<*å
-Ü+androidx.fragment.app.FragmentContainerView"˜
-*http://schemas.android.com/apk/res/android
-paddingEnd$@dimen/mtrl_calendar_content_padding""(´‡„2/
--—„˜ø#dimen/mtrl_calendar_content_padding0@"š
-*http://schemas.android.com/apk/res/androidpaddingRight$@dimen/mtrl_calendar_content_padding""(Ø„2/
--—„˜ø#dimen/mtrl_calendar_content_padding0@"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent""(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightwrap_content""(õ„2:0şÿÿÿÿÿÿÿÿ"™
-*http://schemas.android.com/apk/res/androidpaddingLeft$@dimen/mtrl_calendar_content_padding""(Ö„2/
--—„˜ø#dimen/mtrl_calendar_content_padding0@"š
-*http://schemas.android.com/apk/res/androidpaddingStart$@dimen/mtrl_calendar_content_padding""(³‡„2/
--—„˜ø#dimen/mtrl_calendar_content_padding0@"w
-*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_frame""(Ğ„2"
- ‚¤øid/mtrl_calendar_frame0"D)
+ï¿½;android*http://schemas.android.com/apk/res/android) LinearLayout"W*http://schemas.android.com/apk/res/androidgravitycenter_horizontal"(ï¿½ï¿½ï¿½2:8"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height match_parent"(ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"R*http://schemas.android.com/apk/res/androidorientationvertical"(Äï¿½2:0"}*http://schemas.android.com/apk/res/androidid@+id/mtrl_picker_fullscreen"(Ğï¿½2%#ï¿½ï¿½ï¿½ï¿½id/mtrl_picker_fullscreen0*zrinclude"glayout%@layout/mtrl_picker_header_fullscreen"220Û€ï¿½ï¿½$layout/mtrl_picker_header_fullscreen0ï¿½ï¿½
+<*ï¿½ï¿½+androidx.fragment.app.FragmentContainerView"ï¿½*http://schemas.android.com/apk/res/androidpaddingEnd$@dimen/mtrl_calendar_content_padding""(ï¿½ï¿½ï¿½2/-ï¿½ï¿½ï¿½ï¿½#dimen/mtrl_calendar_content_padding0@"ï¿½*http://schemas.android.com/apk/res/android paddingRight$@dimen/mtrl_calendar_content_padding""(Øï¿½2/-ï¿½ï¿½ï¿½ï¿½#dimen/mtrl_calendar_content_padding0@"`*http://schemas.android.com/apk/res/android layout_width match_parent""(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height wrap_content""(ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidpaddingLeft$@dimen/mtrl_calendar_content_padding""(Öï¿½2/-ï¿½ï¿½ï¿½ï¿½#dimen/mtrl_calendar_content_padding0@"ï¿½*http://schemas.android.com/apk/res/android paddingStart$@dimen/mtrl_calendar_content_padding""(ï¿½ï¿½ï¿½2/-ï¿½ï¿½ï¿½ï¿½#dimen/mtrl_calendar_content_padding0@"w*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_frame""(Ğï¿½2"ï¿½ï¿½ï¿½ï¿½id/mtrl_calendar_frame0"D)

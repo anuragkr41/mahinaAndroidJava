@@ -1,10 +1,1 @@
-
-°
-;
-android*http://schemas.android.com/apk/res/android6)androidx.recyclerview.widget.RecyclerView"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"(õ„2:0ÿÿÿÿÿÿÿÿÿ"…
-*http://schemas.android.com/apk/res/androidlistSelector@android:color/transparent"(û„2$
-"€˜android:color/transparent0"y
-*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_months"(Ğ„2#
-!Ÿ‚¤øid/mtrl_calendar_months06
+ï¿½;android*http://schemas.android.com/apk/res/android6)androidx.recyclerview.widget.RecyclerView"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height match_parent"(ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/android listSelector@android:color/transparent"(ï¿½ï¿½ï¿½2$"ï¿½ï¿½ï¿½android:color/transparent0"y*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_months"(Ğï¿½2#!ï¿½ï¿½ï¿½ï¿½id/mtrl_calendar_months06

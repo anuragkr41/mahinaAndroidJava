@@ -1,12 +1,1 @@
-
-æ
-;
-android*http://schemas.android.com/apk/res/android*GridView"W
-*http://schemas.android.com/apk/res/androidgravitycenter_horizontal"(¯„2:8"±
-*http://schemas.android.com/apk/res/androidhorizontalSpacing-@dimen/mtrl_calendar_month_horizontal_padding"(”‚„28
-6«„˜ø,dimen/mtrl_calendar_month_horizontal_padding0@"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"¥
-*http://schemas.android.com/apk/res/androidlayout_height(@dimen/mtrl_calendar_days_of_week_height"(õ„25
-3„˜ø'dimen/mtrl_calendar_days_of_week_height0À€"…
-*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_days_of_week"(Ğ„2)
-'œ‚¤øid/mtrl_calendar_days_of_week0*
+ï¿½;android*http://schemas.android.com/apk/res/android*GridView"W*http://schemas.android.com/apk/res/androidgravitycenter_horizontal"(ï¿½ï¿½ï¿½2:8"ï¿½*http://schemas.android.com/apk/res/androidhorizontalSpacing-@dimen/mtrl_calendar_month_horizontal_padding"(ï¿½ï¿½ï¿½286ï¿½ï¿½ï¿½ï¿½,dimen/mtrl_calendar_month_horizontal_padding0@"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height(@dimen/mtrl_calendar_days_of_week_height"(ï¿½ï¿½ï¿½253ï¿½ï¿½ï¿½ï¿½'dimen/mtrl_calendar_days_of_week_height0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidid@+id/mtrl_calendar_days_of_week"(Ğï¿½2)'ï¿½ï¿½ï¿½ï¿½id/mtrl_calendar_days_of_week0*

@@ -16,12 +16,7 @@ import java.util.Calendar;
 public class NotificationScheduler extends BroadcastReceiver {
     private static String title;
     private static String message;
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        String notificationTitle = intent.getStringExtra("title");
-        String notificationText = intent.getStringExtra("message");
-        NotificationUtils.showNotification(context, notificationTitle, notificationText);
-    }
+
     public static void scheduleNotification(Context context, LocalDate date, String title, String message) {
 
         // Set the time for testing purposes (10 seconds from now)
@@ -35,7 +30,7 @@ public class NotificationScheduler extends BroadcastReceiver {
         calendar.set(Calendar.SECOND, 0);
 
         calendar.set(Calendar.YEAR, date.getYear());
-        calendar.set(Calendar.MONTH, date.getMonthValue()-1);
+        calendar.set(Calendar.MONTH, date.getMonthValue() - 1);
         calendar.set(Calendar.DAY_OF_MONTH, date.getDayOfMonth());
 
         long triggerTime = calendar.getTimeInMillis();
@@ -61,12 +56,6 @@ public class NotificationScheduler extends BroadcastReceiver {
         }
     }
 
-    private void initializeTitle(String title, String message) {
-        this.title=title;
-        this.message=message;
-
-    }
-
     private static long getNextNotificationTime() {
         // Get the current date and time
         LocalDateTime now = LocalDateTime.now();
@@ -74,6 +63,19 @@ public class NotificationScheduler extends BroadcastReceiver {
         LocalDateTime notificationTime = now.plus(3, ChronoUnit.SECONDS);
         // Convert LocalDateTime to milliseconds
         return notificationTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        String notificationTitle = intent.getStringExtra("title");
+        String notificationText = intent.getStringExtra("message");
+        NotificationUtils.showNotification(context, notificationTitle, notificationText);
+    }
+
+    private void initializeTitle(String title, String message) {
+        this.title = title;
+        this.message = message;
+
     }
 
 

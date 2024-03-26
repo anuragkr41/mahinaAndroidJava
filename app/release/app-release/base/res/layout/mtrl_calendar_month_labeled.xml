@@ -1,18 +1,1 @@
-
-Ç
-;
-android*http://schemas.android.com/apk/res/android"LinearLayout"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"R
-*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*ø
-ïTextView"^
-*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(¯„2:8“€€"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"“
-*http://schemas.android.com/apk/res/androidlayout_height@dimen/mtrl_calendar_day_height"(õ„2,
-*™„˜ødimen/mtrl_calendar_day_height0À€"Tstyle?attr/materialCalendarMonth"2*
-(½…Œøattr/materialCalendarMonth0ÿÿ"L
-*http://schemas.android.com/apk/res/android	focusabletrue"(Ú„2:@"g
-*http://schemas.android.com/apk/res/androidid@+id/month_title"(Ğ„2
-˜‚¤øid/month_title0.*f
-^include"Slayout@layout/mtrl_calendar_month"2(
-&Î€°ølayout/mtrl_calendar_month0ÿÿ2"
+ï¿½;android*http://schemas.android.com/apk/res/android" LinearLayout"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height wrap_content"(ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"R*http://schemas.android.com/apk/res/androidorientationvertical"(Äï¿½2:0*ï¿½ï¿½TextView"^*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(ï¿½ï¿½ï¿½2:8ï¿½ï¿½ï¿½"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height@dimen/mtrl_calendar_day_height"(ï¿½ï¿½ï¿½2,*ï¿½ï¿½ï¿½ï¿½dimen/mtrl_calendar_day_height0ï¿½ï¿½"Tstyle?attr/materialCalendarMonth"2*(ï¿½ï¿½ï¿½ï¿½attr/materialCalendarMonth0ï¿½ï¿½"L*http://schemas.android.com/apk/res/android    focusabletrue"(Úï¿½2:@"g*http://schemas.android.com/apk/res/androidid@+id/month_title"(Ğï¿½2ï¿½ï¿½ï¿½ï¿½id/month_title0.*f^include"Slayout@layout/mtrl_calendar_month"2(&Î€ï¿½ï¿½layout/mtrl_calendar_month0ï¿½ï¿½2"

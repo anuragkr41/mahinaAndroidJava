@@ -1,22 +1,3 @@
+ï¿½
 
-Í
-
-;
-android*http://schemas.android.com/apk/res/android5
-4
-app'http://schemas.android.com/apk/res-auto5	ImageView"U
-*http://schemas.android.com/apk/res/androidlayout_marginEnd16dip"(¶‡„2:h "¨
-*http://schemas.android.com/apk/res/androidcontentDescription'?attr/actionModeCloseContentDescription"(ó„„24
-2”€Œø&attr/actionModeCloseContentDescription0"L
-*http://schemas.android.com/apk/res/android	clickabletrue"(å„2:@"`
-*http://schemas.android.com/apk/res/androidlayout_widthwrap_content"(ô„2:0şÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"(õ„2:0ÿÿÿÿÿÿÿÿÿ"W
-*http://schemas.android.com/apk/res/androidlayout_marginRight16dip"(ù„2:h "O
-*http://schemas.android.com/apk/res/androidpaddingLeft12dp"(Ö„2:h"^style ?attr/actionModeCloseButtonStyle"2/
--“€Œøattr/actionModeCloseButtonStyle0ÿÿ"P
-*http://schemas.android.com/apk/res/androidpaddingStart12dp"(³‡„2:h"L
-*http://schemas.android.com/apk/res/android	focusabletrue"(Ú„2:@"‰
-'http://schemas.android.com/apk/res-auto	srcCompat?attr/actionModeCloseDrawable"(²‡Œø2*
-(•€Œøattr/actionModeCloseDrawable0"
-*http://schemas.android.com/apk/res/androidid@+id/action_mode_close_button"(Ğ„2'
-%Â€¤øid/action_mode_close_button05
+    ;android*http://schemas.android.com/apk/res/android54app'http://schemas.android.com/apk/res-auto5    ImageView"U*http://schemas.android.com/apk/res/androidlayout_marginEnd16dip"(ï¿½ï¿½ï¿½2:hï¿½ "ï¿½*http://schemas.android.com/apk/res/androidcontentDescription'?attr/actionModeCloseContentDescription"(ï¿½242ï¿½ï¿½ï¿½ï¿½&attr/actionModeCloseContentDescription0"L*http://schemas.android.com/apk/res/android    clickabletrue"(å„2:@"`*http://schemas.android.com/apk/res/android layout_width wrap_content"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height match_parent"(ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"W*http://schemas.android.com/apk/res/androidlayout_marginRight16dip"(ï¿½ï¿½ï¿½2:hï¿½ "O*http://schemas.android.com/apk/res/androidpaddingLeft12dp"(Öï¿½2:hï¿½"^style ?attr/actionModeCloseButtonStyle"2/-ï¿½ï¿½ï¿½ï¿½attr/actionModeCloseButtonStyle0ï¿½ï¿½"P*http://schemas.android.com/apk/res/android paddingStart12dp"(ï¿½ï¿½ï¿½2:hï¿½"L*http://schemas.android.com/apk/res/android    focusabletrue"(Úï¿½2:@"ï¿½'http://schemas.android.com/apk/res-auto    srcCompat?attr/actionModeCloseDrawable"(ï¿½ï¿½ï¿½ï¿½2*(ï¿½ï¿½ï¿½ï¿½attr/actionModeCloseDrawable0"ï¿½*http://schemas.android.com/apk/res/androidid@+id/action_mode_close_button"(Ğï¿½2'%Â€ï¿½ï¿½id/action_mode_close_button05

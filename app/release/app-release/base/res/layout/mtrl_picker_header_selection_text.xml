@@ -1,18 +1,2 @@
-
-Ğ
-;
-android*http://schemas.android.com/apk/res/androidI
-4
-app'http://schemas.android.com/apk/res-autoITextView"U
-*http://schemas.android.com/apk/res/androidgravitystart|bottom"(¯„2:8Ó€€"°
-'http://schemas.android.com/apk/res-auto
-lineHeight1@dimen/mtrl_calendar_header_selection_line_height"(…Œø2<
-:¥„˜ø0dimen/mtrl_calendar_header_selection_line_height0@"T
-'http://schemas.android.com/apk/res-autoautoSizeTextTypeuniform"(Â€Œø2:0"«
-*http://schemas.android.com/apk/res/androidpaddingBottom,@dimen/mtrl_calendar_pre_l_text_clip_padding"(Ù„27
-5°„˜ø+dimen/mtrl_calendar_pre_l_text_clip_padding0@"hstyle%?attr/materialCalendarHeaderSelection"24
-2º…Œø$attr/materialCalendarHeaderSelection0ÿÿ"“
-*http://schemas.android.com/apk/res/androidid&@+id/mtrl_picker_header_selection_text"(Ğ„20
-.©‚¤ø$id/mtrl_picker_header_selection_text0"Â
-'http://schemas.android.com/apk/res-autofirstBaselineToTopHeight3@dimen/mtrl_calendar_selection_text_baseline_to_top"(³ƒŒø2>
-<´„˜ø2dimen/mtrl_calendar_selection_text_baseline_to_top0@I
+ï¿½;android*http://schemas.android.com/apk/res/androidI4app'http://schemas.android.com/apk/res-autoITextView"U*http://schemas.android.com/apk/res/androidgravity start|bottom"(ï¿½ï¿½ï¿½2:8Ó€ï¿½"ï¿½'http://schemas.android.com/apk/res-autolineHeight1@dimen/mtrl_calendar_header_selection_line_height"(ï¿½ï¿½ï¿½ï¿½2
+< :ï¿½ï¿½ï¿½ï¿½0dimen/mtrl_calendar_header_selection_line_height0@"T'http://schemas.android.com/apk/res-autoautoSizeTextTypeuniform"(Â€ï¿½ï¿½2:0"ï¿½*http://schemas.android.com/apk/res/androidpaddingBottom,@dimen/mtrl_calendar_pre_l_text_clip_padding"(Ùï¿½275ï¿½ï¿½ï¿½ï¿½+dimen/mtrl_calendar_pre_l_text_clip_padding0@"hstyle%?attr/materialCalendarHeaderSelection"242ï¿½ï¿½ï¿½ï¿½$attr/materialCalendarHeaderSelection0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidid&@+id/mtrl_picker_header_selection_text"(Ğï¿½20.ï¿½ï¿½ï¿½ï¿½$id/mtrl_picker_header_selection_text0"ï¿½'http://schemas.android.com/apk/res-autofirstBaselineToTopHeight3@dimen/mtrl_calendar_selection_text_baseline_to_top"(ï¿½ï¿½ï¿½ï¿½2><ï¿½ï¿½ï¿½ï¿½2dimen/mtrl_calendar_selection_text_baseline_to_top0@I

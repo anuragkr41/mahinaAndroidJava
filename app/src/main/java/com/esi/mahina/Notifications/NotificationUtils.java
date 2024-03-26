@@ -11,14 +11,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.esi.mahina.activities.PatientActivity;
 import com.esi.mahina.R;
+import com.esi.mahina.activities.patientActivities.PatientActivity;
 
 public class NotificationUtils {
     private static final String CHANNEL_ID = "default";
     private static final int NOTIFICATION_ID = 1;
 
-    public static void showNotification(Context context,String title,  String message) {
+    public static void showNotification(Context context, String title, String message) {
         // Check if the notification channel needs to be created
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createNotificationChannel(context);

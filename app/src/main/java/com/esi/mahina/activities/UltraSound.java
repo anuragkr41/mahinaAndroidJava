@@ -35,11 +35,10 @@ public class UltraSound extends AppCompatActivity {
 
 
         Switch notificationSwitch;
-        generalSettings=new GeneralSettings(getApplicationContext());
+        generalSettings = new GeneralSettings(getApplicationContext());
 //        generalSettings.initialize();
 
-        Log.d("Initial Notification state", "NF="+generalSettings.isNotificationAllowed());
-
+        Log.d("Initial Notification state", "NF=" + generalSettings.isNotificationAllowed());
 
 
         String usg1Range = DatesHelper.getUSG1DateRange.apply(lmp);

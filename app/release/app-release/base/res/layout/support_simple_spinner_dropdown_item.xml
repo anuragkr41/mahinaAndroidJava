@@ -1,13 +1,1 @@
-
-´
-;
-android*http://schemas.android.com/apk/res/android(TextView"O
-*http://schemas.android.com/apk/res/android	ellipsizemarquee"(«„2:0"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"¡
-*http://schemas.android.com/apk/res/androidlayout_height%?attr/dropdownListPreferredItemHeight"(õ„24
-2ñ‚Œø$attr/dropdownListPreferredItemHeight0À€"M
-*http://schemas.android.com/apk/res/android
-singleLinetrue"(İ‚„2:@"Zstyle?attr/spinnerDropDownItemStyle"2-
-+ª‡Œøattr/spinnerDropDownItemStyle0ÿÿ"i
-*http://schemas.android.com/apk/res/androidid@android:id/text1"(Ğ„2
-”€ˆandroid:id/text10(
+ï¿½;android*http://schemas.android.com/apk/res/android(TextView"O*http://schemas.android.com/apk/res/android    ellipsizemarquee"(ï¿½ï¿½ï¿½2:0"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height%?attr/dropdownListPreferredItemHeight"(ï¿½ï¿½ï¿½242ï¿½ï¿½$attr/dropdownListPreferredItemHeight0ï¿½ï¿½"M*http://schemas.android.com/apk/res/androidsingleLinetrue"(İ‚ï¿½2:@"Zstyle?attr/spinnerDropDownItemStyle"2-+ï¿½ï¿½ï¿½ï¿½attr/spinnerDropDownItemStyle0ï¿½ï¿½"i*http://schemas.android.com/apk/res/androidid@android:id/text1"(Ğï¿½2ï¿½ï¿½ï¿½android:id/text10(

@@ -1,17 +1,1 @@
-
-×
-;
-android*http://schemas.android.com/apk/res/android6TextView"^
-*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(¯„2:8“€€"š
-*http://schemas.android.com/apk/res/androidpaddingRight#?attr/listPreferredItemPaddingRight"(Ø„20
-. …Œø"attr/listPreferredItemPaddingRight0@"
-*http://schemas.android.com/apk/res/androidtextAppearance%@style/TextAppearance.AppCompat.Body2"(´€„20
-.‡ƒÄø$style/TextAppearance.AppCompat.Body20"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"›
-*http://schemas.android.com/apk/res/androidlayout_height"?attr/listPreferredItemHeightSmall"(õ„21
-/…Œø!attr/listPreferredItemHeightSmall0À€"—
-*http://schemas.android.com/apk/res/androidpaddingLeft"?attr/listPreferredItemPaddingLeft"(Ö„2/
--Ÿ…Œø!attr/listPreferredItemPaddingLeft0@"‹
-*http://schemas.android.com/apk/res/android	textColor?android:textColorSecondary"(˜„2,
-*¸€„android:attr/textColorSecondary0"H
-*http://schemas.android.com/apk/res/androidmaxLines1"(Ó‚„2:06
+ï¿½;android*http://schemas.android.com/apk/res/android6TextView"^*http://schemas.android.com/apk/res/androidgravitycenter_vertical|start"(ï¿½ï¿½ï¿½2:8ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/android paddingRight#?attr/listPreferredItemPaddingRight"(Øï¿½20.ï¿½ï¿½ï¿½ï¿½"attr/listPreferredItemPaddingRight0@"ï¿½*http://schemas.android.com/apk/res/androidtextAppearance%@style/TextAppearance.AppCompat.Body2"(ï¿½ï¿½ï¿½20.ï¿½ï¿½ï¿½ï¿½$style/TextAppearance.AppCompat.Body20"`*http://schemas.android.com/apk/res/android layout_width match_parent"(ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height"?attr/listPreferredItemHeightSmall"(ï¿½ï¿½ï¿½21/ï¿½ï¿½ï¿½ï¿½!attr/listPreferredItemHeightSmall0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidpaddingLeft"?attr/listPreferredItemPaddingLeft"(Öï¿½2/-ï¿½ï¿½ï¿½ï¿½!attr/listPreferredItemPaddingLeft0@"ï¿½*http://schemas.android.com/apk/res/android    textColor?android:textColorSecondary"(ï¿½ï¿½ï¿½2,*ï¿½ï¿½ï¿½android:attr/textColorSecondary0"H*http://schemas.android.com/apk/res/androidmaxLines1"(Ó‚ï¿½2:06

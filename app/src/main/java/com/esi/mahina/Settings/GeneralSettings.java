@@ -1,17 +1,15 @@
 package com.esi.mahina.Settings;
+
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.Switch;
-import androidx.appcompat.app.AppCompatActivity;
-import com.esi.mahina.R;
 
-public class GeneralSettings implements Notifications, Language{
-    private SharedPreferences preferences;
-    private Switch enableDisableNotification;
+
+public class GeneralSettings implements Notifications, Language {
     private static final String SHARED_PREF_NAME = "MyAppPreferences";
     private static final String NOTIFICATION_STATUS_KEY = "notificationStatus";
+    private SharedPreferences preferences;
+    private Switch enableDisableNotification;
 
     public GeneralSettings(Context context) {
         // Initialize the SharedPreferences with the provided context
@@ -19,7 +17,8 @@ public class GeneralSettings implements Notifications, Language{
 
         // The rest of your initialization code remains unchanged
     }
-    public  void initialize(Switch swithcView) {
+
+    public void initialize(Switch swithcView) {
         enableDisableNotification = swithcView;
 
         boolean notificationStatus = isNotificationAllowed();
@@ -31,13 +30,15 @@ public class GeneralSettings implements Notifications, Language{
             saveNotificationStatus(isChecked);
         });
     }
+
     @Override
     public boolean isNotificationAllowed() {
         // Get the current notification status from the switch
 //        return enableDisableNotification.isChecked();
-        return  preferences.getBoolean(NOTIFICATION_STATUS_KEY, false) || enableDisableNotification!=null && enableDisableNotification.isChecked();
+        return preferences.getBoolean(NOTIFICATION_STATUS_KEY, false) || enableDisableNotification != null && enableDisableNotification.isChecked();
     }
-//    public boolean getNotificationStatus() {
+
+    //    public boolean getNotificationStatus() {
 //        // Retrieve the notification status from SharedPreferences
 //        return preferences.getBoolean(NOTIFICATION_STATUS_KEY, false);
 //    }

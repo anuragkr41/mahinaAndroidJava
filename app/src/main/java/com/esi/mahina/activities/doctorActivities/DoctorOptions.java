@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.esi.mahina.R;
-import com.esi.mahina.activities.MainActivity;
 
 
 public class DoctorOptions extends AppCompatActivity {

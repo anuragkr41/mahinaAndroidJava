@@ -9,16 +9,17 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.esi.mahina.R;
-import com.esi.mahina.activities.doctorActivities.DoctorActivity;
 import com.esi.mahina.activities.doctorActivities.DoctorOptions;
+import com.esi.mahina.activities.motherActivities.MotherActivity;
+import com.esi.mahina.activities.patientActivities.PatientActivity;
 
 public class MainActivity extends AppCompatActivity {
 //    ActivityMainBinding binding;
 
-    private String userType;
     private final String DOCTOR = "doctor";
     private final String PATIENT = "patient";
     private final String MOTHER = "mother";
+    private String userType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, DoctorOptions.class);
                 startActivity(intent);
-                userType=DOCTOR;
+                userType = DOCTOR;
             }
         });
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PatientActivity.class);
                 startActivity(intent);
-                userType=PATIENT;
+                userType = PATIENT;
             }
         });
 
@@ -64,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
 
 
 }

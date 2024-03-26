@@ -1,9 +1,1 @@
-
-ê
-;
-android*http://schemas.android.com/apk/res/androidGTextView"
-*http://schemas.android.com/apk/res/androidlayout_width@dimen/mtrl_calendar_day_width"(ô„2+
-)„˜ødimen/mtrl_calendar_day_width0À€"¥
-*http://schemas.android.com/apk/res/androidlayout_height(@dimen/mtrl_calendar_days_of_week_height"(õ„25
-3„˜ø'dimen/mtrl_calendar_days_of_week_height0À€"fstyle$?attr/materialCalendarDayOfWeekLabel"23
-1´…Œø#attr/materialCalendarDayOfWeekLabel0ÿÿG
+ï¿½;android*http://schemas.android.com/apk/res/androidGTextView"ï¿½*http://schemas.android.com/apk/res/android layout_width@dimen/mtrl_calendar_day_width"(ï¿½2+)ï¿½ï¿½ï¿½ï¿½dimen/mtrl_calendar_day_width0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height(@dimen/mtrl_calendar_days_of_week_height"(ï¿½ï¿½ï¿½253ï¿½ï¿½ï¿½ï¿½'dimen/mtrl_calendar_days_of_week_height0ï¿½ï¿½"fstyle$?attr/materialCalendarDayOfWeekLabel"231ï¿½ï¿½ï¿½ï¿½#attr/materialCalendarDayOfWeekLabel0ï¿½ï¿½G

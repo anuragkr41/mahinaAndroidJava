@@ -1,12 +1,1 @@
-
-”
-;
-android*http://schemas.android.com/apk/res/androidKadaptive-icon* 
-—
-background"ˆ
-*http://schemas.android.com/apk/res/androiddrawable@color/ic_launcher_background"(™ƒ„2(
-&à€”øcolor/ic_launcher_background0C*¢
-™
-foreground"Š
-*http://schemas.android.com/apk/res/androiddrawable@mipmap/ic_launcher_foreground"(™ƒ„2)
-'€¸ømipmap/ic_launcher_foreground0DK
+ï¿½;android*http://schemas.android.com/apk/res/androidKadaptive-icon*ï¿½ï¿½background"ï¿½*http://schemas.android.com/apk/res/androiddrawable@color/ic_launcher_background"(ï¿½ï¿½ï¿½2(&ï¿½ï¿½ï¿½ï¿½color/ic_launcher_background0C*ï¿½ï¿½foreground"ï¿½*http://schemas.android.com/apk/res/androiddrawable@mipmap/ic_launcher_foreground"(ï¿½ï¿½ï¿½2)'ï¿½ï¿½ï¿½ï¿½mipmap/ic_launcher_foreground0DK

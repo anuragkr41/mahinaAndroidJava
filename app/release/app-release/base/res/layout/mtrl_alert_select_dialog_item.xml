@@ -1,17 +1,1 @@
-
-Ú
-;
-android*http://schemas.android.com/apk/res/android #TextView"U
-*http://schemas.android.com/apk/res/androidgravitycenter_vertical" (¯„2:8"š
-*http://schemas.android.com/apk/res/androidpaddingRight#?attr/listPreferredItemPaddingRight" (Ø„20
-. …Œø"attr/listPreferredItemPaddingRight0@"•
-*http://schemas.android.com/apk/res/android	minHeight"?attr/listPreferredItemHeightSmall" (À‚„2/
--…Œø!attr/listPreferredItemHeightSmall0@"O
-*http://schemas.android.com/apk/res/android	ellipsizemarquee" («„2:0"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent" (ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightwrap_content" (õ„2:0şÿÿÿÿÿÿÿÿ"—
-*http://schemas.android.com/apk/res/androidpaddingLeft"?attr/listPreferredItemPaddingLeft" (Ö„2/
--Ÿ…Œø!attr/listPreferredItemPaddingLeft0@"jstyle&?attr/materialAlertDialogBodyTextStyle" 25
-3ª…Œø%attr/materialAlertDialogBodyTextStyle0ÿÿ"i
-*http://schemas.android.com/apk/res/androidid@android:id/text1" (Ğ„2
-”€ˆandroid:id/text10 #
+ï¿½;android*http://schemas.android.com/apk/res/android #TextView"U*http://schemas.android.com/apk/res/androidgravitycenter_vertical" (ï¿½ï¿½ï¿½2:8"ï¿½*http://schemas.android.com/apk/res/android paddingRight#?attr/listPreferredItemPaddingRight" (Øï¿½20.ï¿½ï¿½ï¿½ï¿½"attr/listPreferredItemPaddingRight0@"ï¿½*http://schemas.android.com/apk/res/android    minHeight"?attr/listPreferredItemHeightSmall" (ï¿½ï¿½ï¿½2/-ï¿½ï¿½ï¿½ï¿½!attr/listPreferredItemHeightSmall0@"O*http://schemas.android.com/apk/res/android    ellipsizemarquee" (ï¿½ï¿½ï¿½2:0"`*http://schemas.android.com/apk/res/android layout_width match_parent" (ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"a*http://schemas.android.com/apk/res/androidlayout_height wrap_content" (ï¿½ï¿½ï¿½2:0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidpaddingLeft"?attr/listPreferredItemPaddingLeft" (Öï¿½2/-ï¿½ï¿½ï¿½ï¿½!attr/listPreferredItemPaddingLeft0@"jstyle&?attr/materialAlertDialogBodyTextStyle" 253ï¿½ï¿½ï¿½ï¿½%attr/materialAlertDialogBodyTextStyle0ï¿½ï¿½"i*http://schemas.android.com/apk/res/androidid@android:id/text1" (Ğï¿½2ï¿½ï¿½ï¿½android:id/text10 #

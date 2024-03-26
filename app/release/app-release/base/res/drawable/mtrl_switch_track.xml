@@ -1,17 +1,1 @@
-
-å
-;
-android*http://schemas.android.com/apk/res/androidvector"¥
-*http://schemas.android.com/apk/res/androidviewportWidth)@integer/mtrl_switch_track_viewport_width"(‚ˆ„24
-2µ€¨ø(integer/mtrl_switch_track_viewport_width0 "¨
-*http://schemas.android.com/apk/res/androidviewportHeight*@integer/mtrl_switch_track_viewport_height"(ƒˆ„25
-3´€¨ø)integer/mtrl_switch_track_viewport_height0 "Š
-*http://schemas.android.com/apk/res/androidheight@dimen/mtrl_switch_track_height"(Õ‚„2*
-(™…˜ødimen/mtrl_switch_track_height0@"‡
-*http://schemas.android.com/apk/res/androidwidth@dimen/mtrl_switch_track_width"(Ù‚„2)
-'š…˜ødimen/mtrl_switch_track_width0@*³
-ªpath"U
-*http://schemas.android.com/apk/res/android	fillColor	#FFFFFFFF"(„ˆ„2:Hÿÿÿÿ"Š
-*http://schemas.android.com/apk/res/androidpathData@string/mtrl_switch_track_path"(…ˆ„2)
-'ŒÀøstring/mtrl_switch_track_path0">
-*http://schemas.android.com/apk/res/androidnametrack(ƒ€„9
+ï¿½;android*http://schemas.android.com/apk/res/androidvector"ï¿½*http://schemas.android.com/apk/res/androidviewportWidth)@integer/mtrl_switch_track_viewport_width"(ï¿½ï¿½ï¿½242ï¿½ï¿½ï¿½ï¿½(integer/mtrl_switch_track_viewport_width0 "ï¿½*http://schemas.android.com/apk/res/androidviewportHeight*@integer/mtrl_switch_track_viewport_height"(ï¿½ï¿½ï¿½253ï¿½ï¿½ï¿½ï¿½)integer/mtrl_switch_track_viewport_height0 "ï¿½*http://schemas.android.com/apk/res/androidheight@dimen/mtrl_switch_track_height"(Õ‚ï¿½2*(ï¿½ï¿½ï¿½ï¿½dimen/mtrl_switch_track_height0@"ï¿½*http://schemas.android.com/apk/res/androidwidth@dimen/mtrl_switch_track_width"(Ù‚ï¿½2)'ï¿½ï¿½ï¿½ï¿½dimen/mtrl_switch_track_width0@*ï¿½ï¿½path"U*http://schemas.android.com/apk/res/android    fillColor    #FFFFFFFF"(ï¿½ï¿½ï¿½2:Hï¿½ï¿½ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidpathData@string/mtrl_switch_track_path"(ï¿½ï¿½ï¿½2)'ï¿½ï¿½ï¿½ï¿½string/mtrl_switch_track_path0">*http://schemas.android.com/apk/res/androidnametrack(ï¿½ï¿½ï¿½9

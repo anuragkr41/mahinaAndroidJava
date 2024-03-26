@@ -1,8 +1,8 @@
-package com.esi.mahina.activities;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.esi.mahina.activities.motherActivities;
 
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.esi.mahina.R;
 

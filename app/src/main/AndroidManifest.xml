@@ -23,13 +23,17 @@
             android:label="@string/title_activity_doctor_options"
             android:theme="@style/Base.Theme.Mahina" />
         <activity
-            android:name=".activities.MotherActivity"
+            android:name=".activities.motherActivities.MotherActivity"
             android:exported="false" />
         <activity
             android:name=".activities.doctorActivities.DoctorActivity"
             android:exported="false"
-            android:label="@string/title_activity_doctor"
-            android:theme="@style/Base.Theme.Mahina.NoActionBar" />
+            android:label="@string/title_activity_doctor" />
+
+        <activity
+            android:name=".activities.patientActivities.PatientActivity"
+            android:exported="false"
+            android:label="PatientActivity"/>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
@@ -40,9 +44,7 @@
         <activity
             android:name=".activities.DoctorAppointment"
             android:exported="false" />
-        <activity
-            android:name=".activities.PatientActivity"
-            android:exported="true" />
+
         <activity
             android:name=".activities.MainActivity"
             android:exported="true" />

@@ -1,22 +1,16 @@
 package com.esi.mahina.activities.doctorActivities;
 
 import android.os.Bundle;
-
-import com.esi.mahina.calculations.AppointmentsHelper;
-import com.esi.mahina.calculations.DatesHelper;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
+import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.esi.mahina.R;
-import com.esi.mahina.databinding.ActivityDoctorBinding;
+import com.esi.mahina.calculations.AppointmentsHelper;
+import com.esi.mahina.calculations.DatesHelper;
 
 import java.time.LocalDate;
 
@@ -30,21 +24,25 @@ public class DoctorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         this.datePicker = findViewById(R.id.datePicker);
 
         datePicker.init(datePicker.getYear(),
                 datePicker.getMonth(), datePicker.getDayOfMonth(),
-                (view, year, monthOfYear, dayOfMonth)->{
+                (view, year, monthOfYear, dayOfMonth) -> {
                     LocalDate selectedDate = DatesHelper.captureLocalDateFromDatePicker(datePicker);
                     setPogAndEDD(selectedDate);
-                    if(this.lmp!=null){
+
+                    Log.d("Tesss:", selectedDate.toString());
+                    if (this.lmp != null) {
                         String lmpString = lmp.format(DatesHelper.formatter);
                         TextView tvSaveLmpInfo = findViewById(R.id.LMPSelectedDate);
-                        tvSaveLmpInfo.setText("LMP Selected: "+ lmpString);
+                        tvSaveLmpInfo.setText("LMP Selected: " + lmpString);
 
-                       tvSaveLmpInfo = findViewById(R.id.LMPSelectedDateAppointment);
-                       tvSaveLmpInfo.setText("LMP Selected: "+ lmpString);
+                        tvSaveLmpInfo = findViewById(R.id.LMPSelectedDateAppointment);
+                        tvSaveLmpInfo.setText("LMP Selected: " + lmpString);
 //                        It is here that you will set the USG and VISIT Data...
 //                        Do this using private Functions
                         setUsgDates(this.lmp);
@@ -58,19 +56,18 @@ public class DoctorActivity extends AppCompatActivity {
     }
 
     private void setPogAndEDD(LocalDate date) {
-        this.lmp=date;
+        this.lmp = date;
 
-        String pog= DatesHelper.getPeriodOfGestation.apply(date);
+        String pog = DatesHelper.getPeriodOfGestation.apply(date);
         TextView textViewPog = findViewById(R.id.twPog);
         textViewPog.setText(pog);
 
-        String edd= DatesHelper.getExpectedDateOfDelivery.apply(date);
+        String edd = DatesHelper.getExpectedDateOfDelivery.apply(date);
         TextView textViewEdd = findViewById(R.id.twEdd);
         textViewEdd.setText(edd);
     }
 
-    private void setUsgDates(LocalDate date){
-        date = this.lmp;
+    private void setUsgDates(LocalDate date) {
         String usg1DateRangeString = DatesHelper.getUSG1DateRange.apply(date);
         TextView tvUsg1DateRange = findViewById(R.id.usg1DatesFromLMP);
         tvUsg1DateRange.setText(usg1DateRangeString);
@@ -88,8 +85,7 @@ public class DoctorActivity extends AppCompatActivity {
         tvUsg4DateRange.setText(usg4DateRangeString);
     }
 
-    private void setVisitDates(LocalDate date){
-        date = this.lmp;
+    private void setVisitDates(LocalDate date) {
 
         String visit1DateRangeString = AppointmentsHelper.getVisit1DateRange.apply(date);
         TextView tvVisit1DateRange = findViewById(R.id.visit1DatesFromLMP);
@@ -98,7 +94,6 @@ public class DoctorActivity extends AppCompatActivity {
         String visit2DateRangeString = AppointmentsHelper.getVisit2To8DateRange.apply(date, 20);
         TextView tvVisit2DateRange = findViewById(R.id.visit2DatesFromLMP);
         tvVisit2DateRange.setText(visit2DateRangeString);
-
 
 
         String visit3DateRangeString = AppointmentsHelper.getVisit2To8DateRange.apply(date, 26);
@@ -110,7 +105,6 @@ public class DoctorActivity extends AppCompatActivity {
         tvVisit4DateRange.setText(visit4DateRangeString);
 
 
-
         String visit5DateRangeString = AppointmentsHelper.getVisit2To8DateRange.apply(date, 34);
         TextView tvVisit5DateRange = findViewById(R.id.visit5DatesFromLMP);
         tvVisit5DateRange.setText(visit5DateRangeString);
@@ -118,7 +112,6 @@ public class DoctorActivity extends AppCompatActivity {
         String visit6DateRangeString = AppointmentsHelper.getVisit2To8DateRange.apply(date, 36);
         TextView tvVisit6DateRange = findViewById(R.id.visit6DatesFromLMP);
         tvVisit6DateRange.setText(visit6DateRangeString);
-
 
 
         String visit7DateRangeString = AppointmentsHelper.getVisit2To8DateRange.apply(date, 38);

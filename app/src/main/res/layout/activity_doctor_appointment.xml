@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.PatientActivity"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".activities.patientActivities.PatientActivity">
 
 
     <LinearLayout
@@ -112,15 +112,15 @@
                     android:text="30 days after LMP to 13 weeks + 6 days"
                     android:textColor="@color/grey"
                     android:textSize="12sp" />
-                
+
                 <TextView
                     android:id="@+id/visit1DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit1Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -143,23 +143,22 @@
                         android:id="@+id/visit1Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -172,7 +171,6 @@
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
-
 
 
             <RelativeLayout
@@ -205,16 +203,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit2DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit2Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -237,23 +233,22 @@
                         android:id="@+id/visit2Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -297,16 +292,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit3DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit3Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -329,35 +322,33 @@
                         android:id="@+id/visit3Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
-            android:layout_marginBottom="25sp"
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
@@ -392,16 +383,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit4DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit4Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -424,21 +413,18 @@
                         android:id="@+id/visit4Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
@@ -446,24 +432,7 @@
         </androidx.cardview.widget.CardView>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
@@ -511,8 +480,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit5Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -535,23 +504,22 @@
                         android:id="@+id/visit5Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -564,7 +532,6 @@
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
-
 
 
             <RelativeLayout
@@ -597,16 +564,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit6DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit6Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -629,23 +594,22 @@
                         android:id="@+id/visit6Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -689,16 +653,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit7DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit7Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -721,35 +683,33 @@
                         android:id="@+id/visit7Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
-            android:layout_marginBottom="25sp"
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
@@ -784,16 +744,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/visit8DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/visit8Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -816,21 +774,18 @@
                         android:id="@+id/visit8Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="22-11-2023 to 4-12-2023 "
-                        android:textColor="@color/white"></TextView>
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp"></TextView>
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
@@ -838,10 +793,7 @@
         </androidx.cardview.widget.CardView>
 
 
-
-
     </LinearLayout>
-
 
 
 </ScrollView>

@@ -1,11 +1,8 @@
 package com.esi.mahina;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import static org.junit.Assert.*;
-
-import java.time.LocalDate;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -14,7 +11,7 @@ import java.time.LocalDate;
  */
 
 
-public class ExampleUnitTest{
+public class ExampleUnitTest {
 
 
     @Test

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.PatientActivity"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".activities.patientActivities.PatientActivity">
 
 
     <LinearLayout
@@ -25,7 +25,8 @@
             android:text="@string/usgTitle"
             android:textColor="@color/blue"
             android:textSize="32sp" />
- <TextView
+
+        <TextView
             android:id="@+id/whoGuide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +53,7 @@
                 android:text="LMP: "
                 android:textColor="@color/blue"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/lmpForUSGCalc"
                 android:layout_width="wrap_content"
@@ -64,8 +66,6 @@
                 android:textSize="20sp" />
 
         </RelativeLayout>
-
-
 
 
         <androidx.cardview.widget.CardView
@@ -116,8 +116,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/usg1Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -140,36 +140,34 @@
                         android:id="@+id/usg1Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="@string/dateSelect"
-                        android:textColor="@color/white" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
-    android:layout_marginBottom="25sp"
+            android:layout_marginBottom="25sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
-
 
 
             <RelativeLayout
@@ -202,16 +200,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/usg2DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/usg2Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -234,29 +230,28 @@
                         android:id="@+id/usg2Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/lexend"
                         android:text="@string/dateSelect"
-                        android:textColor="@color/white" />
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
-    android:layout_marginBottom="25sp"
+            android:layout_marginBottom="25sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
@@ -294,16 +289,14 @@
                     android:textSize="12sp" />
 
 
-
-
                 <TextView
                     android:id="@+id/usg3DatesFromLMP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/usg3Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -326,34 +319,33 @@
                         android:id="@+id/usg3Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="@string/dateSelect"
-                        android:textColor="@color/white" />
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16sp"
             android:layout_marginEnd="16sp"
+            android:layout_marginBottom="25sp"
             android:outlineAmbientShadowColor="@color/white"
             android:outlineSpotShadowColor="@color/white"
             app:cardBackgroundColor="#32CDCED2"
-    android:layout_marginBottom="25sp"
 
             app:cardCornerRadius="20sp"
             app:cardMaxElevation="1dp">
@@ -394,8 +386,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignWithParentIfMissing="true"
                     android:layout_below="@+id/usg4Period"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="16sp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10sp"
 
                     android:fontFamily="@font/lexend"
@@ -418,20 +410,18 @@
                         android:id="@+id/usg4Dates"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textAlignment="center"
-                        android:fontFamily="@font/lexend"
-                        android:textSize="20sp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10sp"
                         android:layout_marginBottom="10sp"
-                        android:layout_centerHorizontal="true"
-
-
+                        android:fontFamily="@font/lexend"
                         android:text="@string/dateSelect"
-                        android:textColor="@color/white" />
+                        android:textAlignment="center"
+
+
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
 
                 </androidx.cardview.widget.CardView>
-
-
 
 
             </RelativeLayout>
@@ -439,10 +429,7 @@
         </androidx.cardview.widget.CardView>
 
 
-
-
     </LinearLayout>
-
 
 
 </ScrollView>

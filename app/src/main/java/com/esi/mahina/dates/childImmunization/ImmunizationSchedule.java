@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImmunizationSchedule {
+    private static ImmunizationSchedule instance;
     private LocalDate childBirthDate;
     private List<VaccinationDate> vaccinationDates;
 
-    private static ImmunizationSchedule instance;
-
-    private ImmunizationSchedule(LocalDate childBirthDate){
-        this.childBirthDate=childBirthDate;
-        this.vaccinationDates=new ArrayList<>();
+    private ImmunizationSchedule(LocalDate childBirthDate) {
+        this.childBirthDate = childBirthDate;
+        this.vaccinationDates = new ArrayList<>();
     }
 
     // Public static method to get the instance of ImmunizationSchedule
@@ -38,7 +37,6 @@ public class ImmunizationSchedule {
     public void addVaccinationDate(VaccinationDate vaccinationDate) {
         this.vaccinationDates.add(vaccinationDate);
     }
-
 
 
 }

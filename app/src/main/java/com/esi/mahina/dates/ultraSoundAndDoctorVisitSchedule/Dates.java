@@ -1,7 +1,6 @@
 package com.esi.mahina.dates.ultraSoundAndDoctorVisitSchedule;
 
 import com.esi.mahina.calculations.AppointmentsHelper;
-import com.esi.mahina.calculations.DatesCalculator;
 import com.esi.mahina.calculations.DatesHelper;
 
 import java.time.LocalDate;
@@ -10,13 +9,14 @@ import java.util.List;
 
 public class Dates {
     private LocalDate lastMenstrualPeriodDate;
-    private   List<String> usgDates;
+    private List<String> usgDates;
     private List<String> appointmentDates;
 
-    private static Dates instance;
 
-    private Dates(LocalDate lastMenstrualPeriodDate){
+    public Dates(LocalDate lastMenstrualPeriodDate) {
         this.lastMenstrualPeriodDate = lastMenstrualPeriodDate;
+        usgDates = new ArrayList<>();
+        appointmentDates = new ArrayList<>();
         //Logic to populate the USG Dates and Appointment dates is to be done here only
         //USG
         usgDates.add(DatesHelper.getUSG1DateRange.apply(this.lastMenstrualPeriodDate));
@@ -35,12 +35,6 @@ public class Dates {
         appointmentDates.add(AppointmentsHelper.getVisit2To8DateRange.apply(this.lastMenstrualPeriodDate, 40));
     }
 
-    public static Dates getInstance(LocalDate lastMenstrualPeriodDate){
-        if (instance==null){
-            instance = new Dates(lastMenstrualPeriodDate);
-        }
-        return instance;
-    }
 
     public LocalDate getLastMenstrualPeriodDate() {
         return lastMenstrualPeriodDate;
@@ -50,8 +44,20 @@ public class Dates {
         this.lastMenstrualPeriodDate = lastMenstrualPeriodDate;
     }
 
-    public static Dates getInstance() {
-        return instance;
+    public List<String> getUsgDates() {
+        return usgDates;
     }
 
+    public List<String> getAppointmentDates() {
+        return appointmentDates;
+    }
+
+    @Override
+    public String toString() {
+        return "Dates{" +
+                "lastMenstrualPeriodDate=" + lastMenstrualPeriodDate +
+                ", usgDates=" + usgDates +
+                ", appointmentDates=" + appointmentDates +
+                '}';
+    }
 }

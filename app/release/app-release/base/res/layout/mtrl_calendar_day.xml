@@ -1,9 +1,1 @@
-
-Â
-;
-android*http://schemas.android.com/apk/res/android>TextView"
-*http://schemas.android.com/apk/res/androidlayout_width@dimen/mtrl_calendar_day_width"(ô„2+
-)„˜ødimen/mtrl_calendar_day_width0À€"“
-*http://schemas.android.com/apk/res/androidlayout_height@dimen/mtrl_calendar_day_height"(õ„2,
-*™„˜ødimen/mtrl_calendar_day_height0À€"Pstyle?attr/materialCalendarDay"2(
-&³…Œøattr/materialCalendarDay0ÿÿ>
+ï¿½;android*http://schemas.android.com/apk/res/android>TextView"ï¿½*http://schemas.android.com/apk/res/android layout_width@dimen/mtrl_calendar_day_width"(ï¿½2+)ï¿½ï¿½ï¿½ï¿½dimen/mtrl_calendar_day_width0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height@dimen/mtrl_calendar_day_height"(ï¿½ï¿½ï¿½2,*ï¿½ï¿½ï¿½ï¿½dimen/mtrl_calendar_day_height0ï¿½ï¿½"Pstyle?attr/materialCalendarDay"2(&ï¿½ï¿½ï¿½ï¿½attr/materialCalendarDay0ï¿½ï¿½>

@@ -1,11 +1,11 @@
 package com.esi.mahina.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.esi.mahina.R;
 

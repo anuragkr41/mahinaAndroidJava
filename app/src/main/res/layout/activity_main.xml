@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.PatientActivity"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".activities.patientActivities.PatientActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,20 +16,18 @@
             android:id="@+id/mainRelative"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+            <!-- Auto layout, variables, and unit scale are not yet supported -->
             <TextView
                 android:id="@+id/lmpSelectText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/lexend"
                 android:text="I am a:"
-
                 android:textColor="@color/blue"
                 android:textSize="32sp" />
-
 
             <TextView
                 android:id="@+id/description"
@@ -41,7 +39,7 @@
                 android:text="Please Select who will be using this app"
 
                 android:textColor="@color/grey"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </RelativeLayout>
 
         <!-- Auto layout, variables, and unit scale are not yet supported -->
@@ -63,13 +61,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Doctor"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/lexend"
+                    android:text="Doctor"
                     android:textColor="@color/blue"
                     android:textSize="25sp"
 
@@ -79,82 +78,78 @@
         </androidx.cardview.widget.CardView>
 
 
-
-
-    <!-- Auto layout, variables, and unit scale are not yet supported -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/patientCard"
-        android:layout_width="match_parent"
-        android:layout_height="120sp"
-        android:layout_below="@+id/doctorCard"
-        android:layout_marginStart="16sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginEnd="16sp"
-        android:layout_marginBottom="16sp"
-        android:outlineAmbientShadowColor="@color/white"
-        android:outlineSpotShadowColor="@color/white"
-        app:cardBackgroundColor="#120A8FDD"
-        app:cardCornerRadius="20sp"
-        app:cardMaxElevation="1dp">
-
-        <RelativeLayout
+        <!-- Auto layout, variables, and unit scale are not yet supported -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/patientCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#33120A8F">
+            android:layout_height="120sp"
+            android:layout_below="@+id/doctorCard"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#120A8FDD"
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/lexend"
-                android:text="Pregnant Lady"
-                android:textColor="@color/blue"
-                android:textSize="25sp"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#33120A8F">
 
-                />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/lexend"
+                    android:text="Pregnant Lady"
+                    android:textColor="@color/blue"
+                    android:textSize="25sp"
 
-    </androidx.cardview.widget.CardView>
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/motherCard"
-        android:layout_width="match_parent"
-        android:layout_height="120sp"
-        android:layout_below="@+id/patientCard"
-        android:layout_marginStart="16sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginEnd="16sp"
-        android:layout_marginBottom="16sp"
-        android:outlineAmbientShadowColor="@color/white"
-        android:outlineSpotShadowColor="@color/white"
-        app:cardBackgroundColor="#120A8F33"
-        app:cardCornerRadius="20sp"
-        app:cardMaxElevation="1dp">
-
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/motherCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#33120A8F">
+            android:layout_height="120sp"
+            android:layout_below="@+id/patientCard"
+            android:layout_marginStart="16sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="16sp"
+            android:layout_marginBottom="16sp"
+            android:outlineAmbientShadowColor="@color/white"
+            android:outlineSpotShadowColor="@color/white"
+            app:cardBackgroundColor="#120A8F33"
+            app:cardCornerRadius="20sp"
+            app:cardMaxElevation="1dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/lexend"
-                android:text="Just Turned Mother"
-                android:textColor="@color/blue"
-                android:textSize="25sp"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#33120A8F">
 
-                />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/lexend"
+                    android:text="Just Turned Mother"
+                    android:textColor="@color/blue"
+                    android:textSize="25sp"
 
-    </androidx.cardview.widget.CardView>
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
-
-
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>

@@ -1,9 +1,2 @@
-
-ß
-;
-android*http://schemas.android.com/apk/res/android%com.google.android.material.chip.Chip"š
-*http://schemas.android.com/apk/res/androidlayout_width#@dimen/material_clock_display_width"(ô„20
-.Æƒ˜ø"dimen/material_clock_display_width0À€"
-*http://schemas.android.com/apk/res/androidlayout_height$@dimen/material_clock_display_height"(õ„21
-/Äƒ˜ø#dimen/material_clock_display_height0À€"<style?attr/chipStyle"2
-ÁŒøattr/chipStyle0ÿÿ
+ï¿½;android*http://schemas.android.com/apk/res/android%com.google.android.material.chip.Chip"ï¿½*http://schemas.android.com/apk/res/android layout_width#@dimen/material_clock_display_width"(ï¿½20.Æƒï¿½ï¿½"dimen/material_clock_display_width0ï¿½ï¿½"ï¿½*http://schemas.android.com/apk/res/androidlayout_height$@dimen/material_clock_display_height"(ï¿½ï¿½ï¿½21/Äƒï¿½ï¿½#dimen/material_clock_display_height0ï¿½ï¿½"
+<style?attr/chipStyle"2ï¿½ï¿½ï¿½ï¿½attr/chipStyle0ï¿½ï¿½
