@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.esi.mahina"
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.esi.mahina"
-        minSdk = 29
-        targetSdk = 32
+        minSdk = 33
+        targetSdk = 33
         versionCode = 2
         versionName = "2.0"
 
@@ -29,7 +29,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    buildToolsVersion = "30.0.2"
 
     buildFeatures {
         viewBinding = true

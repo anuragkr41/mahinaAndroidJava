@@ -25,12 +25,12 @@ public class NotificationUtils {
         }
 
         // Check if the app has the POST_NOTIFICATIONS permission
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // If the permission is not granted, request it
-            // This will typically happen on devices running Android 8.0 (Oreo) or above
-            ActivityCompat.requestPermissions((PatientActivity) context, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 123);
-            return;
-        }
+//        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+//            // If the permission is not granted, request it
+//            // This will typically happen on devices running Android 8.0 (Oreo) or above
+//            ActivityCompat.requestPermissions((PatientActivity) context, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 123);
+//            return;
+//        }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.mahinalogo) // Use your logo drawable as the small icon
@@ -39,7 +39,7 @@ public class NotificationUtils {
                 .setAutoCancel(true);
         // Show the notification
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
+//        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
     // Create the notification channel

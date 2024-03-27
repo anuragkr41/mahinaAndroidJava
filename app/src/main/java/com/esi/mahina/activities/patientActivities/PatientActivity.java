@@ -3,6 +3,7 @@ package com.esi.mahina.activities.patientActivities;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.esi.mahina.Notifications.NotificationSender;
 import com.esi.mahina.R;
 import com.esi.mahina.Settings.GeneralSettings;
 import com.esi.mahina.calculations.DatesHelper;
@@ -49,24 +51,25 @@ public class PatientActivity extends AppCompatActivity {
                     setPogAndEDD(selectedDate);
 
                     Log.d("dfd:", selectedDate.toString());
+                    this.dates = new Dates(selectedDate);
 
                     if (this.dates != null) {
-                        Dates patientDates = new Dates(selectedDate);
-                        Log.d("Timppo", patientDates.toString());
+
+                        Log.d("Timppo", this.dates.toString());
                     }
 
                 });
-
-
-//        binding = ActivityPatientBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
 //
-//        binding.save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                saveDate();
-//            }
-//        });
+//
+//                    binding = ActivityPatientBinding.inflate(getLayoutInflater());
+//                    setContentView(binding.getRoot());
+//
+//                    binding.save.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//            //                saveDate();
+//                        }
+//                    });
 
 //          This is your saved date
 
@@ -130,7 +133,7 @@ public class PatientActivity extends AppCompatActivity {
 //
 //            Log.d("Trying Harder", " status = "+status);
 //            if(!status){
-//                textViewSavedLMPInfo.setText("You must save the date before enabling notifications");
+////                textViewSavedLMPInfo.setText("You must save the date before enabling notifications");
 //            }
 //        }else {
 //            Log.d("NO Noti", "NOtification not enabled");

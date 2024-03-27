@@ -11,13 +11,15 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.esi.mahina.R;
 import com.esi.mahina.calculations.AppointmentsHelper;
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.dates.ultraSoundAndDoctorVisitSchedule.Dates;
 
 import java.time.LocalDate;
 
 public class DoctorActivity extends AppCompatActivity {
 
     private DatePicker datePicker;
-    private LocalDate lmp;
+//    private LocalDate lmp;
+    private Dates dates;
 
 
     @Override
@@ -33,11 +35,13 @@ public class DoctorActivity extends AppCompatActivity {
                 datePicker.getMonth(), datePicker.getDayOfMonth(),
                 (view, year, monthOfYear, dayOfMonth) -> {
                     LocalDate selectedDate = DatesHelper.captureLocalDateFromDatePicker(datePicker);
-                    setPogAndEDD(selectedDate);
+                    dates=new Dates(selectedDate);
+
+                    setPogAndEDD(dates.getLastMenstrualPeriodDate());
 
                     Log.d("Tesss:", selectedDate.toString());
-                    if (this.lmp != null) {
-                        String lmpString = lmp.format(DatesHelper.formatter);
+                    if (this.dates != null) {
+                        String lmpString = (dates.getLastMenstrualPeriodDate()).format(DatesHelper.formatter);
                         TextView tvSaveLmpInfo = findViewById(R.id.LMPSelectedDate);
                         tvSaveLmpInfo.setText("LMP Selected: " + lmpString);
 
@@ -45,8 +49,8 @@ public class DoctorActivity extends AppCompatActivity {
                         tvSaveLmpInfo.setText("LMP Selected: " + lmpString);
 //                        It is here that you will set the USG and VISIT Data...
 //                        Do this using private Functions
-                        setUsgDates(this.lmp);
-                        setVisitDates(this.lmp);
+                        setUsgDates(this.dates.getLastMenstrualPeriodDate());
+                        setVisitDates(this.dates.getLastMenstrualPeriodDate());
 
 
                     }
@@ -56,7 +60,7 @@ public class DoctorActivity extends AppCompatActivity {
     }
 
     private void setPogAndEDD(LocalDate date) {
-        this.lmp = date;
+//        this.lmp = date;
 
         String pog = DatesHelper.getPeriodOfGestation.apply(date);
         TextView textViewPog = findViewById(R.id.twPog);
