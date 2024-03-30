@@ -12,13 +12,10 @@ import java.time.format.DateTimeFormatter;
 public class NotificationSender extends AppCompatActivity {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
     private Context context;
-
     public NotificationSender(Context context) {
         this.context = context;
     }
-
     public static void pushDoctorAppointmentNotifications() {
-
 
     }
 

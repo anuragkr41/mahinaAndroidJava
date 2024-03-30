@@ -21,12 +21,15 @@ import com.esi.mahina.dates.ultraSoundAndDoctorVisitSchedule.Dates;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 public class PatientActivity extends AppCompatActivity {
     private static final String PREFS_NAME = "MyPrefs";
-    ActivityPatientBinding binding;
     private DatePicker datePicker;
     private Dates dates;
+
+    ActivityPatientBinding binding;
+
 
     private GeneralSettings generalSettings;
 
@@ -41,14 +44,29 @@ public class PatientActivity extends AppCompatActivity {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        binding = ActivityPatientBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         this.datePicker = findViewById(R.id.datePicker);
+        binding.save.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            saveDate();
+                        }
+                    });
+
+        LocalDate savedDate = loadDate();
+        Log.d("MyLoadedDate:", savedDate.toString());
+        setPogAndEDD(savedDate);
+        TextView textViewSavedLMPInfo = findViewById(R.id.savedLmp);
+        textViewSavedLMPInfo.setText("Your LMP is set to \n"+savedDate.format(DatesHelper.formatter));
 
         datePicker.init(datePicker.getYear(),
-                datePicker.getMonth(), datePicker.getDayOfMonth(),
+                datePicker.getMonth(),
+                datePicker.getDayOfMonth(),
                 (view, year, monthOfYear, dayOfMonth) -> {
-
                     LocalDate selectedDate = DatesHelper.captureLocalDateFromDatePicker(datePicker);
-                    setPogAndEDD(selectedDate);
+//                    setPogAndEDD(selectedDate);
 
                     Log.d("dfd:", selectedDate.toString());
                     this.dates = new Dates(selectedDate);
@@ -61,15 +79,10 @@ public class PatientActivity extends AppCompatActivity {
                 });
 //
 //
-//                    binding = ActivityPatientBinding.inflate(getLayoutInflater());
-//                    setContentView(binding.getRoot());
+
+
+
 //
-//                    binding.save.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//            //                saveDate();
-//                        }
-//                    });
 
 //          This is your saved date
 
@@ -159,101 +172,28 @@ public class PatientActivity extends AppCompatActivity {
 
     private void saveDate() {
 
-
         SharedPreferences preferences = getSharedPreferences(PatientActivity.PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-
         DateTimeFormatter isoFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         String savedLmpDate = isoFormatter.format(this.dates.getLastMenstrualPeriodDate());
         editor.putString("savedLmpDate", savedLmpDate);
-
-        List<String> usgDates = this.dates.getUsgDates();
-
-        // Save the USG Dates in different variables
-        editor.putString("savedUSG1DateRange", usgDates.get(0));
-        editor.putString("savedUSG2DateRange", usgDates.get(1));
-        editor.putString("savedUSG3DateRange", usgDates.get(2));
-        editor.putString("savedUSG4DateRange", usgDates.get(3));
-
-        // Similarly save the Doctor Visiting dates in different variables.
-
-
         editor.apply();
-//        this.isSaved=true;
-
-
         String dateToShow = dates
                 .getLastMenstrualPeriodDate()
                 .format(DatesHelper.formatter);
-
         TextView textViewSavedLMPInfo = findViewById(R.id.savedLmp);
         textViewSavedLMPInfo.setText("Your LMP is set to\n " + dateToShow);
         Toast.makeText(this, "Date is Saved", Toast.LENGTH_SHORT).show();
-
     }
 
-
-    private void loadDate() {
+    private LocalDate loadDate() {
         SharedPreferences preferences = getSharedPreferences(PatientActivity.PREFS_NAME, MODE_PRIVATE);
-
         String date = preferences.getString("savedLmpDate", "");
-
-        Log.d("Logger", "Loading data");
-
         if (!date.isEmpty()) {
-
-            LocalDate parsedDate = LocalDate.parse(date);
-
-//            String usg1Date = preferences.getString("savedUSG1Date", "");
-//            String usg2Date = preferences.getString("savedUSG2Date", "");
-//            String usg3Date = preferences.getString("savedUSG3Date", "");
-//            String usg4Date = preferences.getString("savedUSG4Date", "");
-//////
-////
-            dates.setLastMenstrualPeriodDate(parsedDate);
-//
-//            try {
-//
-//                LocalDate ld1 = LocalDate.parse(usg1Date);
-//                LocalDate ld2 = LocalDate.parse(usg2Date);
-//                LocalDate ld3 = LocalDate.parse(usg3Date);
-//                LocalDate ld4 = LocalDate.parse(usg4Date);
-//
-//                Log.d("Frm LoadDate: ", ld1.toString());
-//                Log.d("Frm LoadDate: ", ld2.toString());
-//                Log.d("Frm LoadDate: ", ld3.toString());
-//                Log.d("Frm LoadDate: ", ld4.toString());
-
-
-//                USGDates.usg1Date=ld1;
-//                USGDates.usg2Date = ld2;
-//                USGDates.usg3Date =  ld3;
-//                USGDates.usg4Date = ld4;
-
-//            }catch (NullPointerException e){
-//                Log.d("Logger", "Data is not being parsed ");
-//
-//            }
-////
-////            dates.setNlmp(parsedDate);
-////            dates.setUsgDates(parsedDate);
-//
-//        }else{
-//
-//            LocalDate todayDate  = LocalDate.now();
-//            Log.d("ILog::", todayDate.toString());
-//
-//            dates.setNlmp(todayDate);
-//
-//            Log.d("ILog::", dates.getNlmp().toString());
-//
-////            dates.setUsgDates(todayDate.minusDays(1));
-//        }
-//
-
+            this.dates = new Dates(LocalDate.parse(date));
         }
-//        else dates.setLastMenstrualPeriodDate(LocalDate.now());
+        else this.dates = new Dates(LocalDate.now());
 
+        return this.dates.getLastMenstrualPeriodDate();
     }
-
 }

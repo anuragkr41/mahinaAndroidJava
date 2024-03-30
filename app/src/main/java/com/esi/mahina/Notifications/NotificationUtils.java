@@ -20,9 +20,7 @@ public class NotificationUtils {
 
     public static void showNotification(Context context, String title, String message) {
         // Check if the notification channel needs to be created
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannel(context);
-        }
+        createNotificationChannel(context);
 
         // Check if the app has the POST_NOTIFICATIONS permission
 //        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
@@ -44,18 +42,17 @@ public class NotificationUtils {
 
     // Create the notification channel
     private static void createNotificationChannel(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Default Channel";
-            String description = "Default Channel Description";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+        CharSequence name = "Default Channel";
+        String description = "Default Channel Description";
+        int importance = NotificationManager.IMPORTANCE_DEFAULT;
 
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-            channel.setDescription(description);
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+        channel.setDescription(description);
 
-            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-            if (notificationManager != null) {
-                notificationManager.createNotificationChannel(channel);
-            }
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+        if (notificationManager != null) {
+            notificationManager.createNotificationChannel(channel);
+
         }
     }
 }
