@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.esi.mahina"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.esi.mahina"
-        minSdk = 33
-        targetSdk = 33
+        minSdk = 2
+        targetSdk = 34
         versionCode = 2
         versionName = "2.0"
 
