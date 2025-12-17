@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm">
+
+    <!-- App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/spacing_xs"
+        android:background="@color/background_warm">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Pregnancy USG"
+            android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+            android:textColor="@color/text_primary" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin">
+
+            <!-- Date Picker Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My LMP Date"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/success"
+                app:strokeWidth="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📅"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSelectedDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Date"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvSavedStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✓ Saved"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/success"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/tvTapToChange"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="Tap to change"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/text_tertiary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        app:tint="@color/primary_rose"
+                        android:contentDescription="Select" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Results Section (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/resultsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- POG/EDD Hero Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    app:cardCornerRadius="@dimen/card_corner_radius_large"
+                    app:cardElevation="@dimen/card_elevation_raised">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding_large"
+                        android:background="@drawable/bg_gradient_patient"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="bottom"
+                            android:baselineAligned="true">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Week"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_on_dark_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvPogWeeks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:textAppearance="@style/TextAppearance.Mahina.DisplayLarge"
+                                android:textColor="@color/text_on_dark"
+                                tools:text="24" />
+
+                            <TextView
+                                android:id="@+id/tvPogDays"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_on_dark_secondary"
+                                tools:text=", Day 3" />
+
+                        </LinearLayout>
+
+                        <!-- Progress Bar -->
+                        <ProgressBar
+                            android:id="@+id/progressPregnancy"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/progress_bar_height"
+                            android:layout_marginTop="@dimen/spacing_md"
+                            android:max="40"
+                            android:progressDrawable="@drawable/progress_bar_background"
+                            tools:progress="24" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/spacing_xxs">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/text_on_dark_secondary" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="40 weeks"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/text_on_dark_secondary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvEdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_md"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_on_dark"
+                            tools:text="EDD: 24 September 2025" />
+
+                        <TextView
+                            android:id="@+id/tvDaysRemaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_on_dark_secondary"
+                            tools:text="112 days to go" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Notifications Status -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/success_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_md">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size_sm"
+                            android:layout_height="@dimen/icon_size_sm"
+                            android:src="@android:drawable/ic_popup_reminder"
+                            app:tint="@color/success" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:text="Notifications: ON (72h, 48h, 24h, on date)"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/success" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- USG Schedule Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:text="USG Schedule"
+                    android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <!-- USG 1 - Completed state -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardUsg1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/card_completed_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvUsg1Status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✓"
+                                android:textSize="18sp"
+                                android:textColor="@color/success" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="USG 1 - Dating Scan"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:layout_marginStart="26dp"
+                            android:text="6-8 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvUsg1Dates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary"
+                            tools:text="28 Jan - 11 Feb 2025" />
+
+                        <TextView
+                            android:id="@+id/tvUsg1StatusText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:text="Completed"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/success" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- USG 2 - Upcoming state -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardUsg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/card_usg_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvUsg2Status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="●"
+                                android:textSize="18sp"
+                                android:textColor="@color/primary_rose" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="USG 2 - NT Scan"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:layout_marginStart="26dp"
+                            android:text="11-13 weeks + 6 days"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvUsg2Dates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary"
+                            tools:text="4 Mar - 25 Mar 2025" />
+
+                        <TextView
+                            android:id="@+id/tvUsg2StatusText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:drawableStart="@android:drawable/ic_popup_reminder"
+                            android:drawablePadding="@dimen/spacing_xs"
+                            android:drawableTint="@color/primary_rose"
+                            android:text="In 5 days"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/primary_rose" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- USG 3 - Future state -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardUsg3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/background_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvUsg3Status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="○"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_tertiary" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="USG 3 - Anomaly Scan"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:layout_marginStart="26dp"
+                            android:text="18-20 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvUsg3Dates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary"
+                            tools:text="29 Apr - 13 May 2025" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- USG 4 - Future state -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardUsg4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    android:layout_marginBottom="@dimen/spacing_lg"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/background_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tvUsg4Status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="○"
+                                android:textSize="18sp"
+                                android:textColor="@color/text_tertiary" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:text="USG 4 - Growth Scan"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:layout_marginStart="26dp"
+                            android:text="30-32 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvUsg4Dates"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:layout_marginStart="26dp"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary"
+                            tools:text="12 Aug - 26 Aug 2025" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

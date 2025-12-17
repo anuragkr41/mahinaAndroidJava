@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mahina App - Spacing & Dimension System
+
+    Based on 8dp base unit grid
+    Consistent spacing creates visual harmony
+-->
+<resources>
+
+    <!-- ============================================
+         BASE SPACING SCALE (8dp increments)
+         ============================================ -->
+
+    <!-- Micro spacing -->
+    <dimen name="spacing_xxs">2dp</dimen>     <!-- Tight internal spacing -->
+    <dimen name="spacing_xs">4dp</dimen>      <!-- Icon to text gap -->
+
+    <!-- Standard spacing -->
+    <dimen name="spacing_sm">8dp</dimen>      <!-- 1 unit - minimal spacing -->
+    <dimen name="spacing_md">16dp</dimen>     <!-- 2 units - standard padding -->
+    <dimen name="spacing_lg">24dp</dimen>     <!-- 3 units - section spacing -->
+    <dimen name="spacing_xl">32dp</dimen>     <!-- 4 units - large gaps -->
+
+    <!-- Large spacing -->
+    <dimen name="spacing_xxl">48dp</dimen>    <!-- 6 units - major sections -->
+    <dimen name="spacing_xxxl">64dp</dimen>   <!-- 8 units - screen sections -->
+
+
+    <!-- ============================================
+         SCREEN MARGINS
+         ============================================ -->
+
+    <dimen name="screen_margin_horizontal">16dp</dimen>
+    <dimen name="screen_margin_vertical">16dp</dimen>
+    <dimen name="screen_margin_bottom">24dp</dimen>  <!-- Extra bottom for nav bar -->
+
+
+    <!-- ============================================
+         CARD DIMENSIONS
+         ============================================ -->
+
+    <!-- Card padding -->
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="card_padding_compact">12dp</dimen>
+    <dimen name="card_padding_large">20dp</dimen>
+
+    <!-- Card corners -->
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="card_corner_radius_small">12dp</dimen>
+    <dimen name="card_corner_radius_large">24dp</dimen>
+
+    <!-- Card elevation -->
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_elevation_raised">4dp</dimen>
+    <dimen name="card_elevation_flat">0dp</dimen>
+
+    <!-- Card spacing (between cards) -->
+    <dimen name="card_spacing">12dp</dimen>
+    <dimen name="card_spacing_compact">8dp</dimen>
+
+
+    <!-- ============================================
+         HERO CARD (Dashboard)
+         ============================================ -->
+
+    <dimen name="hero_card_height">240dp</dimen>
+    <dimen name="hero_card_padding">24dp</dimen>
+    <dimen name="hero_card_corner_radius">24dp</dimen>
+
+
+    <!-- ============================================
+         LIST ITEM DIMENSIONS
+         ============================================ -->
+
+    <dimen name="list_item_height">72dp</dimen>
+    <dimen name="list_item_height_compact">56dp</dimen>
+    <dimen name="list_item_padding_horizontal">16dp</dimen>
+    <dimen name="list_item_padding_vertical">12dp</dimen>
+
+    <!-- List divider -->
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="divider_margin_start">16dp</dimen>
+
+
+    <!-- ============================================
+         BUTTON DIMENSIONS
+         ============================================ -->
+
+    <!-- Primary button (filled) -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_min_width">120dp</dimen>
+    <dimen name="button_corner_radius">24dp</dimen>
+    <dimen name="button_padding_horizontal">24dp</dimen>
+
+    <!-- Small button -->
+    <dimen name="button_height_small">36dp</dimen>
+    <dimen name="button_corner_radius_small">18dp</dimen>
+    <dimen name="button_padding_horizontal_small">16dp</dimen>
+
+    <!-- FAB -->
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!-- ============================================
+         ICON SIZES
+         ============================================ -->
+
+    <dimen name="icon_size_xs">16dp</dimen>   <!-- Inline icons -->
+    <dimen name="icon_size_sm">20dp</dimen>   <!-- Small icons -->
+    <dimen name="icon_size_md">24dp</dimen>   <!-- Standard icons -->
+    <dimen name="icon_size_lg">32dp</dimen>   <!-- Featured icons -->
+    <dimen name="icon_size_xl">48dp</dimen>   <!-- Hero icons -->
+    <dimen name="icon_size_xxl">64dp</dimen>  <!-- Splash/onboarding -->
+
+
+    <!-- ============================================
+         STATUS INDICATORS
+         ============================================ -->
+
+    <dimen name="status_dot_size">12dp</dimen>
+    <dimen name="status_dot_size_small">8dp</dimen>
+    <dimen name="status_dot_size_large">16dp</dimen>
+
+    <dimen name="left_accent_width">4dp</dimen>
+
+
+    <!-- ============================================
+         PROGRESS BAR
+         ============================================ -->
+
+    <dimen name="progress_bar_height">8dp</dimen>
+    <dimen name="progress_bar_height_thin">4dp</dimen>
+    <dimen name="progress_bar_corner_radius">4dp</dimen>
+
+
+    <!-- ============================================
+         BOTTOM NAVIGATION
+         ============================================ -->
+
+    <dimen name="bottom_nav_height">56dp</dimen>
+    <dimen name="bottom_nav_icon_size">24dp</dimen>
+    <dimen name="bottom_nav_elevation">8dp</dimen>
+
+
+    <!-- ============================================
+         APP BAR / TOOLBAR
+         ============================================ -->
+
+    <dimen name="app_bar_height">56dp</dimen>
+    <dimen name="app_bar_padding_horizontal">4dp</dimen>
+
+
+    <!-- ============================================
+         DATE PICKER
+         ============================================ -->
+
+    <dimen name="date_picker_cell_size">40dp</dimen>
+    <dimen name="date_picker_padding">16dp</dimen>
+
+
+    <!-- ============================================
+         TIMELINE VIEW
+         ============================================ -->
+
+    <dimen name="timeline_connector_width">2dp</dimen>
+    <dimen name="timeline_node_size">12dp</dimen>
+    <dimen name="timeline_content_margin_start">24dp</dimen>
+
+
+    <!-- ============================================
+         TOUCH TARGETS (Accessibility)
+         ============================================ -->
+
+    <!-- Minimum touch target size per Material guidelines -->
+    <dimen name="touch_target_min">48dp</dimen>
+
+
+    <!-- ============================================
+         COMPONENT SPACING PATTERNS
+         ============================================ -->
+
+    <!-- Section header to content -->
+    <dimen name="section_header_margin_bottom">12dp</dimen>
+
+    <!-- Between cards in same section -->
+    <dimen name="card_gap">12dp</dimen>
+
+    <!-- Between sections -->
+    <dimen name="section_gap">24dp</dimen>
+
+    <!-- Icon to text (inline) -->
+    <dimen name="icon_text_gap">8dp</dimen>
+
+    <!-- Text line spacing (visual only - use lineSpacing in text styles) -->
+    <dimen name="text_block_margin">4dp</dimen>
+
+</resources>

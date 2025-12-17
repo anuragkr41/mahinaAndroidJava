@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mahina App - Typography System
+
+    Based on Material Design 3 type scale
+    Using Lexend font family for readability
+
+    Font Files Required:
+    - lexend_regular.ttf
+    - lexend_medium.ttf
+    - lexend_semibold.ttf
+    - lexend_bold.ttf
+    - lexend_light.ttf (optional)
+-->
+<resources>
+
+    <!-- ============================================
+         DISPLAY STYLES
+         Large, impactful text for hero sections
+         ============================================ -->
+
+    <!-- Display Large: Week number in hero card -->
+    <style name="TextAppearance.Mahina.DisplayLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+
+    <!-- Display Medium: Section highlights -->
+    <style name="TextAppearance.Mahina.DisplayMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <!-- Display Small: Prominent numbers -->
+    <style name="TextAppearance.Mahina.DisplaySmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+
+    <!-- ============================================
+         HEADLINE STYLES
+         Screen titles and major section headers
+         ============================================ -->
+
+    <!-- Headline Large: Screen titles -->
+    <style name="TextAppearance.Mahina.HeadlineLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <!-- Headline Medium: Major section titles -->
+    <style name="TextAppearance.Mahina.HeadlineMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+
+    <!-- Headline Small: Subsection titles -->
+    <style name="TextAppearance.Mahina.HeadlineSmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+
+    <!-- ============================================
+         TITLE STYLES
+         Card titles and list item headers
+         ============================================ -->
+
+    <!-- Title Large: Card main titles -->
+    <style name="TextAppearance.Mahina.TitleLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:lineSpacingMultiplier">1.27</item>
+    </style>
+
+    <!-- Title Medium: Event titles, important labels -->
+    <style name="TextAppearance.Mahina.TitleMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+
+    <!-- Title Small: Secondary titles -->
+    <style name="TextAppearance.Mahina.TitleSmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingMultiplier">1.35</item>
+    </style>
+
+
+    <!-- ============================================
+         BODY STYLES
+         Main content text
+         ============================================ -->
+
+    <!-- Body Large: Primary body text -->
+    <style name="TextAppearance.Mahina.BodyLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+    <!-- Body Medium: Secondary body text -->
+    <style name="TextAppearance.Mahina.BodyMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:lineSpacingMultiplier">1.43</item>
+    </style>
+
+    <!-- Body Small: Tertiary text, dense content -->
+    <style name="TextAppearance.Mahina.BodySmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:lineSpacingMultiplier">1.33</item>
+    </style>
+
+
+    <!-- ============================================
+         LABEL STYLES
+         Buttons, chips, small UI elements
+         ============================================ -->
+
+    <!-- Label Large: Buttons, prominent labels -->
+    <style name="TextAppearance.Mahina.LabelLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Label Medium: Chips, tabs -->
+    <style name="TextAppearance.Mahina.LabelMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- Label Small: Badges, tiny labels -->
+    <style name="TextAppearance.Mahina.LabelSmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <!-- ============================================
+         SPECIALIZED STYLES
+         ============================================ -->
+
+    <!-- Week Number: Hero display -->
+    <style name="TextAppearance.Mahina.WeekNumber">
+        <item name="android:fontFamily">@font/lexend_exa</item>
+        <item name="android:textSize">72sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">@color/text_inverse</item>
+    </style>
+
+    <!-- EDD Display: Expected date -->
+    <style name="TextAppearance.Mahina.EDD">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/text_inverse_secondary</item>
+    </style>
+
+    <!-- Date Range: USG/Visit date windows -->
+    <style name="TextAppearance.Mahina.DateRange">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Status Badge: Completed, Upcoming, etc -->
+    <style name="TextAppearance.Mahina.StatusBadge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- App Name: Splash/branding -->
+    <style name="TextAppearance.Mahina.AppName">
+        <item name="android:fontFamily">@font/lexend_exa</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.15</item>
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <!-- Tagline: Splash subtitle -->
+    <style name="TextAppearance.Mahina.Tagline">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+
+    <!-- ============================================
+         TEXT VIEW WIDGET STYLES
+         Complete styles for common text views
+         ============================================ -->
+
+    <style name="Widget.Mahina.TextView.ScreenTitle">
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.HeadlineLarge</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.Mahina.TextView.SectionHeader">
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.TitleMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="Widget.Mahina.TextView.CardTitle">
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.TitleMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="Widget.Mahina.TextView.CardSubtitle">
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.BodyMedium</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="Widget.Mahina.TextView.CardBody">
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.BodyMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+
+</resources>

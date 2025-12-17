@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mahina App - Redesigned Color System
+
+    Design Philosophy:
+    - Warm, nurturing tones for maternal care
+    - Soft, calming palette to reduce anxiety
+    - Clear hierarchy through color contrast
+    - Accessible color combinations (WCAG AA)
+-->
+<resources>
+
+    <!-- ============================================
+         PRIMARY PALETTE
+         ============================================ -->
+
+    <!-- Primary: Soft Rose - Warmth, care, femininity -->
+    <color name="primary">#E8A5B8</color>
+    <color name="primary_light">#FFD4E0</color>
+    <color name="primary_dark">#CC76A1</color>
+    <color name="on_primary">#FFFFFF</color>
+
+    <!-- Secondary: Soft Blue - Trust, calm, professionalism -->
+    <color name="secondary">#5B7DB1</color>
+    <color name="secondary_light">#8AAEE0</color>
+    <color name="secondary_dark">#3A5A8C</color>
+    <color name="on_secondary">#FFFFFF</color>
+
+    <!-- Accent: Warm Gold - Celebration, milestones, hope -->
+    <color name="accent">#F5C77E</color>
+    <color name="accent_light">#FFE4B5</color>
+    <color name="accent_dark">#D4A54A</color>
+    <color name="on_accent">#3D4852</color>
+
+
+    <!-- ============================================
+         SEMANTIC COLORS
+         ============================================ -->
+
+    <!-- Success: Sage Green - Completed, healthy, positive -->
+    <color name="success">#7AB89B</color>
+    <color name="success_light">#A8D5C0</color>
+    <color name="success_dark">#5A9479</color>
+    <color name="on_success">#FFFFFF</color>
+
+    <!-- Warning: Soft Orange - Attention needed -->
+    <color name="warning">#F5A962</color>
+    <color name="warning_light">#FFD4A8</color>
+    <color name="warning_dark">#D4853A</color>
+    <color name="on_warning">#3D4852</color>
+
+    <!-- Error: Soft Coral - Issues, overdue -->
+    <color name="error">#E57373</color>
+    <color name="error_light">#FFABAB</color>
+    <color name="error_dark">#C94C4C</color>
+    <color name="on_error">#FFFFFF</color>
+
+    <!-- Info: Soft Teal - Information, tips -->
+    <color name="info">#64B5C6</color>
+    <color name="info_light">#96D4E2</color>
+    <color name="info_dark">#3A8A9A</color>
+    <color name="on_info">#FFFFFF</color>
+
+
+    <!-- ============================================
+         BACKGROUND & SURFACE COLORS
+         ============================================ -->
+
+    <!-- Warm White Background - Softer than pure white -->
+    <color name="background">#FDF8F5</color>
+    <color name="background_secondary">#F8F0EC</color>
+
+    <!-- Surface colors for cards and elevated elements -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F5F0ED</color>
+    <color name="on_surface">#3D4852</color>
+    <color name="on_surface_variant">#6B7280</color>
+
+
+    <!-- ============================================
+         TEXT COLORS
+         ============================================ -->
+
+    <!-- Primary text - High emphasis -->
+    <color name="text_primary">#3D4852</color>
+
+    <!-- Secondary text - Medium emphasis -->
+    <color name="text_secondary">#6B7280</color>
+
+    <!-- Tertiary text - Low emphasis, hints -->
+    <color name="text_tertiary">#9CA3AF</color>
+
+    <!-- Disabled text -->
+    <color name="text_disabled">#D1D5DB</color>
+
+    <!-- Inverse text (on dark backgrounds) -->
+    <color name="text_inverse">#FFFFFF</color>
+    <color name="text_inverse_secondary">#E5E7EB</color>
+
+
+    <!-- ============================================
+         EVENT TYPE COLORS
+         ============================================ -->
+
+    <!-- USG/Ultrasound events - Rose tint -->
+    <color name="event_usg">#E8A5B8</color>
+    <color name="event_usg_background">#FDF2F5</color>
+
+    <!-- Doctor Visit events - Blue tint -->
+    <color name="event_visit">#5B7DB1</color>
+    <color name="event_visit_background">#F0F5FA</color>
+
+    <!-- Milestone events - Gold tint -->
+    <color name="event_milestone">#F5C77E</color>
+    <color name="event_milestone_background">#FFFBF0</color>
+
+
+    <!-- ============================================
+         STATUS COLORS
+         ============================================ -->
+
+    <!-- Completed status -->
+    <color name="status_completed">#7AB89B</color>
+    <color name="status_completed_background">#F0F9F4</color>
+
+    <!-- Current/Active status -->
+    <color name="status_current">#5B7DB1</color>
+    <color name="status_current_background">#EFF6FF</color>
+
+    <!-- Upcoming status -->
+    <color name="status_upcoming">#F5C77E</color>
+    <color name="status_upcoming_background">#FFFBEB</color>
+
+    <!-- Future status -->
+    <color name="status_future">#D1D5DB</color>
+    <color name="status_future_background">#F9FAFB</color>
+
+
+    <!-- ============================================
+         TRIMESTER COLORS
+         ============================================ -->
+
+    <color name="trimester_1">#E8A5B8</color>
+    <color name="trimester_2">#5B7DB1</color>
+    <color name="trimester_3">#F5C77E</color>
+
+
+    <!-- ============================================
+         UI ELEMENT COLORS
+         ============================================ -->
+
+    <!-- Dividers and borders -->
+    <color name="divider">#E5E7EB</color>
+    <color name="border">#D1D5DB</color>
+    <color name="border_focused">#5B7DB1</color>
+
+    <!-- Progress bars -->
+    <color name="progress_track">#E5E7EB</color>
+    <color name="progress_fill">#F5C77E</color>
+
+    <!-- Ripple/Touch feedback -->
+    <color name="ripple_light">#1A5B7DB1</color>
+    <color name="ripple_dark">#33000000</color>
+
+    <!-- Shadows (for programmatic use) -->
+    <color name="shadow">#1A000000</color>
+
+    <!-- Scrim/Overlay -->
+    <color name="scrim">#80000000</color>
+
+
+    <!-- ============================================
+         GRADIENT START/END COLORS
+         ============================================ -->
+
+    <!-- Hero card gradient -->
+    <color name="gradient_hero_start">#E8A5B8</color>
+    <color name="gradient_hero_end">#5B7DB1</color>
+
+    <!-- Splash screen gradient -->
+    <color name="gradient_splash_start">#FDF8F5</color>
+    <color name="gradient_splash_end">#F8E8EC</color>
+
+
+    <!-- ============================================
+         LEGACY COLORS (for backwards compatibility)
+         ============================================ -->
+
+    <color name="pink">#CC76A1</color>
+    <color name="blue">#120A8F</color>
+    <color name="grey">#4A5660</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>

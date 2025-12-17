@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_margin">
+
+        <!-- Logo and Title -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_lg"
+                android:layout_height="@dimen/icon_size_lg"
+                android:src="@drawable/mahinalogo"
+                android:contentDescription="Logo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mahina"
+                    android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                    android:textColor="@color/primary_rose"
+                    android:fontFamily="@font/lexend_exa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Pregnancy Companion"
+                    android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                    android:textColor="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Settings Button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="Settings"
+            app:tint="@color/text_secondary" />
+
+    </RelativeLayout>
+
+    <!-- Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin">
+
+            <!-- My Pregnancy Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPregnancy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_large">
+
+                    <!-- Icon Container -->
+                    <FrameLayout
+                        android:layout_width="@dimen/icon_container_size"
+                        android:layout_height="@dimen/icon_container_size"
+                        android:background="@drawable/bg_icon_container_rose">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🤰"
+                            android:textSize="24sp" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:text="My Pregnancy"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="USG Schedule"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="Track your ultrasound appointments with reminders"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <!-- Notification Badge -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:background="@drawable/bg_notification_badge"
+                        android:drawableStart="@android:drawable/ic_popup_reminder"
+                        android:drawablePadding="@dimen/spacing_xs"
+                        android:drawableTint="@color/success"
+                        android:text="Notifications ON"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                        android:textColor="@color/success" />
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:src="@android:drawable/ic_media_play"
+                        android:rotation="0"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Open" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Baby Vaccination Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVaccination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_large">
+
+                    <!-- Icon Container -->
+                    <FrameLayout
+                        android:layout_width="@dimen/icon_container_size"
+                        android:layout_height="@dimen/icon_container_size"
+                        android:background="@drawable/bg_icon_container_green">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="👶"
+                            android:textSize="24sp" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:text="Baby Vaccination"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Schedule"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="Track your baby's immunization dates with reminders"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <!-- Notification Badge -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:background="@drawable/bg_notification_badge"
+                        android:drawableStart="@android:drawable/ic_popup_reminder"
+                        android:drawablePadding="@dimen/spacing_xs"
+                        android:drawableTint="@color/success"
+                        android:text="Notifications ON"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                        android:textColor="@color/success" />
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:src="@android:drawable/ic_media_play"
+                        android:rotation="0"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Open" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

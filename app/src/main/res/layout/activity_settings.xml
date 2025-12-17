@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm">
+
+    <!-- App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/spacing_xs"
+        android:background="@color/background_warm">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Settings"
+            android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+            android:textColor="@color/text_primary" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin">
+
+            <!-- App Mode Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Mode"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/background_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Mode Icon -->
+                        <TextView
+                            android:id="@+id/tvModeIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👨‍⚕️"
+                            android:textSize="32sp"
+                            tools:text="👨‍⚕️" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvCurrentMode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary"
+                                tools:text="Doctor Mode" />
+
+                            <TextView
+                                android:id="@+id/tvModeDescription"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xxs"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/text_secondary"
+                                tools:text="Calculator mode - data is not saved" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_md"
+                        android:background="@color/divider" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSwitchMode"
+                        style="@style/Widget.Mahina.Button.Outlined"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height_small"
+                        android:text="Switch to Patient Mode"
+                        app:strokeColor="@color/primary_blue"
+                        android:textColor="@color/primary_blue" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Notifications Section (Patient Mode Only) -->
+            <LinearLayout
+                android:id="@+id/notificationSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:text="Notifications"
+                    android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                    android:textColor="@color/text_secondary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/background_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/icon_size_md"
+                                android:layout_height="@dimen/icon_size_md"
+                                android:src="@android:drawable/ic_popup_reminder"
+                                app:tint="@color/text_secondary" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/spacing_md"
+                                android:text="Enable Reminders"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyLarge"
+                                android:textColor="@color/text_primary" />
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switchNotifications"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:layout_marginStart="40dp"
+                            android:text="Receive notifications 72h, 48h, 24h before events and on the scheduled date"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_tertiary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Saved Data Section (Patient Mode Only) -->
+            <LinearLayout
+                android:id="@+id/savedDataSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:text="Saved Data"
+                    android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                    android:textColor="@color/text_secondary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_sm"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/background_card">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="LMP:"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvSavedLmp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary"
+                                tools:text="17 December 2024" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Baby DOB:"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/tvSavedDob"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_sm"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary"
+                                tools:text="Not set" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="@dimen/spacing_md"
+                            android:background="@color/divider" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnClearData"
+                            style="@style/Widget.Mahina.Button.Outlined"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/button_height_small"
+                            android:text="Clear All Data"
+                            app:strokeColor="@color/error"
+                            android:textColor="@color/error" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- About Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="About"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/background_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_lg"
+                        android:layout_height="@dimen/icon_size_lg"
+                        android:src="@drawable/mahinalogo"
+                        android:contentDescription="Logo" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mahina v1.0.0"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:text="Designed &amp; Developed by\nDr. Neetu and Anurag"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:text="ESI Govind Puri Haridwar"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_tertiary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

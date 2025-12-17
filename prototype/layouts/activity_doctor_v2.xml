@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Doctor Calculator Screen - Redesigned
+
+    Key improvements:
+    - Single-screen workflow
+    - Collapsible USG/Visit sections
+    - Clear visual hierarchy
+    - Professional, efficient layout
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- App Bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/background"
+            app:title="Pregnancy Calculator"
+            app:titleTextAppearance="@style/TextAppearance.Mahina.TitleLarge"
+            app:titleTextColor="@color/text_primary"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/text_primary">
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_settings"
+                android:contentDescription="Settings"
+                app:tint="@color/text_secondary" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin_horizontal">
+
+            <!-- LMP Input Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLmpInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_spacing"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_lg"
+                        android:layout_height="@dimen/icon_size_lg"
+                        android:src="@drawable/ic_calendar"
+                        app:tint="@color/primary"
+                        android:contentDescription="Calendar" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last Menstrual Period (LMP)"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvSelectedDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:text="Tap to select date"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Edit" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- POG/EDD Hero Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPogEdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/section_gap"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/card_corner_radius_large"
+                app:cardElevation="@dimen/card_elevation_raised"
+                tools:visibility="visible">
+
+                <!-- Gradient background via drawable -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradient_hero"
+                    android:orientation="vertical"
+                    android:padding="@dimen/hero_card_padding"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Period of Gestation"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                        android:textColor="@color/text_inverse_secondary" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="baseline"
+                        android:layout_marginTop="@dimen/spacing_sm">
+
+                        <TextView
+                            android:id="@+id/tvPogWeeks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Mahina.WeekNumber"
+                            tools:text="24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:text="weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                            android:textColor="@color/text_inverse_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvPogDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_md"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                            android:textColor="@color/text_inverse_secondary"
+                            tools:text="3 days" />
+
+                    </LinearLayout>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/progressPregnancy"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/progress_bar_height"
+                        android:layout_marginTop="@dimen/spacing_lg"
+                        android:max="40"
+                        android:progressDrawable="@drawable/progress_pregnancy"
+                        tools:progress="24" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/spacing_xs">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textAppearance="@style/TextAppearance.Mahina.LabelSmall"
+                            android:textColor="@color/text_inverse_secondary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="40 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.LabelSmall"
+                            android:textColor="@color/text_inverse_secondary" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/spacing_md"
+                        android:background="@color/text_inverse_secondary"
+                        android:alpha="0.3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Expected Date of Delivery"
+                        android:textAppearance="@style/TextAppearance.Mahina.LabelMedium"
+                        android:textColor="@color/text_inverse_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvEdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:textAppearance="@style/TextAppearance.Mahina.EDD"
+                        tools:text="24 September 2025" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- USG Schedule Section -->
+            <TextView
+                android:id="@+id/tvUsgHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USG Schedule"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUsgSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginBottom="@dimen/section_gap"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:strokeColor="@color/event_usg"
+                app:strokeWidth="0dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/containerUsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:divider="@drawable/divider_horizontal"
+                    android:showDividers="middle">
+
+                    <!-- USG items will be added programmatically or use include -->
+                    <!-- Example USG Item -->
+                    <include
+                        layout="@layout/item_usg_expandable"
+                        android:id="@+id/itemUsg1" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Doctor Visits Section -->
+            <TextView
+                android:id="@+id/tvVisitsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Doctor Visits"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVisitSchedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginBottom="@dimen/section_gap"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                tools:visibility="visible">
+
+                <!-- 2x4 Grid of visits -->
+                <androidx.gridlayout.widget.GridLayout
+                    android:id="@+id/gridVisits"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/card_padding"
+                    app:columnCount="2"
+                    app:rowCount="4">
+
+                    <!-- Visit items added programmatically -->
+
+                </androidx.gridlayout.widget.GridLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Share Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:text="Share Results"
+                android:textAppearance="@style/TextAppearance.Mahina.LabelLarge"
+                android:visibility="gone"
+                app:cornerRadius="@dimen/button_corner_radius"
+                app:icon="@drawable/ic_share"
+                app:iconGravity="textStart"
+                app:backgroundTint="@color/secondary"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

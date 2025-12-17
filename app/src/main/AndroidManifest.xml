@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.POST_NOTIFICATION" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +18,49 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Mahina"
         tools:targetApi="31">
+
+        <!-- New simplified activities -->
+        <activity
+            android:name=".activities.RoleSelectionActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.DoctorHomeActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.PatientHomeActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.DoctorUSGActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.DoctorImmunizationActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.PatientUSGActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.PatientVaccinationActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.Mahina" />
+
+        <!-- Legacy activities (kept for reference) -->
         <activity
             android:name=".activities.doctorActivities.DoctorOptions"
             android:exported="false"
@@ -39,7 +83,9 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="default" />
 
-        <receiver android:name=".Notifications.NotificationScheduler" />
+        <receiver
+            android:name=".Notifications.NotificationScheduler"
+            android:exported="false" />
 
         <activity
             android:name=".activities.DoctorAppointment"

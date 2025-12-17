@@ -1,13 +1,125 @@
 <resources>
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Base.Theme.Mahina" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/pink</item>
-        <item name="colorSecondary">@color/blue</item>
-        <item name="android:font">@color/grey</item>
-        <item name="android:actionButtonStyle">@color/pink</item>
-
+        <item name="colorPrimary">@color/primary_rose</item>
+        <item name="colorPrimaryVariant">@color/primary_rose_dark</item>
+        <item name="colorOnPrimary">@color/text_on_dark</item>
+        <item name="colorSecondary">@color/primary_blue</item>
+        <item name="colorSecondaryVariant">@color/primary_blue_dark</item>
+        <item name="colorOnSecondary">@color/text_on_dark</item>
+        <item name="android:colorBackground">@color/background_warm</item>
+        <item name="colorSurface">@color/background_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/error</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:statusBarColor">@color/background_warm</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.Mahina" parent="Base.Theme.Mahina" />
+
+    <!-- Doctor Mode Theme (Blue accent) -->
+    <style name="Theme.Mahina.Doctor" parent="Base.Theme.Mahina">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/primary_blue_dark</item>
+    </style>
+
+    <!-- Patient Mode Theme (Rose accent) -->
+    <style name="Theme.Mahina.Patient" parent="Base.Theme.Mahina">
+        <item name="colorPrimary">@color/primary_rose</item>
+        <item name="colorPrimaryVariant">@color/primary_rose_dark</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.Mahina" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.DisplayLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_on_dark</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.HeadlineLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.HeadlineMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.TitleLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.TitleMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.TitleSmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.BodyLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.BodyMedium">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.BodySmall">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_tertiary</item>
+    </style>
+
+    <style name="TextAppearance.Mahina.LabelLarge">
+        <item name="android:fontFamily">@font/lexend</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.Mahina.CardView" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/background_card</item>
+    </style>
+
+    <style name="Widget.Mahina.CardView.Hero">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">4dp</item>
+    </style>
+
+    <!-- Button Styles -->
+    <style name="Widget.Mahina.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.LabelLarge</item>
+    </style>
+
+    <style name="Widget.Mahina.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Mahina.LabelLarge</item>
+    </style>
+
 </resources>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm"
+    android:gravity="center"
+    android:padding="@dimen/screen_margin_large">
+
+    <!-- Logo and App Name -->
+    <ImageView
+        android:layout_width="@dimen/icon_size_xxl"
+        android:layout_height="@dimen/icon_size_xxl"
+        android:src="@drawable/mahinalogo"
+        android:contentDescription="Mahina Logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:text="MAHINA"
+        android:textAppearance="@style/TextAppearance.Mahina.HeadlineLarge"
+        android:textColor="@color/primary_blue"
+        android:letterSpacing="0.15"
+        android:fontFamily="@font/lexend_exa" />
+
+    <!-- Question -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xxl"
+        android:text="Who is using this app?"
+        android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+        android:textColor="@color/text_primary" />
+
+    <!-- Doctor Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_lg"
+        app:cardCornerRadius="@dimen/card_corner_radius_large"
+        app:cardElevation="@dimen/card_elevation_raised"
+        app:cardBackgroundColor="@color/background_card"
+        android:clickable="true"
+        android:focusable="true"
+        app:rippleColor="@color/ripple">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/card_padding_large">
+
+            <!-- Doctor Icon -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👨‍⚕️"
+                android:textSize="48sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="I am a Doctor /"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Healthcare Professional"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="Quick calculations for patient consultations"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Patient Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardPatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        app:cardCornerRadius="@dimen/card_corner_radius_large"
+        app:cardElevation="@dimen/card_elevation_raised"
+        app:cardBackgroundColor="@color/background_card"
+        android:clickable="true"
+        android:focusable="true"
+        app:rippleColor="@color/ripple">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/card_padding_large">
+
+            <!-- Patient Icon -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤰"
+                android:textSize="48sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="I am an Expecting"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mother / Patient"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="Track my pregnancy with reminders"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Footer Note -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/spacing_xl">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@android:drawable/ic_dialog_info"
+            app:tint="@color/text_tertiary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xs"
+            android:text="You can change this later in Settings"
+            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+            android:textColor="@color/text_tertiary" />
+
+    </LinearLayout>
+
+</LinearLayout>

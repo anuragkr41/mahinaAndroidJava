@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm">
+
+    <!-- App Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/spacing_xs"
+        android:background="@color/background_warm">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_revert"
+            android:contentDescription="Back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Immunization Schedule"
+            android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+            android:textColor="@color/text_primary" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin">
+
+            <!-- Date Picker Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Baby's Date of Birth"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="👶"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSelectedDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Date"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap to choose DOB"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_tertiary" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        app:tint="@color/primary_blue"
+                        android:contentDescription="Select" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Results Section (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/resultsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- Baby Age Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/success_light">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Baby's Age:"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvBabyAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_sm"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/success"
+                            tools:text="1 month, 15 days" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Vaccination Schedule Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:text="Vaccination Schedule"
+                    android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                    android:textColor="@color/text_primary" />
+
+                <!-- Vaccination cards container - will be populated programmatically -->
+                <LinearLayout
+                    android:id="@+id/vaccineCardsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/spacing_sm">
+
+                    <!-- At Birth -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/card_completed_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="At Birth"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/spacing_sm"
+                                android:background="@color/divider" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BCG"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="OPV-0"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hepatitis B - Birth dose"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tvBirthDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                                android:drawablePadding="@dimen/spacing_xs"
+                                android:drawableTint="@color/primary_blue"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/primary_blue"
+                                tools:text="15 Dec 2024" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 6 Weeks -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/background_card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6 Weeks"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/spacing_sm"
+                                android:background="@color/divider" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DTwP/DTaP - 1"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="IPV - 1"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hepatitis B - 2"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hib - 1, Rotavirus - 1, PCV - 1"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tv6WeeksDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                                android:drawablePadding="@dimen/spacing_xs"
+                                android:drawableTint="@color/primary_blue"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/primary_blue"
+                                tools:text="26 Jan 2025" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 10 Weeks -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/background_card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10 Weeks"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/spacing_sm"
+                                android:background="@color/divider" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DTwP/DTaP - 2, IPV - 2"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hib - 2, Rotavirus - 2, PCV - 2"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tv10WeeksDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                                android:drawablePadding="@dimen/spacing_xs"
+                                android:drawableTint="@color/primary_blue"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/primary_blue"
+                                tools:text="23 Feb 2025" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- 14 Weeks -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/background_card">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="@dimen/card_padding">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14 Weeks"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="@dimen/spacing_sm"
+                                android:background="@color/divider" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DTwP/DTaP - 3, IPV - 3"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Hib - 3, Rotavirus - 3, PCV - 3"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:id="@+id/tv14WeeksDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_sm"
+                                android:drawableStart="@android:drawable/ic_menu_my_calendar"
+                                android:drawablePadding="@dimen/spacing_xs"
+                                android:drawableTint="@color/primary_blue"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                                android:textColor="@color/primary_blue"
+                                tools:text="23 Mar 2025" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- More vaccination cards would follow the same pattern -->
+                    <!-- 6 months, 9 months, 12 months, 15 months, etc. -->
+
+                </LinearLayout>
+
+                <!-- Share Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShare"
+                    style="@style/Widget.Mahina.Button.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/spacing_lg"
+                    android:text="Share Schedule"
+                    app:icon="@android:drawable/ic_menu_share"
+                    app:iconGravity="textStart"
+                    app:strokeColor="@color/primary_blue"
+                    android:textColor="@color/primary_blue" />
+
+                <!-- Warning Footer -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_md"
+                    android:layout_marginBottom="@dimen/spacing_lg"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@android:drawable/ic_dialog_alert"
+                        app:tint="@color/warning" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:text="Data not saved (calculator mode)"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

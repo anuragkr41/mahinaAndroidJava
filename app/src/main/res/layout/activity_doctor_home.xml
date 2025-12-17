@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_warm">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_margin">
+
+        <!-- Logo and Title -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_lg"
+                android:layout_height="@dimen/icon_size_lg"
+                android:src="@drawable/mahinalogo"
+                android:contentDescription="Logo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_sm"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mahina"
+                    android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                    android:textColor="@color/primary_blue"
+                    android:fontFamily="@font/lexend_exa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="For Healthcare Professionals"
+                    android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                    android:textColor="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Settings Button -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="@dimen/touch_target_min"
+            android:layout_height="@dimen/touch_target_min"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_preferences"
+            android:contentDescription="Settings"
+            app:tint="@color/text_secondary" />
+
+    </RelativeLayout>
+
+    <!-- Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/screen_margin">
+
+            <!-- USG Dates Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardUSG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_large">
+
+                    <!-- Icon Container -->
+                    <FrameLayout
+                        android:layout_width="@dimen/icon_container_size"
+                        android:layout_height="@dimen/icon_container_size"
+                        android:background="@drawable/bg_icon_container_blue">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="📅"
+                            android:textSize="24sp" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:text="View USG Dates"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="Calculate pregnancy ultrasound schedule based on LMP"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:src="@android:drawable/ic_media_play"
+                        android:rotation="0"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Open" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Immunization Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardImmunization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_md"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_large">
+
+                    <!-- Icon Container -->
+                    <FrameLayout
+                        android:layout_width="@dimen/icon_container_size"
+                        android:layout_height="@dimen/icon_container_size"
+                        android:background="@drawable/bg_icon_container_green">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="💉"
+                            android:textSize="24sp" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:text="View Immunization Schedule"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_xs"
+                        android:text="Calculate baby vaccination dates based on DOB"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                        android:textColor="@color/text_secondary" />
+
+                    <!-- Arrow -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:src="@android:drawable/ic_media_play"
+                        android:rotation="0"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Open" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Info Banner -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:background="@drawable/bg_info_banner"
+                android:padding="@dimen/spacing_md"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@android:drawable/ic_dialog_info"
+                    app:tint="@color/text_tertiary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_sm"
+                    android:text="Calculator mode - data is not saved"
+                    android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                    android:textColor="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

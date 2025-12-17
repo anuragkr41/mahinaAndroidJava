@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mother Dashboard Screen - New Design
+
+    Features:
+    - Hero card showing current week with baby size
+    - Upcoming events with urgency indicators
+    - Completed events (collapsed)
+    - Bottom navigation
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/bottom_nav_height">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header with App Name -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/screen_margin_horizontal"
+                android:paddingTop="@dimen/spacing_md"
+                android:paddingBottom="@dimen/spacing_sm">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Mahina"
+                    android:textAppearance="@style/TextAppearance.Mahina.HeadlineMedium"
+                    android:textColor="@color/secondary" />
+
+                <ImageButton
+                    android:id="@+id/btnProfile"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_account_circle"
+                    android:contentDescription="Profile"
+                    app:tint="@color/text_secondary" />
+
+                <ImageButton
+                    android:id="@+id/btnSettings"
+                    android:layout_width="@dimen/touch_target_min"
+                    android:layout_height="@dimen/touch_target_min"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_settings"
+                    android:contentDescription="Settings"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+            <!-- Hero Card - Current Week -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHeroWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+                android:layout_marginTop="@dimen/spacing_sm"
+                app:cardCornerRadius="@dimen/card_corner_radius_large"
+                app:cardElevation="@dimen/card_elevation_raised">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradient_hero"
+                    android:orientation="vertical"
+                    android:padding="@dimen/hero_card_padding"
+                    android:gravity="center">
+
+                    <!-- Week Label -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Week"
+                        android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                        android:textColor="@color/text_inverse_secondary" />
+
+                    <!-- Week Number -->
+                    <TextView
+                        android:id="@+id/tvWeekNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.Mahina.WeekNumber"
+                        tools:text="24" />
+
+                    <!-- Moon Icon -->
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_xl"
+                        android:layout_height="@dimen/icon_size_xl"
+                        android:layout_marginTop="@dimen/spacing_sm"
+                        android:src="@drawable/ic_moon"
+                        app:tint="@color/text_inverse"
+                        android:contentDescription="Moon" />
+
+                    <!-- Baby Size Comparison -->
+                    <TextView
+                        android:id="@+id/tvBabySize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_md"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Mahina.BodyLarge"
+                        android:textColor="@color/text_inverse"
+                        tools:text="Your baby is about the size of\nan ear of corn" />
+
+                    <!-- Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/progressPregnancy"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/progress_bar_height"
+                        android:layout_marginTop="@dimen/spacing_lg"
+                        android:max="40"
+                        android:progressDrawable="@drawable/progress_pregnancy_light"
+                        tools:progress="24" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/spacing_xs">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textAppearance="@style/TextAppearance.Mahina.LabelSmall"
+                            android:textColor="@color/text_inverse_secondary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="40 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.LabelSmall"
+                            android:textColor="@color/text_inverse_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- EDD and Countdown -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/spacing_md">
+
+                        <TextView
+                            android:id="@+id/tvEdd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                            android:textColor="@color/text_inverse"
+                            tools:text="EDD: 24 September 2025" />
+
+                        <TextView
+                            android:id="@+id/tvDaysRemaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                            android:textColor="@color/text_inverse_secondary"
+                            tools:text="98 days to go" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Coming Up Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+                android:layout_marginTop="@dimen/section_gap"
+                android:text="Coming Up"
+                android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
+                android:textColor="@color/text_primary" />
+
+            <LinearLayout
+                android:id="@+id/containerUpcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/screen_margin_horizontal"
+                android:paddingTop="@dimen/spacing_sm">
+
+                <!-- Example Upcoming Event Card - USG -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/card_spacing"
+                    app:cardBackgroundColor="@color/event_usg_background"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <!-- Icon -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="🔬"
+                                android:textSize="24sp" />
+
+                            <!-- Event Details -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/icon_text_gap"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="USG 3 - Anomaly Scan"
+                                    android:textAppearance="@style/TextAppearance.Mahina.TitleSmall"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/spacing_xxs"
+                                    android:text="18-20 weeks"
+                                    android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                    android:textColor="@color/text_secondary" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Progress within window -->
+                        <ProgressBar
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/progress_bar_height_thin"
+                            android:layout_marginTop="@dimen/spacing_sm"
+                            android:max="100"
+                            android:progress="30"
+                            android:progressDrawable="@drawable/progress_event" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xs"
+                            android:text="Window opens in 2 weeks"
+                            android:textAppearance="@style/TextAppearance.Mahina.LabelSmall"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Example Upcoming Event Card - Visit -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/card_spacing"
+                    app:cardBackgroundColor="@color/event_visit_background"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/card_padding">
+
+                        <!-- Icon -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👩‍⚕️"
+                            android:textSize="24sp" />
+
+                        <!-- Event Details -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/icon_text_gap"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Doctor Visit 4"
+                                android:textAppearance="@style/TextAppearance.Mahina.TitleSmall"
+                                android:textColor="@color/text_primary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_xxs"
+                                android:text="Week 30 · 25 Jul - 1 Aug"
+                                android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                                android:textColor="@color/text_secondary" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size_md"
+                            android:layout_height="@dimen/icon_size_md"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/text_tertiary"
+                            android:contentDescription="View" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!-- Completed Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/screen_margin_horizontal"
+                android:layout_marginTop="@dimen/spacing_md"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                app:cardBackgroundColor="@color/status_completed_background"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_md"
+                        android:layout_height="@dimen/icon_size_md"
+                        android:src="@drawable/ic_check_circle"
+                        app:tint="@color/status_completed"
+                        android:contentDescription="Completed" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/icon_text_gap"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Completed"
+                            android:textAppearance="@style/TextAppearance.Mahina.TitleSmall"
+                            android:textColor="@color/status_completed" />
+
+                        <TextView
+                            android:id="@+id/tvCompletedSummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_secondary"
+                            tools:text="USG 1, USG 2, Visit 1-3" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all →"
+                        android:textAppearance="@style/TextAppearance.Mahina.LabelMedium"
+                        android:textColor="@color/status_completed" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_nav_height"
+        android:layout_gravity="bottom"
+        android:background="@color/surface"
+        app:elevation="@dimen/bottom_nav_elevation"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_mother" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

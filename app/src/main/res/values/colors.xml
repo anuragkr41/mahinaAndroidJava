@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Legacy colors (keep for compatibility) -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#CC76A1</color>
     <color name="blue">#120A8F</color>
     <color name="grey">#4A5660</color>
+
+    <!-- ==========================================
+         NEW DESIGN SYSTEM - Mahina v2
+         ========================================== -->
+
+    <!-- Primary: Soft Rose - Patient mode, warmth -->
+    <color name="primary_rose">#E8A5B8</color>
+    <color name="primary_rose_light">#FFD4E0</color>
+    <color name="primary_rose_dark">#CC76A1</color>
+
+    <!-- Secondary: Soft Blue - Doctor mode, professional -->
+    <color name="primary_blue">#5B7DB1</color>
+    <color name="primary_blue_light">#8AAEE0</color>
+    <color name="primary_blue_dark">#3A5A8C</color>
+
+    <!-- Accent: Warm Gold - Milestones, highlights -->
+    <color name="accent_gold">#F5C77E</color>
+    <color name="accent_gold_light">#FFE4B5</color>
+
+    <!-- Semantic Colors -->
+    <color name="success">#7AB89B</color>
+    <color name="success_light">#E8F5E9</color>
+    <color name="warning">#F5A962</color>
+    <color name="warning_light">#FFF3E0</color>
+    <color name="error">#E57373</color>
+    <color name="error_light">#FFEBEE</color>
+
+    <!-- Background Colors -->
+    <color name="background_warm">#FDF8F5</color>
+    <color name="background_card">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#3D4852</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+    <color name="text_disabled">#D1D5DB</color>
+    <color name="text_on_dark">#FFFFFF</color>
+    <color name="text_on_dark_secondary">#E5E7EB</color>
+
+    <!-- UI Elements -->
+    <color name="divider">#E5E7EB</color>
+    <color name="border">#D1D5DB</color>
+    <color name="ripple">#1A5B7DB1</color>
+
+    <!-- Card Backgrounds by Type -->
+    <color name="card_usg_bg">#FDF2F5</color>
+    <color name="card_visit_bg">#F0F5FA</color>
+    <color name="card_completed_bg">#F0F9F4</color>
+
+    <!-- Status Colors -->
+    <color name="status_completed">#7AB89B</color>
+    <color name="status_upcoming">#E8A5B8</color>
+    <color name="status_future">#D1D5DB</color>
+    <color name="status_overdue">#E57373</color>
 
 </resources>
