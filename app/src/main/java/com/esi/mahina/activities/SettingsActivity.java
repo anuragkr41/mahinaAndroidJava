@@ -2,6 +2,7 @@ package com.esi.mahina.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -10,17 +11,21 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.esi.mahina.R;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
+
+    public static final String KEY_LANGUAGE = "app_language";
 
     private ImageButton btnBack;
     private TextView tvModeIcon;
@@ -36,8 +41,18 @@ public class SettingsActivity extends AppCompatActivity {
     private TextView tvSavedDob;
     private MaterialButton btnClearData;
 
+    private MaterialCardView cardLanguage;
+    private TextView tvCurrentLanguage;
+
     private boolean isPatientMode;
-    private DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+
+    private DateTimeFormatter getDisplayFormatter() {
+        return DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.getDefault());
+    }
+
+    // Language codes and display names
+    private static final String[] LANGUAGE_CODES = {"en", "hi", "bn", "ta", "te", "mr", "gu"};
+    private static final String[] LANGUAGE_NAMES = {"English", "हिंदी", "বাংলা", "தமிழ்", "తెలుగు", "मराठी", "ગુજરાતી"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         initViews();
         setupClickListeners();
         loadCurrentMode();
+        loadCurrentLanguage();
     }
 
     @Override
@@ -70,6 +86,9 @@ public class SettingsActivity extends AppCompatActivity {
         tvSavedLmp = findViewById(R.id.tvSavedLmp);
         tvSavedDob = findViewById(R.id.tvSavedDob);
         btnClearData = findViewById(R.id.btnClearData);
+
+        cardLanguage = findViewById(R.id.cardLanguage);
+        tvCurrentLanguage = findViewById(R.id.tvCurrentLanguage);
     }
 
     private void setupClickListeners() {
@@ -99,6 +118,13 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showClearDataConfirmation();
+            }
+        });
+
+        cardLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLanguageSelector();
             }
         });
     }
@@ -134,6 +160,59 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    private void loadCurrentLanguage() {
+        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
+        String currentLang = prefs.getString(KEY_LANGUAGE, "en");
+
+        for (int i = 0; i < LANGUAGE_CODES.length; i++) {
+            if (LANGUAGE_CODES[i].equals(currentLang)) {
+                tvCurrentLanguage.setText(LANGUAGE_NAMES[i]);
+                break;
+            }
+        }
+    }
+
+    private void showLanguageSelector() {
+        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
+        String currentLang = prefs.getString(KEY_LANGUAGE, "en");
+
+        int selectedIndex = 0;
+        for (int i = 0; i < LANGUAGE_CODES.length; i++) {
+            if (LANGUAGE_CODES[i].equals(currentLang)) {
+                selectedIndex = i;
+                break;
+            }
+        }
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.select_language)
+                .setSingleChoiceItems(LANGUAGE_NAMES, selectedIndex, null)
+                .setPositiveButton(R.string.save, (dialog, which) -> {
+                    int selectedPosition = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
+                    setLanguage(LANGUAGE_CODES[selectedPosition]);
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    private void setLanguage(String languageCode) {
+        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
+        prefs.edit().putString(KEY_LANGUAGE, languageCode).apply();
+
+        // Update locale
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.setLocale(locale);
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
+        // Restart the app to apply changes
+        Intent intent = new Intent(this, SplashActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
     private void loadSavedData() {
         if (!isPatientMode) return;
 
@@ -144,7 +223,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (lmpDateStr != null) {
             try {
                 LocalDate lmpDate = LocalDate.parse(lmpDateStr);
-                tvSavedLmp.setText(lmpDate.format(displayFormatter));
+                tvSavedLmp.setText(lmpDate.format(getDisplayFormatter()));
             } catch (Exception e) {
                 tvSavedLmp.setText("Not set");
             }
@@ -157,7 +236,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (dobStr != null) {
             try {
                 LocalDate dobDate = LocalDate.parse(dobStr);
-                tvSavedDob.setText(dobDate.format(displayFormatter));
+                tvSavedDob.setText(dobDate.format(getDisplayFormatter()));
             } catch (Exception e) {
                 tvSavedDob.setText("Not set");
             }

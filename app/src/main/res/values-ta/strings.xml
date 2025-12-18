@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">மஹினா</string>
+    <string name="byEsi"></string>
+    <string name="developer">டாக்டர் நீது மற்றும் அனுராக் வடிவமைத்து உருவாக்கியது</string>
+
+    <!-- Common -->
+    <string name="back">பின்</string>
+    <string name="settings">அமைப்புகள்</string>
+    <string name="select_date">தேதியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="tap_to_change">மாற்ற தட்டவும்</string>
+    <string name="saved">✓ சேமிக்கப்பட்டது</string>
+    <string name="save">சேமி</string>
+    <string name="cancel">ரத்து</string>
+    <string name="completed">முடிந்தது</string>
+    <string name="upcoming">வரவிருக்கும்</string>
+    <string name="today_exclaim">இன்று!</string>
+    <string name="tomorrow_exclaim">நாளை!</string>
+    <string name="in_days">%d நாட்களில்</string>
+    <string name="days_to_go">%d நாட்கள் மீதமுள்ளன</string>
+    <string name="days_overdue">%d நாட்கள் தாமதம்</string>
+    <string name="today_is_the_day">இன்றே அந்த நாள்!</string>
+    <string name="notifications_on">அறிவிப்புகள் இயக்கத்தில்</string>
+    <string name="notifications_status">அறிவிப்புகள்: இயக்கத்தில் (72ம, 48ம, 24ம, தேதியில்)</string>
+    <string name="week">வாரம்</string>
+    <string name="weeks_label">வாரங்கள்</string>
+    <string name="day_label">நாள்</string>
+    <string name="forty_weeks">40 வாரங்கள்</string>
+
+    <!-- Role Selection -->
+    <string name="role_selection_title">இந்த ஆப்பை யார் பயன்படுத்துகிறார்கள்?</string>
+    <string name="role_selection_subtitle">உங்கள் அனுபவத்தை தனிப்பயனாக்க உங்கள் பங்கைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="role_doctor">நான் ஒரு மருத்துவர் /</string>
+    <string name="role_doctor_subtitle">சுகாதார நிபுணர்</string>
+    <string name="role_doctor_desc">நோயாளி ஆலோசனைக்கான விரைவான கணக்கீடுகள்</string>
+    <string name="role_patient">நான் ஒரு கர்ப்பிணி</string>
+    <string name="role_patient_subtitle">தாய் / நோயாளி</string>
+    <string name="role_patient_desc">நினைவூட்டல்களுடன் என் கர்ப்பத்தைக் கண்காணிக்கவும்</string>
+    <string name="role_change_hint">இதை பின்னர் அமைப்புகளில் மாற்றலாம்</string>
+
+    <!-- Patient Home -->
+    <string name="patient_home_tagline">உங்கள் கர்ப்பகால துணை</string>
+    <string name="my_pregnancy">என் கர்ப்பம்</string>
+    <string name="usg_schedule">USG அட்டவணை</string>
+    <string name="track_usg_appointments">நினைவூட்டல்களுடன் உங்கள் அல்ட்ராசவுண்ட் சந்திப்புகளைக் கண்காணிக்கவும்</string>
+    <string name="baby_vaccination">குழந்தை தடுப்பூசி</string>
+    <string name="schedule">அட்டவணை</string>
+    <string name="track_immunization">நினைவூட்டல்களுடன் உங்கள் குழந்தையின் தடுப்பூசி தேதிகளைக் கண்காணிக்கவும்</string>
+
+    <!-- Patient USG -->
+    <string name="my_pregnancy_usg">என் கர்ப்பம் USG</string>
+    <string name="my_lmp_date">என் LMP தேதி</string>
+    <string name="edd_format">EDD: %s</string>
+    <string name="confirm_lmp_title">LMP தேதியை உறுதிப்படுத்தவும்</string>
+    <string name="confirm_lmp_message">%s ஐ உங்கள் கடைசி மாதவிடாய் தேதியாக சேமிக்கவா?\n\nஇது உங்கள் கர்ப்பகால நேர அட்டவணையைக் கணக்கிட மற்றும் நினைவூட்டல்களை அமைக்க பயன்படுத்தப்படும்.</string>
+
+    <!-- USG Types -->
+    <string name="usg_schedule_header">USG அட்டவணை</string>
+    <string name="usg1_title">USG 1 - டேட்டிங் ஸ்கேன்</string>
+    <string name="usg1_weeks">6–8 வாரங்கள்</string>
+    <string name="usg2_title">USG 2 - NT ஸ்கேன்</string>
+    <string name="usg2_weeks">11–13 வாரங்கள் + 6 நாட்கள்</string>
+    <string name="usg3_title">USG 3 - அனோமலி ஸ்கேன்</string>
+    <string name="usg3_weeks">18–20 வாரங்கள்</string>
+    <string name="usg4_title">USG 4 - வளர்ச்சி ஸ்கேன்</string>
+    <string name="usg4_weeks">30–32 வாரங்கள்</string>
+    <string name="due_now">இப்போது நிலுவை!</string>
+
+    <!-- Patient Vaccination -->
+    <string name="baby_vaccination_title">குழந்தை தடுப்பூசி</string>
+    <string name="baby_dob">குழந்தையின் பிறந்த தேதி</string>
+    <string name="baby_age">குழந்தையின் வயது</string>
+    <string name="confirm_dob_title">குழந்தையின் பிறந்த தேதியை உறுதிப்படுத்தவும்</string>
+    <string name="confirm_dob_message">%s ஐ உங்கள் குழந்தையின் பிறந்த தேதியாக சேமிக்கவா?\n\nஇது தடுப்பூசி அட்டவணையைக் கணக்கிட மற்றும் நினைவூட்டல்களை அமைக்க பயன்படுத்தப்படும்.</string>
+    <string name="not_born_yet">இன்னும் பிறக்கவில்லை</string>
+
+    <!-- Vaccination Schedule -->
+    <string name="vaccination_schedule_header">தடுப்பூசி அட்டவணை</string>
+    <string name="at_birth">பிறப்பின் போது</string>
+    <string name="birth_vaccines">BCG, OPV-0, ஹெபடைடிஸ் B</string>
+    <string name="six_weeks">6 வாரங்கள்</string>
+    <string name="six_weeks_vaccines">DTwP/DTaP-1, IPV-1, Hep B-2, Hib-1, Rotavirus-1, PCV-1</string>
+    <string name="ten_weeks">10 வாரங்கள்</string>
+    <string name="ten_weeks_vaccines">DTwP/DTaP-2, IPV-2, Hib-2, Rotavirus-2, PCV-2</string>
+    <string name="fourteen_weeks">14 வாரங்கள்</string>
+    <string name="fourteen_weeks_vaccines">DTwP/DTaP-3, IPV-3, Hib-3, Rotavirus-3, PCV-3</string>
+
+    <!-- Settings -->
+    <string name="language">மொழி</string>
+    <string name="select_language">மொழியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="change_role">பங்கை மாற்றவும்</string>
+    <string name="about">பற்றி</string>
+
+    <!-- Notifications -->
+    <string name="notification_upcoming">வரவிருக்கும்: %s</string>
+    <string name="notification_reminder">நினைவூட்டல்: %s</string>
+    <string name="notification_tomorrow">நாளை: %s</string>
+    <string name="notification_today">இன்று: %s</string>
+    <string name="notification_in_3_days">உங்கள் %s 3 நாட்களில்!</string>
+    <string name="notification_in_2_days">உங்கள் %s 2 நாட்களில்!</string>
+    <string name="notification_is_tomorrow">உங்கள் %s நாளை!</string>
+    <string name="notification_is_today">உங்கள் %s இன்று திட்டமிடப்பட்டுள்ளது!</string>
+    <string name="notification_baby_in_3_days">உங்கள் குழந்தையின் %s தடுப்பூசி 3 நாட்களில்!</string>
+    <string name="notification_baby_in_2_days">உங்கள் குழந்தையின் %s தடுப்பூசி 2 நாட்களில்!</string>
+    <string name="notification_baby_tomorrow">உங்கள் குழந்தையின் %s தடுப்பூசி நாளை!</string>
+    <string name="notification_baby_today">உங்கள் குழந்தையின் %s தடுப்பூசி இன்று திட்டமிடப்பட்டுள்ளது!</string>
+</resources>

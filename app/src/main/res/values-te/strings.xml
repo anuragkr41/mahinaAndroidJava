@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">మహినా</string>
+    <string name="byEsi"></string>
+    <string name="developer">డాక్టర్ నీతు మరియు అనురాగ్ రూపొందించి అభివృద్ధి చేశారు</string>
+
+    <!-- Common -->
+    <string name="back">వెనుకకు</string>
+    <string name="settings">సెట్టింగ్‌లు</string>
+    <string name="select_date">తేదీని ఎంచుకోండి</string>
+    <string name="tap_to_change">మార్చడానికి నొక్కండి</string>
+    <string name="saved">✓ సేవ్ చేయబడింది</string>
+    <string name="save">సేవ్</string>
+    <string name="cancel">రద్దు</string>
+    <string name="completed">పూర్తయింది</string>
+    <string name="upcoming">రాబోయే</string>
+    <string name="today_exclaim">ఈ రోజు!</string>
+    <string name="tomorrow_exclaim">రేపు!</string>
+    <string name="in_days">%d రోజుల్లో</string>
+    <string name="days_to_go">%d రోజులు మిగిలి ఉన్నాయి</string>
+    <string name="days_overdue">%d రోజులు ఆలస్యం</string>
+    <string name="today_is_the_day">ఈ రోజే ఆ రోజు!</string>
+    <string name="notifications_on">నోటిఫికేషన్లు ఆన్</string>
+    <string name="notifications_status">నోటిఫికేషన్లు: ఆన్ (72గం, 48గం, 24గం, తేదీన)</string>
+    <string name="week">వారం</string>
+    <string name="weeks_label">వారాలు</string>
+    <string name="day_label">రోజు</string>
+    <string name="forty_weeks">40 వారాలు</string>
+
+    <!-- Role Selection -->
+    <string name="role_selection_title">ఈ యాప్‌ని ఎవరు ఉపయోగిస్తున్నారు?</string>
+    <string name="role_selection_subtitle">మీ అనుభవాన్ని వ్యక్తిగతీకరించడానికి మీ పాత్రను ఎంచుకోండి</string>
+    <string name="role_doctor">నేను డాక్టర్ /</string>
+    <string name="role_doctor_subtitle">ఆరోగ్య నిపుణుడు</string>
+    <string name="role_doctor_desc">రోగి సంప్రదింపుల కోసం త్వరిత లెక్కలు</string>
+    <string name="role_patient">నేను గర్భిణి</string>
+    <string name="role_patient_subtitle">తల్లి / రోగి</string>
+    <string name="role_patient_desc">రిమైండర్లతో నా గర్భాన్ని ట్రాక్ చేయండి</string>
+    <string name="role_change_hint">మీరు దీన్ని తర్వాత సెట్టింగ్‌లలో మార్చవచ్చు</string>
+
+    <!-- Patient Home -->
+    <string name="patient_home_tagline">మీ గర్భధారణ సహచరుడు</string>
+    <string name="my_pregnancy">నా గర్భం</string>
+    <string name="usg_schedule">USG షెడ్యూల్</string>
+    <string name="track_usg_appointments">రిమైండర్లతో మీ అల్ట్రాసౌండ్ అపాయింట్‌మెంట్లను ట్రాక్ చేయండి</string>
+    <string name="baby_vaccination">బేబీ టీకాకరణ</string>
+    <string name="schedule">షెడ్యూల్</string>
+    <string name="track_immunization">రిమైండర్లతో మీ బిడ్డ టీకాకరణ తేదీలను ట్రాక్ చేయండి</string>
+
+    <!-- Patient USG -->
+    <string name="my_pregnancy_usg">నా గర్భం USG</string>
+    <string name="my_lmp_date">నా LMP తేదీ</string>
+    <string name="edd_format">EDD: %s</string>
+    <string name="confirm_lmp_title">LMP తేదీని నిర్ధారించండి</string>
+    <string name="confirm_lmp_message">%sని మీ చివరి ఋతుస్రావ తేదీగా సేవ్ చేయాలా?\n\nఇది మీ గర్భధారణ టైమ్‌లైన్ లెక్కించడానికి మరియు రిమైండర్లను షెడ్యూల్ చేయడానికి ఉపయోగించబడుతుంది.</string>
+
+    <!-- USG Types -->
+    <string name="usg_schedule_header">USG షెడ్యూల్</string>
+    <string name="usg1_title">USG 1 - డేటింగ్ స్కాన్</string>
+    <string name="usg1_weeks">6–8 వారాలు</string>
+    <string name="usg2_title">USG 2 - NT స్కాన్</string>
+    <string name="usg2_weeks">11–13 వారాలు + 6 రోజులు</string>
+    <string name="usg3_title">USG 3 - అనోమలీ స్కాన్</string>
+    <string name="usg3_weeks">18–20 వారాలు</string>
+    <string name="usg4_title">USG 4 - గ్రోత్ స్కాన్</string>
+    <string name="usg4_weeks">30–32 వారాలు</string>
+    <string name="due_now">ఇప్పుడు బకాయి!</string>
+
+    <!-- Patient Vaccination -->
+    <string name="baby_vaccination_title">బేబీ టీకాకరణ</string>
+    <string name="baby_dob">బిడ్డ పుట్టిన తేదీ</string>
+    <string name="baby_age">బిడ్డ వయసు</string>
+    <string name="confirm_dob_title">బిడ్డ పుట్టిన తేదీని నిర్ధారించండి</string>
+    <string name="confirm_dob_message">%sని మీ బిడ్డ పుట్టిన తేదీగా సేవ్ చేయాలా?\n\nఇది టీకాకరణ షెడ్యూల్ లెక్కించడానికి మరియు రిమైండర్లను సెట్ చేయడానికి ఉపయోగించబడుతుంది.</string>
+    <string name="not_born_yet">ఇంకా పుట్టలేదు</string>
+
+    <!-- Vaccination Schedule -->
+    <string name="vaccination_schedule_header">టీకాకరణ షెడ్యూల్</string>
+    <string name="at_birth">పుట్టినప్పుడు</string>
+    <string name="birth_vaccines">BCG, OPV-0, హెపటైటిస్ B</string>
+    <string name="six_weeks">6 వారాలు</string>
+    <string name="six_weeks_vaccines">DTwP/DTaP-1, IPV-1, Hep B-2, Hib-1, Rotavirus-1, PCV-1</string>
+    <string name="ten_weeks">10 వారాలు</string>
+    <string name="ten_weeks_vaccines">DTwP/DTaP-2, IPV-2, Hib-2, Rotavirus-2, PCV-2</string>
+    <string name="fourteen_weeks">14 వారాలు</string>
+    <string name="fourteen_weeks_vaccines">DTwP/DTaP-3, IPV-3, Hib-3, Rotavirus-3, PCV-3</string>
+
+    <!-- Settings -->
+    <string name="language">భాష</string>
+    <string name="select_language">భాషను ఎంచుకోండి</string>
+    <string name="change_role">పాత్రను మార్చండి</string>
+    <string name="about">గురించి</string>
+
+    <!-- Notifications -->
+    <string name="notification_upcoming">రాబోతోంది: %s</string>
+    <string name="notification_reminder">రిమైండర్: %s</string>
+    <string name="notification_tomorrow">రేపు: %s</string>
+    <string name="notification_today">ఈ రోజు: %s</string>
+    <string name="notification_in_3_days">మీ %s 3 రోజుల్లో!</string>
+    <string name="notification_in_2_days">మీ %s 2 రోజుల్లో!</string>
+    <string name="notification_is_tomorrow">మీ %s రేపు!</string>
+    <string name="notification_is_today">మీ %s ఈ రోజు షెడ్యూల్ చేయబడింది!</string>
+    <string name="notification_baby_in_3_days">మీ బిడ్డ %s టీకాకరణ 3 రోజుల్లో!</string>
+    <string name="notification_baby_in_2_days">మీ బిడ్డ %s టీకాకరణ 2 రోజుల్లో!</string>
+    <string name="notification_baby_tomorrow">మీ బిడ్డ %s టీకాకరణ రేపు!</string>
+    <string name="notification_baby_today">మీ బిడ్డ %s టీకాకరణ ఈ రోజు షెడ్యూల్ చేయబడింది!</string>
+</resources>

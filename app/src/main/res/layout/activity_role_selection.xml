@@ -28,12 +28,22 @@
 
     <!-- Question -->
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_xxl"
-        android:text="Who is using this app?"
+        android:text="@string/role_selection_title"
         android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
         android:textColor="@color/text_primary" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xs"
+        android:text="@string/role_selection_subtitle"
+        android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+        android:textColor="@color/text_secondary" />
 
     <!-- Doctor Card -->
     <com.google.android.material.card.MaterialCardView
@@ -66,14 +76,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                android:text="I am a Doctor /"
+                android:text="@string/role_doctor"
                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                 android:textColor="@color/text_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Healthcare Professional"
+                android:text="@string/role_doctor_subtitle"
                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                 android:textColor="@color/text_primary" />
 
@@ -81,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                android:text="Quick calculations for patient consultations"
+                android:text="@string/role_doctor_desc"
                 android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                 android:textColor="@color/text_secondary"
                 android:gravity="center" />
@@ -121,14 +131,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                android:text="I am an Expecting"
+                android:text="@string/role_patient"
                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                 android:textColor="@color/text_primary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mother / Patient"
+                android:text="@string/role_patient_subtitle"
                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                 android:textColor="@color/text_primary" />
 
@@ -136,7 +146,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                android:text="Track my pregnancy with reminders"
+                android:text="@string/role_patient_desc"
                 android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                 android:textColor="@color/text_secondary"
                 android:gravity="center" />
@@ -163,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_xs"
-            android:text="You can change this later in Settings"
+            android:text="@string/role_change_hint"
             android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
             android:textColor="@color/text_tertiary" />
 

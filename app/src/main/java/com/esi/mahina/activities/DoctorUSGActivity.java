@@ -9,19 +9,19 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.card.MaterialCardView;
 import com.esi.mahina.R;
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.utils.AnimationUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-public class DoctorUSGActivity extends AppCompatActivity {
+public class DoctorUSGActivity extends BaseActivity {
 
     private ImageButton btnBack;
     private MaterialCardView cardDatePicker;
@@ -40,8 +40,18 @@ public class DoctorUSGActivity extends AppCompatActivity {
     private TextView tvUsg3Dates;
     private TextView tvUsg4Dates;
 
+    // USG Cards for animation
+    private MaterialCardView cardUsg1;
+    private MaterialCardView cardUsg2;
+    private MaterialCardView cardUsg3;
+    private MaterialCardView cardUsg4;
+
     private LocalDate selectedLmpDate;
-    private DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+    private boolean isFirstLoad = true;
+
+    private DateTimeFormatter getDisplayFormatter() {
+        return DateTimeFormatter.ofPattern("dd MMMM yyyy", java.util.Locale.getDefault());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +61,7 @@ public class DoctorUSGActivity extends AppCompatActivity {
 
         initViews();
         setupClickListeners();
+        playEntranceAnimations();
     }
 
     private void initViews() {
@@ -68,35 +79,55 @@ public class DoctorUSGActivity extends AppCompatActivity {
         tvUsg2Dates = findViewById(R.id.tvUsg2Dates);
         tvUsg3Dates = findViewById(R.id.tvUsg3Dates);
         tvUsg4Dates = findViewById(R.id.tvUsg4Dates);
+
+        // USG cards
+        cardUsg1 = findViewById(R.id.cardUsg1);
+        cardUsg2 = findViewById(R.id.cardUsg2);
+        cardUsg3 = findViewById(R.id.cardUsg3);
+        cardUsg4 = findViewById(R.id.cardUsg4);
     }
 
     private void setupClickListeners() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+        btnBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.slide_down_fade_out);
         });
 
-        cardDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
+        AnimationUtils.addTouchScaleEffect(cardDatePicker);
+        cardDatePicker.setOnClickListener(v -> {
+            AnimationUtils.pulse(v);
+            showDatePicker();
         });
+    }
+
+    private void playEntranceAnimations() {
+        // Animate date picker card
+        cardDatePicker.setAlpha(0f);
+        cardDatePicker.setTranslationY(40f);
+        cardDatePicker.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setStartDelay(100)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                .start();
     }
 
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
 
+        if (selectedLmpDate != null) {
+            calendar.set(Calendar.YEAR, selectedLmpDate.getYear());
+            calendar.set(Calendar.MONTH, selectedLmpDate.getMonthValue() - 1);
+            calendar.set(Calendar.DAY_OF_MONTH, selectedLmpDate.getDayOfMonth());
+        }
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        selectedLmpDate = LocalDate.of(year, month + 1, dayOfMonth);
-                        updateUI();
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    selectedLmpDate = LocalDate.of(year, month + 1, dayOfMonth);
+                    isFirstLoad = false;
+                    updateUI();
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -112,10 +143,21 @@ public class DoctorUSGActivity extends AppCompatActivity {
         if (selectedLmpDate == null) return;
 
         // Update selected date display
-        tvSelectedDate.setText(selectedLmpDate.format(displayFormatter));
+        tvSelectedDate.setText(selectedLmpDate.format(getDisplayFormatter()));
 
-        // Show results section
-        resultsContainer.setVisibility(View.VISIBLE);
+        // Show results section with animation
+        if (resultsContainer.getVisibility() != View.VISIBLE) {
+            resultsContainer.setAlpha(0f);
+            resultsContainer.setTranslationY(60f);
+            resultsContainer.setVisibility(View.VISIBLE);
+            resultsContainer.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(500)
+                    .setStartDelay(100)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                    .start();
+        }
 
         // Calculate POG
         long totalDays = ChronoUnit.DAYS.between(selectedLmpDate, LocalDate.now());
@@ -123,9 +165,16 @@ public class DoctorUSGActivity extends AppCompatActivity {
         long days = totalDays % 7;
 
         if (totalDays >= 0) {
-            tvPogWeeks.setText(String.valueOf(weeks));
+            // Animate the week count
+            if (!isFirstLoad) {
+                AnimationUtils.countUp(tvPogWeeks, 0, (int) weeks, 800, "");
+            } else {
+                tvPogWeeks.setText(String.valueOf(weeks));
+            }
             tvPogDays.setText(", Day " + days);
-            progressPregnancy.setProgress((int) weeks);
+
+            // Animate progress bar
+            AnimationUtils.animateProgress(progressPregnancy, (int) weeks, 1000);
         } else {
             tvPogWeeks.setText("--");
             tvPogDays.setText("");
@@ -134,12 +183,30 @@ public class DoctorUSGActivity extends AppCompatActivity {
 
         // Calculate EDD
         LocalDate edd = selectedLmpDate.plusMonths(9).plusDays(7);
-        tvEdd.setText("EDD: " + edd.format(displayFormatter));
+        tvEdd.setText("EDD: " + edd.format(getDisplayFormatter()));
 
         // Update USG dates
         tvUsg1Dates.setText(DatesHelper.getUSG1DateRange.apply(selectedLmpDate));
         tvUsg2Dates.setText(DatesHelper.getUSG2DateRange.apply(selectedLmpDate));
         tvUsg3Dates.setText(DatesHelper.getUSG3DateRange.apply(selectedLmpDate));
         tvUsg4Dates.setText(DatesHelper.getUSG4DateRange.apply(selectedLmpDate));
+
+        // Animate USG cards with stagger
+        animateUSGCards();
+    }
+
+    private void animateUSGCards() {
+        if (cardUsg1 != null) {
+            AnimationUtils.scaleInBounce(cardUsg1, 0);
+        }
+        if (cardUsg2 != null) {
+            AnimationUtils.scaleInBounce(cardUsg2, 100);
+        }
+        if (cardUsg3 != null) {
+            AnimationUtils.scaleInBounce(cardUsg3, 200);
+        }
+        if (cardUsg4 != null) {
+            AnimationUtils.scaleInBounce(cardUsg4, 300);
+        }
     }
 }

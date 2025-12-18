@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mahina"
+                    android:text="@string/app_name"
                     android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
                     android:textColor="@color/primary_rose"
                     android:fontFamily="@font/lexend_exa" />
@@ -44,7 +44,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Pregnancy Companion"
+                    android:text="@string/patient_home_tagline"
                     android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                     android:textColor="@color/text_secondary" />
 
@@ -97,33 +97,17 @@
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_large">
 
-                    <!-- Icon Container -->
-                    <FrameLayout
-                        android:layout_width="@dimen/icon_container_size"
-                        android:layout_height="@dimen/icon_container_size"
-                        android:background="@drawable/bg_icon_container_rose">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="🤰"
-                            android:textSize="24sp" />
-
-                    </FrameLayout>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_md"
-                        android:text="My Pregnancy"
+                        android:text="@string/my_pregnancy"
                         android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
                         android:textColor="@color/text_primary" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="USG Schedule"
+                        android:text="@string/usg_schedule"
                         android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                         android:textColor="@color/text_primary" />
 
@@ -131,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_xs"
-                        android:text="Track your ultrasound appointments with reminders"
+                        android:text="@string/track_usg_appointments"
                         android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                         android:textColor="@color/text_secondary" />
 
@@ -141,10 +125,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_sm"
                         android:background="@drawable/bg_notification_badge"
-                        android:drawableStart="@android:drawable/ic_popup_reminder"
-                        android:drawablePadding="@dimen/spacing_xs"
-                        android:drawableTint="@color/success"
-                        android:text="Notifications ON"
+                        android:paddingHorizontal="@dimen/spacing_sm"
+                        android:paddingVertical="@dimen/spacing_xs"
+                        android:text="@string/notifications_on"
                         android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                         android:textColor="@color/success" />
 
@@ -182,33 +165,17 @@
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_large">
 
-                    <!-- Icon Container -->
-                    <FrameLayout
-                        android:layout_width="@dimen/icon_container_size"
-                        android:layout_height="@dimen/icon_container_size"
-                        android:background="@drawable/bg_icon_container_green">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="👶"
-                            android:textSize="24sp" />
-
-                    </FrameLayout>
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_md"
-                        android:text="Baby Vaccination"
+                        android:text="@string/baby_vaccination"
                         android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
                         android:textColor="@color/text_primary" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Schedule"
+                        android:text="@string/schedule"
                         android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                         android:textColor="@color/text_primary" />
 
@@ -216,7 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_xs"
-                        android:text="Track your baby's immunization dates with reminders"
+                        android:text="@string/track_immunization"
                         android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                         android:textColor="@color/text_secondary" />
 
@@ -226,10 +193,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_sm"
                         android:background="@drawable/bg_notification_badge"
-                        android:drawableStart="@android:drawable/ic_popup_reminder"
-                        android:drawablePadding="@dimen/spacing_xs"
-                        android:drawableTint="@color/success"
-                        android:text="Notifications ON"
+                        android:paddingHorizontal="@dimen/spacing_sm"
+                        android:paddingVertical="@dimen/spacing_xs"
+                        android:text="@string/notifications_on"
                         android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                         android:textColor="@color/success" />
 

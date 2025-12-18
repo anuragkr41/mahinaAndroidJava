@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="My Pregnancy USG"
+            android:text="@string/my_pregnancy_usg"
             android:textAppearance="@style/TextAppearance.Mahina.TitleLarge"
             android:textColor="@color/text_primary" />
 
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My LMP Date"
+                android:text="@string/my_lmp_date"
                 android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                 android:textColor="@color/text_secondary" />
 
@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="1dp"
                 app:cardBackgroundColor="@color/background_card"
                 app:strokeColor="@color/success"
@@ -93,7 +93,7 @@
                             android:id="@+id/tvSelectedDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Select Date"
+                            android:text="@string/select_date"
                             android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                             android:textColor="@color/text_primary" />
 
@@ -107,7 +107,7 @@
                                 android:id="@+id/tvSavedStatus"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="✓ Saved"
+                                android:text="@string/saved"
                                 android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                                 android:textColor="@color/success"
                                 android:visibility="gone"
@@ -118,7 +118,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="Tap to change"
+                                android:text="@string/tap_to_change"
                                 android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                                 android:textColor="@color/text_tertiary" />
 
@@ -172,7 +172,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Week"
+                                android:text="@string/week"
                                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                                 android:textColor="@color/text_on_dark_secondary" />
 
@@ -226,7 +226,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="end"
-                                android:text="40 weeks"
+                                android:text="@string/forty_weeks"
                                 android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                                 android:textColor="@color/text_on_dark_secondary" />
 
@@ -259,7 +259,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_md"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="0dp"
                     app:cardBackgroundColor="@color/success_light">
 
@@ -281,7 +281,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:layout_marginStart="@dimen/spacing_sm"
-                            android:text="Notifications: ON (72h, 48h, 24h, on date)"
+                            android:text="@string/notifications_status"
                             android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                             android:textColor="@color/success" />
 
@@ -294,7 +294,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_lg"
-                    android:text="USG Schedule"
+                    android:text="@string/usg_schedule_header"
                     android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                     android:textColor="@color/text_primary" />
 
@@ -304,7 +304,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_completed_bg">
 
@@ -333,7 +333,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="USG 1 - Dating Scan"
+                                android:text="@string/usg1_title"
                                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                                 android:textColor="@color/text_primary" />
 
@@ -343,8 +343,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xxs"
-                            android:layout_marginStart="26dp"
-                            android:text="6-8 weeks"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
+                            android:text="@string/usg1_weeks"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary" />
 
@@ -353,7 +353,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary"
                             tools:text="28 Jan - 11 Feb 2025" />
@@ -363,8 +363,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
-                            android:text="Completed"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
+                            android:text="@string/completed"
                             android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                             android:textColor="@color/success" />
 
@@ -378,7 +378,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_usg_bg">
 
@@ -407,7 +407,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="USG 2 - NT Scan"
+                                android:text="@string/usg2_title"
                                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                                 android:textColor="@color/text_primary" />
 
@@ -417,8 +417,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xxs"
-                            android:layout_marginStart="26dp"
-                            android:text="11-13 weeks + 6 days"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
+                            android:text="@string/usg2_weeks"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary" />
 
@@ -427,7 +427,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary"
                             tools:text="4 Mar - 25 Mar 2025" />
@@ -437,7 +437,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
                             android:drawableStart="@android:drawable/ic_popup_reminder"
                             android:drawablePadding="@dimen/spacing_xs"
                             android:drawableTint="@color/primary_rose"
@@ -455,7 +455,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/background_card">
 
@@ -484,7 +484,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="USG 3 - Anomaly Scan"
+                                android:text="@string/usg3_title"
                                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                                 android:textColor="@color/text_primary" />
 
@@ -494,8 +494,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xxs"
-                            android:layout_marginStart="26dp"
-                            android:text="18-20 weeks"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
+                            android:text="@string/usg3_weeks"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary" />
 
@@ -504,7 +504,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary"
                             tools:text="29 Apr - 13 May 2025" />
@@ -520,7 +520,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
                     android:layout_marginBottom="@dimen/spacing_lg"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/background_card">
 
@@ -549,7 +549,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:layout_marginStart="@dimen/spacing_sm"
-                                android:text="USG 4 - Growth Scan"
+                                android:text="@string/usg4_title"
                                 android:textAppearance="@style/TextAppearance.Mahina.TitleMedium"
                                 android:textColor="@color/text_primary" />
 
@@ -559,8 +559,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xxs"
-                            android:layout_marginStart="26dp"
-                            android:text="30-32 weeks"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
+                            android:text="@string/usg4_weeks"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary" />
 
@@ -569,7 +569,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_xs"
-                            android:layout_marginStart="26dp"
+                            android:layout_marginStart="@dimen/status_indicator_indent"
                             android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                             android:textColor="@color/text_secondary"
                             tools:text="12 Aug - 26 Aug 2025" />

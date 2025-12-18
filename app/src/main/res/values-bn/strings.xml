@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">মাহিনা</string>
+    <string name="byEsi"></string>
+    <string name="developer">ডাঃ নীতু এবং অনুরাগ দ্বারা ডিজাইন ও উন্নত</string>
+
+    <!-- Common -->
+    <string name="back">পিছনে</string>
+    <string name="settings">সেটিংস</string>
+    <string name="select_date">তারিখ নির্বাচন করুন</string>
+    <string name="tap_to_change">পরিবর্তন করতে ট্যাপ করুন</string>
+    <string name="saved">✓ সংরক্ষিত</string>
+    <string name="save">সংরক্ষণ</string>
+    <string name="cancel">বাতিল</string>
+    <string name="completed">সম্পন্ন</string>
+    <string name="upcoming">আসন্ন</string>
+    <string name="today_exclaim">আজ!</string>
+    <string name="tomorrow_exclaim">আগামীকাল!</string>
+    <string name="in_days">%d দিনে</string>
+    <string name="days_to_go">%d দিন বাকি</string>
+    <string name="days_overdue">%d দিন বিলম্ব</string>
+    <string name="today_is_the_day">আজই সেই দিন!</string>
+    <string name="notifications_on">বিজ্ঞপ্তি চালু</string>
+    <string name="notifications_status">বিজ্ঞপ্তি: চালু (৭২ঘ, ৪৮ঘ, ২৪ঘ, তারিখে)</string>
+    <string name="week">সপ্তাহ</string>
+    <string name="weeks_label">সপ্তাহ</string>
+    <string name="day_label">দিন</string>
+    <string name="forty_weeks">৪০ সপ্তাহ</string>
+
+    <!-- Role Selection -->
+    <string name="role_selection_title">এই অ্যাপ কে ব্যবহার করছে?</string>
+    <string name="role_selection_subtitle">আপনার অভিজ্ঞতা ব্যক্তিগত করতে আপনার ভূমিকা চয়ন করুন</string>
+    <string name="role_doctor">আমি একজন ডাক্তার /</string>
+    <string name="role_doctor_subtitle">স্বাস্থ্য পেশাদার</string>
+    <string name="role_doctor_desc">রোগী পরামর্শের জন্য দ্রুত গণনা</string>
+    <string name="role_patient">আমি একজন গর্ভবতী</string>
+    <string name="role_patient_subtitle">মা / রোগী</string>
+    <string name="role_patient_desc">রিমাইন্ডার সহ আমার গর্ভাবস্থা ট্র্যাক করুন</string>
+    <string name="role_change_hint">আপনি পরে সেটিংসে এটি পরিবর্তন করতে পারেন</string>
+
+    <!-- Patient Home -->
+    <string name="patient_home_tagline">আপনার গর্ভাবস্থার সঙ্গী</string>
+    <string name="my_pregnancy">আমার গর্ভাবস্থা</string>
+    <string name="usg_schedule">USG সূচি</string>
+    <string name="track_usg_appointments">রিমাইন্ডার সহ আপনার আল্ট্রাসাউন্ড অ্যাপয়েন্টমেন্ট ট্র্যাক করুন</string>
+    <string name="baby_vaccination">শিশুর টিকাকরণ</string>
+    <string name="schedule">সূচি</string>
+    <string name="track_immunization">রিমাইন্ডার সহ আপনার শিশুর টিকাকরণের তারিখ ট্র্যাক করুন</string>
+
+    <!-- Patient USG -->
+    <string name="my_pregnancy_usg">আমার গর্ভাবস্থা USG</string>
+    <string name="my_lmp_date">আমার LMP তারিখ</string>
+    <string name="edd_format">EDD: %s</string>
+    <string name="confirm_lmp_title">LMP তারিখ নিশ্চিত করুন</string>
+    <string name="confirm_lmp_message">%s কে আপনার শেষ মাসিকের তারিখ হিসাবে সংরক্ষণ করবেন?\n\nএটি আপনার গর্ভাবস্থার সময়রেখা গণনা এবং রিমাইন্ডার সেট করতে ব্যবহার করা হবে।</string>
+
+    <!-- USG Types -->
+    <string name="usg_schedule_header">USG সূচি</string>
+    <string name="usg1_title">USG ১ - ডেটিং স্ক্যান</string>
+    <string name="usg1_weeks">৬–৮ সপ্তাহ</string>
+    <string name="usg2_title">USG ২ - NT স্ক্যান</string>
+    <string name="usg2_weeks">১১–১৩ সপ্তাহ + ৬ দিন</string>
+    <string name="usg3_title">USG ৩ - অ্যানোমালি স্ক্যান</string>
+    <string name="usg3_weeks">১৮–২০ সপ্তাহ</string>
+    <string name="usg4_title">USG ৪ - গ্রোথ স্ক্যান</string>
+    <string name="usg4_weeks">৩০–৩২ সপ্তাহ</string>
+    <string name="due_now">এখনই বাকি!</string>
+
+    <!-- Patient Vaccination -->
+    <string name="baby_vaccination_title">শিশুর টিকাকরণ</string>
+    <string name="baby_dob">শিশুর জন্ম তারিখ</string>
+    <string name="baby_age">শিশুর বয়স</string>
+    <string name="confirm_dob_title">শিশুর জন্ম তারিখ নিশ্চিত করুন</string>
+    <string name="confirm_dob_message">%s কে আপনার শিশুর জন্ম তারিখ হিসাবে সংরক্ষণ করবেন?\n\nএটি টিকাকরণ সূচি গণনা এবং রিমাইন্ডার সেট করতে ব্যবহার করা হবে।</string>
+    <string name="not_born_yet">এখনও জন্ম হয়নি</string>
+
+    <!-- Vaccination Schedule -->
+    <string name="vaccination_schedule_header">টিকাকরণ সূচি</string>
+    <string name="at_birth">জন্মের সময়</string>
+    <string name="birth_vaccines">BCG, OPV-০, হেপাটাইটিস B</string>
+    <string name="six_weeks">৬ সপ্তাহ</string>
+    <string name="six_weeks_vaccines">DTwP/DTaP-১, IPV-১, Hep B-২, Hib-১, Rotavirus-১, PCV-১</string>
+    <string name="ten_weeks">১০ সপ্তাহ</string>
+    <string name="ten_weeks_vaccines">DTwP/DTaP-২, IPV-২, Hib-২, Rotavirus-২, PCV-২</string>
+    <string name="fourteen_weeks">১৪ সপ্তাহ</string>
+    <string name="fourteen_weeks_vaccines">DTwP/DTaP-৩, IPV-৩, Hib-৩, Rotavirus-৩, PCV-৩</string>
+
+    <!-- Settings -->
+    <string name="language">ভাষা</string>
+    <string name="select_language">ভাষা নির্বাচন করুন</string>
+    <string name="change_role">ভূমিকা পরিবর্তন করুন</string>
+    <string name="about">সম্পর্কে</string>
+
+    <!-- Notifications -->
+    <string name="notification_upcoming">আসন্ন: %s</string>
+    <string name="notification_reminder">রিমাইন্ডার: %s</string>
+    <string name="notification_tomorrow">আগামীকাল: %s</string>
+    <string name="notification_today">আজ: %s</string>
+    <string name="notification_in_3_days">আপনার %s ৩ দিনে!</string>
+    <string name="notification_in_2_days">আপনার %s ২ দিনে!</string>
+    <string name="notification_is_tomorrow">আপনার %s আগামীকাল!</string>
+    <string name="notification_is_today">আপনার %s আজ নির্ধারিত!</string>
+    <string name="notification_baby_in_3_days">আপনার শিশুর %s টিকাকরণ ৩ দিনে!</string>
+    <string name="notification_baby_in_2_days">আপনার শিশুর %s টিকাকরণ ২ দিনে!</string>
+    <string name="notification_baby_tomorrow">আপনার শিশুর %s টিকাকরণ আগামীকাল!</string>
+    <string name="notification_baby_today">আপনার শিশুর %s টিকাকরণ আজ নির্ধারিত!</string>
+</resources>

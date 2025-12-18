@@ -9,20 +9,22 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.esi.mahina.Notifications.NotificationScheduler;
 import com.esi.mahina.R;
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.utils.AnimationUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-public class PatientVaccinationActivity extends AppCompatActivity {
+public class PatientVaccinationActivity extends BaseActivity {
 
     private ImageButton btnBack;
     private MaterialCardView cardDatePicker;
@@ -47,7 +49,12 @@ public class PatientVaccinationActivity extends AppCompatActivity {
     private MaterialCardView card14Weeks;
 
     private LocalDate selectedDob;
-    private DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+    private LocalDate pendingDob; // Temporary storage before confirmation
+    private boolean isFirstLoad = true;
+
+    private DateTimeFormatter getDisplayFormatter() {
+        return DateTimeFormatter.ofPattern("dd MMMM yyyy", java.util.Locale.getDefault());
+    }
 
     // Vaccination schedule data (IAP India recommendations)
     private static final String[][] VACCINATION_SCHEDULE = {
@@ -89,6 +96,7 @@ public class PatientVaccinationActivity extends AppCompatActivity {
 
         initViews();
         setupClickListeners();
+        playEntranceAnimations();
         loadSavedData();
     }
 
@@ -117,19 +125,29 @@ public class PatientVaccinationActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+        btnBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.slide_down_fade_out);
         });
 
-        cardDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
+        AnimationUtils.addTouchScaleEffect(cardDatePicker);
+        cardDatePicker.setOnClickListener(v -> {
+            AnimationUtils.pulse(v);
+            showDatePicker();
         });
+    }
+
+    private void playEntranceAnimations() {
+        // Animate date picker card
+        cardDatePicker.setAlpha(0f);
+        cardDatePicker.setTranslationY(40f);
+        cardDatePicker.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setStartDelay(100)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                .start();
     }
 
     private void loadSavedData() {
@@ -157,21 +175,36 @@ public class PatientVaccinationActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        selectedDob = LocalDate.of(year, month + 1, dayOfMonth);
-                        saveDob();
-                        updateUI();
-                        scheduleNotifications();
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    pendingDob = LocalDate.of(year, month + 1, dayOfMonth);
+                    showConfirmationDialog();
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
         );
 
+        // Prevent selecting future dates
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
         datePickerDialog.show();
+    }
+
+    private void showConfirmationDialog() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Confirm Baby's Date of Birth")
+                .setMessage("Save " + pendingDob.format(getDisplayFormatter()) + " as your baby's date of birth?\n\nThis will be used to calculate the vaccination schedule and set up reminders.")
+                .setPositiveButton("Save", (dialog, which) -> {
+                    selectedDob = pendingDob;
+                    saveDob();
+                    isFirstLoad = false;
+                    updateUI();
+                    scheduleNotifications();
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> {
+                    pendingDob = null;
+                    dialog.dismiss();
+                })
+                .show();
     }
 
     private void saveDob() {
@@ -183,11 +216,31 @@ public class PatientVaccinationActivity extends AppCompatActivity {
         if (selectedDob == null) return;
 
         // Update selected date display
-        tvSelectedDate.setText(selectedDob.format(displayFormatter));
-        tvSavedStatus.setVisibility(View.VISIBLE);
+        tvSelectedDate.setText(selectedDob.format(getDisplayFormatter()));
 
-        // Show results section
-        resultsContainer.setVisibility(View.VISIBLE);
+        // Animate saved status badge
+        if (tvSavedStatus.getVisibility() != View.VISIBLE) {
+            tvSavedStatus.setAlpha(0f);
+            tvSavedStatus.setVisibility(View.VISIBLE);
+            tvSavedStatus.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .start();
+        }
+
+        // Show results section with animation
+        if (resultsContainer.getVisibility() != View.VISIBLE) {
+            resultsContainer.setAlpha(0f);
+            resultsContainer.setTranslationY(60f);
+            resultsContainer.setVisibility(View.VISIBLE);
+            resultsContainer.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(500)
+                    .setStartDelay(100)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                    .start();
+        }
 
         // Calculate baby age
         LocalDate today = LocalDate.now();
@@ -223,15 +276,36 @@ public class PatientVaccinationActivity extends AppCompatActivity {
 
         // 6 Weeks vaccination
         tv6WeeksDate.setText(week6Date.format(DatesHelper.formatter));
-        updateVaccineCard(card6Weeks, tv6WeeksStatus, today, week6Date);
+        updateVaccineCardAnimated(card6Weeks, tv6WeeksStatus, today, week6Date, 0);
 
         // 10 Weeks vaccination
         tv10WeeksDate.setText(week10Date.format(DatesHelper.formatter));
-        updateVaccineCardSimple(card10Weeks, today, week10Date);
+        updateVaccineCardSimpleAnimated(card10Weeks, today, week10Date, 100);
 
         // 14 Weeks vaccination
         tv14WeeksDate.setText(week14Date.format(DatesHelper.formatter));
-        updateVaccineCardSimple(card14Weeks, today, week14Date);
+        updateVaccineCardSimpleAnimated(card14Weeks, today, week14Date, 200);
+
+        // Animate birth card
+        if (cardBirth != null && !isFirstLoad) {
+            AnimationUtils.scaleInBounce(cardBirth, 0);
+        }
+    }
+
+    private void updateVaccineCardAnimated(MaterialCardView card, TextView statusView,
+                                            LocalDate today, LocalDate vaccineDate, long delay) {
+        card.postDelayed(() -> {
+            updateVaccineCard(card, statusView, today, vaccineDate);
+            AnimationUtils.scaleInBounce(card, 0);
+        }, delay);
+    }
+
+    private void updateVaccineCardSimpleAnimated(MaterialCardView card, LocalDate today,
+                                                  LocalDate vaccineDate, long delay) {
+        card.postDelayed(() -> {
+            updateVaccineCardSimple(card, today, vaccineDate);
+            AnimationUtils.scaleInBounce(card, 0);
+        }, delay);
     }
 
     private void updateVaccineCard(MaterialCardView card, TextView statusView, LocalDate today, LocalDate vaccineDate) {
@@ -250,6 +324,7 @@ public class PatientVaccinationActivity extends AppCompatActivity {
             if (statusView != null) {
                 statusView.setText("Today!");
                 statusView.setTextColor(getResources().getColor(R.color.warning, getTheme()));
+                AnimationUtils.startContinuousPulse(statusView);
             }
         } else if (daysUntil <= 3) {
             // Upcoming soon
@@ -261,6 +336,7 @@ public class PatientVaccinationActivity extends AppCompatActivity {
                     statusView.setText("In " + daysUntil + " days");
                 }
                 statusView.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
+                AnimationUtils.startContinuousPulse(statusView);
             }
         } else {
             // Future

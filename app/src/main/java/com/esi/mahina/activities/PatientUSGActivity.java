@@ -10,20 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.esi.mahina.Notifications.NotificationScheduler;
 import com.esi.mahina.R;
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.utils.AnimationUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-public class PatientUSGActivity extends AppCompatActivity {
+public class PatientUSGActivity extends BaseActivity {
 
     private ImageButton btnBack;
     private MaterialCardView cardDatePicker;
@@ -57,7 +59,12 @@ public class PatientUSGActivity extends AppCompatActivity {
     private MaterialCardView cardUsg4;
 
     private LocalDate selectedLmpDate;
-    private DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+    private LocalDate pendingLmpDate; // Temporary storage before confirmation
+    private boolean isFirstLoad = true;
+
+    private DateTimeFormatter getDisplayFormatter() {
+        return DateTimeFormatter.ofPattern("dd MMMM yyyy", java.util.Locale.getDefault());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +74,7 @@ public class PatientUSGActivity extends AppCompatActivity {
 
         initViews();
         setupClickListeners();
+        playEntranceAnimations();
         loadSavedData();
     }
 
@@ -106,19 +114,29 @@ public class PatientUSGActivity extends AppCompatActivity {
     }
 
     private void setupClickListeners() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+        btnBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.slide_down_fade_out);
         });
 
-        cardDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
+        AnimationUtils.addTouchScaleEffect(cardDatePicker);
+        cardDatePicker.setOnClickListener(v -> {
+            AnimationUtils.pulse(v);
+            showDatePicker();
         });
+    }
+
+    private void playEntranceAnimations() {
+        // Animate date picker card
+        cardDatePicker.setAlpha(0f);
+        cardDatePicker.setTranslationY(40f);
+        cardDatePicker.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setStartDelay(100)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                .start();
     }
 
     private void loadSavedData() {
@@ -146,23 +164,35 @@ public class PatientUSGActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        selectedLmpDate = LocalDate.of(year, month + 1, dayOfMonth);
-                        saveLmpDate();
-                        updateUI();
-                        scheduleNotifications();
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    pendingLmpDate = LocalDate.of(year, month + 1, dayOfMonth);
+                    showConfirmationDialog();
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
         );
 
-        // Set max date to today
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
         datePickerDialog.show();
+    }
+
+    private void showConfirmationDialog() {
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Confirm LMP Date")
+                .setMessage("Save " + pendingLmpDate.format(getDisplayFormatter()) + " as your Last Menstrual Period date?\n\nThis will be used to calculate your pregnancy timeline and schedule reminders.")
+                .setPositiveButton("Save", (dialog, which) -> {
+                    selectedLmpDate = pendingLmpDate;
+                    saveLmpDate();
+                    isFirstLoad = false;
+                    updateUI();
+                    scheduleNotifications();
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> {
+                    pendingLmpDate = null;
+                    dialog.dismiss();
+                })
+                .show();
     }
 
     private void saveLmpDate() {
@@ -174,11 +204,31 @@ public class PatientUSGActivity extends AppCompatActivity {
         if (selectedLmpDate == null) return;
 
         // Update selected date display
-        tvSelectedDate.setText(selectedLmpDate.format(displayFormatter));
-        tvSavedStatus.setVisibility(View.VISIBLE);
+        tvSelectedDate.setText(selectedLmpDate.format(getDisplayFormatter()));
 
-        // Show results section
-        resultsContainer.setVisibility(View.VISIBLE);
+        // Animate saved status badge
+        if (tvSavedStatus.getVisibility() != View.VISIBLE) {
+            tvSavedStatus.setAlpha(0f);
+            tvSavedStatus.setVisibility(View.VISIBLE);
+            tvSavedStatus.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .start();
+        }
+
+        // Show results section with animation
+        if (resultsContainer.getVisibility() != View.VISIBLE) {
+            resultsContainer.setAlpha(0f);
+            resultsContainer.setTranslationY(60f);
+            resultsContainer.setVisibility(View.VISIBLE);
+            resultsContainer.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(500)
+                    .setStartDelay(100)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                    .start();
+        }
 
         // Calculate POG
         long totalDays = ChronoUnit.DAYS.between(selectedLmpDate, LocalDate.now());
@@ -186,9 +236,16 @@ public class PatientUSGActivity extends AppCompatActivity {
         long days = totalDays % 7;
 
         if (totalDays >= 0) {
-            tvPogWeeks.setText(String.valueOf(weeks));
+            // Animate the week count
+            if (!isFirstLoad) {
+                AnimationUtils.countUp(tvPogWeeks, 0, (int) weeks, 800, "");
+            } else {
+                tvPogWeeks.setText(String.valueOf(weeks));
+            }
             tvPogDays.setText(", Day " + days);
-            progressPregnancy.setProgress((int) weeks);
+
+            // Animate progress bar
+            AnimationUtils.animateProgress(progressPregnancy, (int) weeks, 1000);
         } else {
             tvPogWeeks.setText("--");
             tvPogDays.setText("");
@@ -197,7 +254,7 @@ public class PatientUSGActivity extends AppCompatActivity {
 
         // Calculate EDD
         LocalDate edd = selectedLmpDate.plusMonths(9).plusDays(7);
-        tvEdd.setText("EDD: " + edd.format(displayFormatter));
+        tvEdd.setText("EDD: " + edd.format(getDisplayFormatter()));
 
         long daysToEdd = ChronoUnit.DAYS.between(LocalDate.now(), edd);
         if (daysToEdd > 0) {
@@ -214,38 +271,53 @@ public class PatientUSGActivity extends AppCompatActivity {
         tvUsg3Dates.setText(DatesHelper.getUSG3DateRange.apply(selectedLmpDate));
         tvUsg4Dates.setText(DatesHelper.getUSG4DateRange.apply(selectedLmpDate));
 
-        // Update USG status indicators
-        updateUSGStatus();
+        // Update USG status indicators with staggered animations
+        updateUSGStatusAnimated();
     }
 
-    private void updateUSGStatus() {
+    private void updateUSGStatusAnimated() {
         LocalDate today = LocalDate.now();
 
         // USG 1: 6-8 weeks
         LocalDate usg1Start = selectedLmpDate.plusWeeks(6);
         LocalDate usg1End = selectedLmpDate.plusWeeks(8);
-        updateUSGCard(cardUsg1, tvUsg1Status, tvUsg1StatusText, today, usg1Start, usg1End);
+        updateUSGCardAnimated(cardUsg1, tvUsg1Status, tvUsg1StatusText, today, usg1Start, usg1End, 0);
 
         // USG 2: 11-13+6 weeks
         LocalDate usg2Start = selectedLmpDate.plusWeeks(11);
         LocalDate usg2End = selectedLmpDate.plusWeeks(13).plusDays(6);
-        updateUSGCard(cardUsg2, tvUsg2Status, tvUsg2StatusText, today, usg2Start, usg2End);
+        updateUSGCardAnimated(cardUsg2, tvUsg2Status, tvUsg2StatusText, today, usg2Start, usg2End, 100);
 
         // USG 3: 18-20 weeks
         LocalDate usg3Start = selectedLmpDate.plusWeeks(18);
         LocalDate usg3End = selectedLmpDate.plusWeeks(20);
-        updateUSGCardSimple(cardUsg3, tvUsg3Status, today, usg3Start, usg3End);
+        updateUSGCardSimpleAnimated(cardUsg3, tvUsg3Status, today, usg3Start, usg3End, 200);
 
         // USG 4: 30-32 weeks
         LocalDate usg4Start = selectedLmpDate.plusWeeks(30);
         LocalDate usg4End = selectedLmpDate.plusWeeks(32);
-        updateUSGCardSimple(cardUsg4, tvUsg4Status, today, usg4Start, usg4End);
+        updateUSGCardSimpleAnimated(cardUsg4, tvUsg4Status, today, usg4Start, usg4End, 300);
+    }
+
+    private void updateUSGCardAnimated(MaterialCardView card, TextView statusIcon, TextView statusText,
+                                        LocalDate today, LocalDate start, LocalDate end, long delay) {
+        card.postDelayed(() -> {
+            updateUSGCard(card, statusIcon, statusText, today, start, end);
+            AnimationUtils.scaleInBounce(card, 0);
+        }, delay);
+    }
+
+    private void updateUSGCardSimpleAnimated(MaterialCardView card, TextView statusIcon,
+                                              LocalDate today, LocalDate start, LocalDate end, long delay) {
+        card.postDelayed(() -> {
+            updateUSGCardSimple(card, statusIcon, today, start, end);
+            AnimationUtils.scaleInBounce(card, 0);
+        }, delay);
     }
 
     private void updateUSGCard(MaterialCardView card, TextView statusIcon, TextView statusText,
                                LocalDate today, LocalDate start, LocalDate end) {
         if (today.isAfter(end)) {
-            // Completed
             card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
             statusIcon.setText("✓");
             statusIcon.setTextColor(getResources().getColor(R.color.success, getTheme()));
@@ -254,7 +326,6 @@ public class PatientUSGActivity extends AppCompatActivity {
                 statusText.setTextColor(getResources().getColor(R.color.success, getTheme()));
             }
         } else if (!today.isBefore(start) && !today.isAfter(end)) {
-            // Current window
             card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
             statusIcon.setText("●");
             statusIcon.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
@@ -262,8 +333,9 @@ public class PatientUSGActivity extends AppCompatActivity {
                 statusText.setText("Due now!");
                 statusText.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
             }
+            // Add pulsing effect for current USG
+            AnimationUtils.startContinuousPulse(statusIcon);
         } else {
-            // Upcoming
             card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
             statusIcon.setText("○");
             statusIcon.setTextColor(getResources().getColor(R.color.text_tertiary, getTheme()));
@@ -285,6 +357,7 @@ public class PatientUSGActivity extends AppCompatActivity {
             card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
             statusIcon.setText("●");
             statusIcon.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
+            AnimationUtils.startContinuousPulse(statusIcon);
         } else {
             card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
             statusIcon.setText("○");
@@ -298,13 +371,11 @@ public class PatientUSGActivity extends AppCompatActivity {
 
         if (!notificationsEnabled || selectedLmpDate == null) return;
 
-        // Schedule notifications for each USG
         scheduleUSGNotifications("USG 1 (Dating Scan)", selectedLmpDate.plusWeeks(6));
         scheduleUSGNotifications("USG 2 (NT Scan)", selectedLmpDate.plusWeeks(11));
         scheduleUSGNotifications("USG 3 (Anomaly Scan)", selectedLmpDate.plusWeeks(18));
         scheduleUSGNotifications("USG 4 (Growth Scan)", selectedLmpDate.plusWeeks(30));
 
-        // Schedule EDD notification
         LocalDate edd = selectedLmpDate.plusMonths(9).plusDays(7);
         scheduleUSGNotifications("Expected Delivery Date", edd);
     }
@@ -312,7 +383,6 @@ public class PatientUSGActivity extends AppCompatActivity {
     private void scheduleUSGNotifications(String eventName, LocalDate eventDate) {
         LocalDate today = LocalDate.now();
 
-        // 72 hours before (3 days)
         LocalDate threeDaysBefore = eventDate.minusDays(3);
         if (threeDaysBefore.isAfter(today)) {
             NotificationScheduler.scheduleNotification(this, threeDaysBefore,
@@ -320,7 +390,6 @@ public class PatientUSGActivity extends AppCompatActivity {
                     "Your " + eventName + " is in 3 days!");
         }
 
-        // 48 hours before (2 days)
         LocalDate twoDaysBefore = eventDate.minusDays(2);
         if (twoDaysBefore.isAfter(today)) {
             NotificationScheduler.scheduleNotification(this, twoDaysBefore,
@@ -328,7 +397,6 @@ public class PatientUSGActivity extends AppCompatActivity {
                     "Your " + eventName + " is in 2 days!");
         }
 
-        // 24 hours before (1 day)
         LocalDate oneDayBefore = eventDate.minusDays(1);
         if (oneDayBefore.isAfter(today)) {
             NotificationScheduler.scheduleNotification(this, oneDayBefore,
@@ -336,7 +404,6 @@ public class PatientUSGActivity extends AppCompatActivity {
                     "Your " + eventName + " is tomorrow!");
         }
 
-        // On the day
         if (!eventDate.isBefore(today)) {
             NotificationScheduler.scheduleNotification(this, eventDate,
                     "Today: " + eventName,

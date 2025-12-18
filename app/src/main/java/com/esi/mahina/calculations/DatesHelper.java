@@ -4,11 +4,17 @@ import android.widget.DatePicker;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 import java.util.function.Function;
 
 public class DatesHelper {
 
-    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+    public static DateTimeFormatter getFormatter() {
+        return DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.getDefault());
+    }
+
+    // Keep this for backward compatibility but make it use locale
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.getDefault());
 
     public static Function<LocalDate, String> getPeriodOfGestation = (lmp) -> {
 
@@ -25,7 +31,7 @@ public class DatesHelper {
         lmp = lmp.plusMonths(9);
         lmp = lmp.plusDays(7);
 
-        return lmp.format(formatter);
+        return lmp.format(getFormatter());
 
     };
 
@@ -33,7 +39,7 @@ public class DatesHelper {
         LocalDate beginDate = lmp.plusWeeks(6);
         LocalDate endDate = lmp.plusWeeks(8);
 
-        return beginDate.format(formatter) + " to " + endDate.format(formatter);
+        return beginDate.format(getFormatter()) + " to " + endDate.format(getFormatter());
     };
 
 
@@ -41,7 +47,7 @@ public class DatesHelper {
         LocalDate beginDate = lmp.plusWeeks(11);
         LocalDate endDate = lmp.plusWeeks(13);
         endDate = endDate.plusDays(6);
-        return beginDate.format(formatter) + " to " + endDate.format(formatter);
+        return beginDate.format(getFormatter()) + " to " + endDate.format(getFormatter());
     };
 
 
@@ -49,13 +55,13 @@ public class DatesHelper {
 
         LocalDate beginDate = lmp.plusWeeks(18);
         LocalDate endDate = lmp.plusWeeks(20);
-        return beginDate.format(formatter) + " to " + endDate.format(formatter);
+        return beginDate.format(getFormatter()) + " to " + endDate.format(getFormatter());
 
     };
     public static Function<LocalDate, String> getUSG4DateRange = (lmp) -> {
         LocalDate beginDate = lmp.plusWeeks(30);
         LocalDate endDate = lmp.plusWeeks(32);
-        return beginDate.format(formatter) + " to " + endDate.format(formatter);
+        return beginDate.format(getFormatter()) + " to " + endDate.format(getFormatter());
     };
 
     public static LocalDate captureLocalDateFromDatePicker(DatePicker datePicker) {

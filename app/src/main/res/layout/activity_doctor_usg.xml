@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="1dp"
                 app:cardBackgroundColor="@color/background_card"
                 app:strokeColor="@color/border"
@@ -262,7 +262,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_usg_bg">
 
@@ -308,7 +308,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_usg_bg">
 
@@ -354,7 +354,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_usg_bg">
 
@@ -400,7 +400,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/card_usg_bg">
 

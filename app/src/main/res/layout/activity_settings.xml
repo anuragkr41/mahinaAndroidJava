@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="1dp"
                 app:cardBackgroundColor="@color/background_card">
 
@@ -152,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/background_card">
 
@@ -227,7 +227,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_sm"
-                    app:cardCornerRadius="12dp"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
                     app:cardElevation="1dp"
                     app:cardBackgroundColor="@color/background_card">
 
@@ -305,12 +305,82 @@
 
             </LinearLayout>
 
+            <!-- Language Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_lg"
+                android:text="@string/language"
+                android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_sm"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/background_card"
+                android:clickable="true"
+                android:focusable="true"
+                app:rippleColor="@color/ripple">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/card_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌐"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_md"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/select_language"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodyLarge"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvCurrentLanguage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_xxs"
+                            android:text="@string/english"
+                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_size_sm"
+                        android:layout_height="@dimen/icon_size_sm"
+                        android:src="@android:drawable/ic_media_play"
+                        app:tint="@color/text_tertiary"
+                        android:contentDescription="Select" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
             <!-- About Section -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_lg"
-                android:text="About"
+                android:text="@string/about"
                 android:textAppearance="@style/TextAppearance.Mahina.BodyMedium"
                 android:textColor="@color/text_secondary" />
 
@@ -319,7 +389,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_sm"
                 android:layout_marginBottom="@dimen/spacing_lg"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="@dimen/card_corner_radius"
                 app:cardElevation="1dp"
                 app:cardBackgroundColor="@color/background_card">
 
@@ -358,13 +428,6 @@
                             android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
                             android:textColor="@color/text_secondary" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_xs"
-                            android:text="ESI Govind Puri Haridwar"
-                            android:textAppearance="@style/TextAppearance.Mahina.BodySmall"
-                            android:textColor="@color/text_tertiary" />
 
                     </LinearLayout>
 

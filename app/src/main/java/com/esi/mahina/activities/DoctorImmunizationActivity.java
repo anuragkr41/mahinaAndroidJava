@@ -8,19 +8,19 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.card.MaterialCardView;
 import com.esi.mahina.R;
 import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.utils.AnimationUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 
-public class DoctorImmunizationActivity extends AppCompatActivity {
+public class DoctorImmunizationActivity extends BaseActivity {
 
     private ImageButton btnBack;
     private MaterialCardView cardDatePicker;
@@ -37,8 +37,15 @@ public class DoctorImmunizationActivity extends AppCompatActivity {
     private TextView tv10WeeksDate;
     private TextView tv14WeeksDate;
 
+    // Vaccination cards for animation
+    private MaterialCardView cardBirth;
+    private MaterialCardView card6Weeks;
+    private MaterialCardView card10Weeks;
+    private MaterialCardView card14Weeks;
+
     private LocalDate selectedDob;
     private DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+    private boolean isFirstLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class DoctorImmunizationActivity extends AppCompatActivity {
 
         initViews();
         setupClickListeners();
+        playEntranceAnimations();
     }
 
     private void initViews() {
@@ -62,41 +70,63 @@ public class DoctorImmunizationActivity extends AppCompatActivity {
         tv6WeeksDate = findViewById(R.id.tv6WeeksDate);
         tv10WeeksDate = findViewById(R.id.tv10WeeksDate);
         tv14WeeksDate = findViewById(R.id.tv14WeeksDate);
+
+        // Vaccination cards
+        cardBirth = findViewById(R.id.cardBirth);
+        card6Weeks = findViewById(R.id.card6Weeks);
+        card10Weeks = findViewById(R.id.card10Weeks);
+        card14Weeks = findViewById(R.id.card14Weeks);
     }
 
     private void setupClickListeners() {
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
+        btnBack.setOnClickListener(v -> {
+            finish();
+            overridePendingTransition(R.anim.fade_in, R.anim.slide_down_fade_out);
         });
 
-        cardDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDatePicker();
-            }
+        AnimationUtils.addTouchScaleEffect(cardDatePicker);
+        cardDatePicker.setOnClickListener(v -> {
+            AnimationUtils.pulse(v);
+            showDatePicker();
         });
+    }
+
+    private void playEntranceAnimations() {
+        // Animate date picker card
+        cardDatePicker.setAlpha(0f);
+        cardDatePicker.setTranslationY(40f);
+        cardDatePicker.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setStartDelay(100)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                .start();
     }
 
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
 
+        if (selectedDob != null) {
+            calendar.set(Calendar.YEAR, selectedDob.getYear());
+            calendar.set(Calendar.MONTH, selectedDob.getMonthValue() - 1);
+            calendar.set(Calendar.DAY_OF_MONTH, selectedDob.getDayOfMonth());
+        }
+
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        selectedDob = LocalDate.of(year, month + 1, dayOfMonth);
-                        updateUI();
-                    }
+                (view, year, month, dayOfMonth) -> {
+                    selectedDob = LocalDate.of(year, month + 1, dayOfMonth);
+                    isFirstLoad = false;
+                    updateUI();
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
         );
 
+        // Prevent selecting future dates
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
         datePickerDialog.show();
     }
 
@@ -106,8 +136,19 @@ public class DoctorImmunizationActivity extends AppCompatActivity {
         // Update selected date display
         tvSelectedDate.setText(selectedDob.format(displayFormatter));
 
-        // Show results section
-        resultsContainer.setVisibility(View.VISIBLE);
+        // Show results section with animation
+        if (resultsContainer.getVisibility() != View.VISIBLE) {
+            resultsContainer.setAlpha(0f);
+            resultsContainer.setTranslationY(60f);
+            resultsContainer.setVisibility(View.VISIBLE);
+            resultsContainer.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(500)
+                    .setStartDelay(100)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator(2f))
+                    .start();
+        }
 
         // Calculate baby age
         LocalDate today = LocalDate.now();
@@ -143,5 +184,23 @@ public class DoctorImmunizationActivity extends AppCompatActivity {
 
         // 14 Weeks vaccination
         tv14WeeksDate.setText(week14Date.format(DatesHelper.formatter));
+
+        // Animate vaccination cards with stagger
+        animateVaccineCards();
+    }
+
+    private void animateVaccineCards() {
+        if (cardBirth != null) {
+            AnimationUtils.scaleInBounce(cardBirth, 0);
+        }
+        if (card6Weeks != null) {
+            AnimationUtils.scaleInBounce(card6Weeks, 100);
+        }
+        if (card10Weeks != null) {
+            AnimationUtils.scaleInBounce(card10Weeks, 200);
+        }
+        if (card14Weeks != null) {
+            AnimationUtils.scaleInBounce(card14Weeks, 300);
+        }
     }
 }
