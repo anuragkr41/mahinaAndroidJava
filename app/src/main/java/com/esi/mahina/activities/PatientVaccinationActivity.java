@@ -1,30 +1,36 @@
 package com.esi.mahina.activities;
 
 import android.app.DatePickerDialog;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.esi.mahina.Notifications.NotificationScheduler;
 import com.esi.mahina.R;
-import com.esi.mahina.calculations.DatesHelper;
+import com.esi.mahina.data.Constants;
+import com.esi.mahina.data.model.VaccinationItem;
+import com.esi.mahina.ui.patient.vaccination.PatientVaccinationViewModel;
 import com.esi.mahina.utils.AnimationUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.List;
 
+/**
+ * Patient Vaccination Activity - displays vaccination schedule for baby.
+ * Uses PatientVaccinationViewModel for data management.
+ */
 public class PatientVaccinationActivity extends BaseActivity {
+
+    private PatientVaccinationViewModel viewModel;
 
     private ImageButton btnBack;
     private MaterialCardView cardDatePicker;
@@ -48,45 +54,7 @@ public class PatientVaccinationActivity extends BaseActivity {
     private MaterialCardView card10Weeks;
     private MaterialCardView card14Weeks;
 
-    private LocalDate selectedDob;
-    private LocalDate pendingDob; // Temporary storage before confirmation
     private boolean isFirstLoad = true;
-
-    private DateTimeFormatter getDisplayFormatter() {
-        return DateTimeFormatter.ofPattern("dd MMMM yyyy", java.util.Locale.getDefault());
-    }
-
-    // Vaccination schedule data (IAP India recommendations)
-    private static final String[][] VACCINATION_SCHEDULE = {
-            {"Birth", "BCG, OPV-0, Hepatitis B-1"},
-            {"6 Weeks", "DTwP/DTaP-1, IPV-1, Hep B-2, Hib-1, Rotavirus-1, PCV-1"},
-            {"10 Weeks", "DTwP/DTaP-2, IPV-2, Hib-2, Rotavirus-2, PCV-2"},
-            {"14 Weeks", "DTwP/DTaP-3, IPV-3, Hib-3, Rotavirus-3, PCV-3"},
-            {"6 Months", "OPV-1, Hepatitis B-3"},
-            {"9 Months", "MMR-1, OPV-2"},
-            {"12 Months", "Hepatitis A-1, Japanese Encephalitis-1"},
-            {"15 Months", "MMR-2, Varicella-1, PCV Booster"},
-            {"16-18 Months", "DTwP/DTaP Booster-1, IPV Booster-1, Hib Booster"},
-            {"18 Months", "Hepatitis A-2, Japanese Encephalitis-2"},
-            {"4-6 Years", "DTwP/DTaP Booster-2, OPV-3, Varicella-2, MMR-3"},
-            {"10-12 Years", "Tdap/Td, HPV (for girls)"}
-    };
-
-    // Days to add for each schedule item
-    private static final int[] SCHEDULE_DAYS = {
-            0,      // Birth
-            42,     // 6 Weeks
-            70,     // 10 Weeks
-            98,     // 14 Weeks
-            180,    // 6 Months
-            270,    // 9 Months
-            365,    // 12 Months
-            456,    // 15 Months
-            487,    // 16-18 Months (using 16 months)
-            548,    // 18 Months
-            1461,   // 4 Years
-            3652    // 10 Years
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +62,20 @@ public class PatientVaccinationActivity extends BaseActivity {
         setContentView(R.layout.activity_patient_vaccination);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        // Initialize ViewModel
+        viewModel = new ViewModelProvider(this).get(PatientVaccinationViewModel.class);
+
         initViews();
         setupClickListeners();
+        setupObservers();
         playEntranceAnimations();
-        loadSavedData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh baby age when returning to screen
+        viewModel.refreshBabyAge();
     }
 
     private void initViews() {
@@ -137,8 +115,42 @@ public class PatientVaccinationActivity extends BaseActivity {
         });
     }
 
+    private void setupObservers() {
+        // Observe baby DOB changes
+        viewModel.getBabyDob().observe(this, dob -> {
+            if (dob != null) {
+                tvSelectedDate.setText(dob.format(viewModel.getDisplayFormatter()));
+            }
+        });
+
+        // Observe saved status
+        viewModel.getHasDataSaved().observe(this, hasSaved -> {
+            if (hasSaved && tvSavedStatus.getVisibility() != View.VISIBLE) {
+                tvSavedStatus.setAlpha(0f);
+                tvSavedStatus.setVisibility(View.VISIBLE);
+                tvSavedStatus.animate()
+                        .alpha(1f)
+                        .setDuration(300)
+                        .start();
+            }
+        });
+
+        // Observe baby age
+        viewModel.getBabyAge().observe(this, age -> {
+            if (age != null) {
+                tvBabyAge.setText(age);
+            }
+        });
+
+        // Observe core vaccinations (first 4)
+        viewModel.getCoreVaccinations().observe(this, vaccinations -> {
+            if (vaccinations != null && !vaccinations.isEmpty()) {
+                updateVaccinationUI(vaccinations);
+            }
+        });
+    }
+
     private void playEntranceAnimations() {
-        // Animate date picker card
         cardDatePicker.setAlpha(0f);
         cardDatePicker.setTranslationY(40f);
         cardDatePicker.animate()
@@ -150,33 +162,21 @@ public class PatientVaccinationActivity extends BaseActivity {
                 .start();
     }
 
-    private void loadSavedData() {
-        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
-        String dobStr = prefs.getString(PatientHomeActivity.KEY_BABY_DOB, null);
-
-        if (dobStr != null) {
-            try {
-                selectedDob = LocalDate.parse(dobStr);
-                updateUI();
-            } catch (Exception e) {
-                // Keep default state
-            }
-        }
-    }
-
     private void showDatePicker() {
         Calendar calendar = Calendar.getInstance();
 
-        if (selectedDob != null) {
-            calendar.set(Calendar.YEAR, selectedDob.getYear());
-            calendar.set(Calendar.MONTH, selectedDob.getMonthValue() - 1);
-            calendar.set(Calendar.DAY_OF_MONTH, selectedDob.getDayOfMonth());
+        LocalDate currentDob = viewModel.getBabyDob().getValue();
+        if (currentDob != null) {
+            calendar.set(Calendar.YEAR, currentDob.getYear());
+            calendar.set(Calendar.MONTH, currentDob.getMonthValue() - 1);
+            calendar.set(Calendar.DAY_OF_MONTH, currentDob.getDayOfMonth());
         }
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
                 (view, year, month, dayOfMonth) -> {
-                    pendingDob = LocalDate.of(year, month + 1, dayOfMonth);
+                    LocalDate selectedDate = LocalDate.of(year, month + 1, dayOfMonth);
+                    viewModel.setPendingDob(selectedDate);
                     showConfirmationDialog();
                 },
                 calendar.get(Calendar.YEAR),
@@ -190,44 +190,24 @@ public class PatientVaccinationActivity extends BaseActivity {
     }
 
     private void showConfirmationDialog() {
+        LocalDate pendingDate = viewModel.getPendingDob();
+        if (pendingDate == null) return;
+
+        DateTimeFormatter formatter = viewModel.getDisplayFormatter();
+
         new MaterialAlertDialogBuilder(this)
                 .setTitle("Confirm Baby's Date of Birth")
-                .setMessage("Save " + pendingDob.format(getDisplayFormatter()) + " as your baby's date of birth?\n\nThis will be used to calculate the vaccination schedule and set up reminders.")
+                .setMessage("Save " + pendingDate.format(formatter) + " as your baby's date of birth?\n\nThis will be used to calculate the vaccination schedule and set up reminders.")
                 .setPositiveButton("Save", (dialog, which) -> {
-                    selectedDob = pendingDob;
-                    saveDob();
                     isFirstLoad = false;
-                    updateUI();
+                    viewModel.confirmDob();
                     scheduleNotifications();
                 })
-                .setNegativeButton("Cancel", (dialog, which) -> {
-                    pendingDob = null;
-                    dialog.dismiss();
-                })
+                .setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
-    private void saveDob() {
-        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
-        prefs.edit().putString(PatientHomeActivity.KEY_BABY_DOB, selectedDob.toString()).apply();
-    }
-
-    private void updateUI() {
-        if (selectedDob == null) return;
-
-        // Update selected date display
-        tvSelectedDate.setText(selectedDob.format(getDisplayFormatter()));
-
-        // Animate saved status badge
-        if (tvSavedStatus.getVisibility() != View.VISIBLE) {
-            tvSavedStatus.setAlpha(0f);
-            tvSavedStatus.setVisibility(View.VISIBLE);
-            tvSavedStatus.animate()
-                    .alpha(1f)
-                    .setDuration(300)
-                    .start();
-        }
-
+    private void updateVaccinationUI(List<VaccinationItem> vaccinations) {
         // Show results section with animation
         if (resultsContainer.getVisibility() != View.VISIBLE) {
             resultsContainer.setAlpha(0f);
@@ -242,166 +222,183 @@ public class PatientVaccinationActivity extends BaseActivity {
                     .start();
         }
 
-        // Calculate baby age
         LocalDate today = LocalDate.now();
-        long totalDays = ChronoUnit.DAYS.between(selectedDob, today);
+        DateTimeFormatter formatter = viewModel.getScheduleFormatter();
 
-        if (totalDays >= 0) {
-            long months = totalDays / 30;
-            long days = totalDays % 30;
+        if (vaccinations.size() >= 4) {
+            // Birth vaccination
+            VaccinationItem birth = vaccinations.get(0);
+            String birthStatus = birth.isCompleted(today) ? " - Completed" : " - Upcoming";
+            tvBirthDate.setText(birth.getFormattedDate(formatter) + birthStatus);
+            updateVaccineCardColor(cardBirth, birth, today);
 
-            if (months > 0) {
-                tvBabyAge.setText(months + " month" + (months > 1 ? "s" : "") + ", " + days + " day" + (days != 1 ? "s" : ""));
-            } else {
-                tvBabyAge.setText(days + " day" + (days != 1 ? "s" : "") + " old");
+            // 6 Weeks vaccination
+            VaccinationItem week6 = vaccinations.get(1);
+            tv6WeeksDate.setText(week6.getFormattedDate(formatter));
+            updateVaccineCardAnimated(card6Weeks, tv6WeeksStatus, week6, today, 0);
+
+            // 10 Weeks vaccination
+            VaccinationItem week10 = vaccinations.get(2);
+            tv10WeeksDate.setText(week10.getFormattedDate(formatter));
+            updateVaccineCardSimpleAnimated(card10Weeks, week10, today, 100);
+
+            // 14 Weeks vaccination
+            VaccinationItem week14 = vaccinations.get(3);
+            tv14WeeksDate.setText(week14.getFormattedDate(formatter));
+            updateVaccineCardSimpleAnimated(card14Weeks, week14, today, 200);
+
+            // Animate birth card
+            if (cardBirth != null && !isFirstLoad) {
+                AnimationUtils.scaleInBounce(cardBirth, 0);
             }
-        } else {
-            tvBabyAge.setText("Not born yet");
         }
+    }
 
-        // Update vaccination dates
-        LocalDate birthDate = selectedDob;
-        LocalDate week6Date = selectedDob.plusDays(42);
-        LocalDate week10Date = selectedDob.plusDays(70);
-        LocalDate week14Date = selectedDob.plusDays(98);
-
-        // Birth vaccination
-        if (today.isAfter(birthDate) || today.isEqual(birthDate)) {
-            tvBirthDate.setText(birthDate.format(DatesHelper.formatter) + " - Completed");
-            cardBirth.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
+    private void updateVaccineCardColor(MaterialCardView card, VaccinationItem vaccine, LocalDate today) {
+        if (vaccine.isCompleted(today)) {
+            card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
         } else {
-            tvBirthDate.setText(birthDate.format(DatesHelper.formatter) + " - Upcoming");
-            cardBirth.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
-        }
-
-        // 6 Weeks vaccination
-        tv6WeeksDate.setText(week6Date.format(DatesHelper.formatter));
-        updateVaccineCardAnimated(card6Weeks, tv6WeeksStatus, today, week6Date, 0);
-
-        // 10 Weeks vaccination
-        tv10WeeksDate.setText(week10Date.format(DatesHelper.formatter));
-        updateVaccineCardSimpleAnimated(card10Weeks, today, week10Date, 100);
-
-        // 14 Weeks vaccination
-        tv14WeeksDate.setText(week14Date.format(DatesHelper.formatter));
-        updateVaccineCardSimpleAnimated(card14Weeks, today, week14Date, 200);
-
-        // Animate birth card
-        if (cardBirth != null && !isFirstLoad) {
-            AnimationUtils.scaleInBounce(cardBirth, 0);
+            card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
         }
     }
 
     private void updateVaccineCardAnimated(MaterialCardView card, TextView statusView,
-                                            LocalDate today, LocalDate vaccineDate, long delay) {
+                                            VaccinationItem vaccine, LocalDate today, long delay) {
         card.postDelayed(() -> {
-            updateVaccineCard(card, statusView, today, vaccineDate);
+            updateVaccineCard(card, statusView, vaccine, today);
             AnimationUtils.scaleInBounce(card, 0);
         }, delay);
     }
 
-    private void updateVaccineCardSimpleAnimated(MaterialCardView card, LocalDate today,
-                                                  LocalDate vaccineDate, long delay) {
+    private void updateVaccineCardSimpleAnimated(MaterialCardView card,
+                                                  VaccinationItem vaccine, LocalDate today, long delay) {
         card.postDelayed(() -> {
-            updateVaccineCardSimple(card, today, vaccineDate);
+            updateVaccineCardSimple(card, vaccine, today);
             AnimationUtils.scaleInBounce(card, 0);
         }, delay);
     }
 
-    private void updateVaccineCard(MaterialCardView card, TextView statusView, LocalDate today, LocalDate vaccineDate) {
-        long daysUntil = ChronoUnit.DAYS.between(today, vaccineDate);
+    private void updateVaccineCard(MaterialCardView card, TextView statusView,
+                                   VaccinationItem vaccine, LocalDate today) {
+        VaccinationItem.Status status = vaccine.getStatus(today);
 
-        if (daysUntil < 0) {
-            // Past due
-            card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
-            if (statusView != null) {
-                statusView.setText("Completed");
-                statusView.setTextColor(getResources().getColor(R.color.success, getTheme()));
-            }
-        } else if (daysUntil == 0) {
-            // Today
-            card.setCardBackgroundColor(getResources().getColor(R.color.warning_light, getTheme()));
-            if (statusView != null) {
-                statusView.setText("Today!");
-                statusView.setTextColor(getResources().getColor(R.color.warning, getTheme()));
-                AnimationUtils.startContinuousPulse(statusView);
-            }
-        } else if (daysUntil <= 3) {
-            // Upcoming soon
-            card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
-            if (statusView != null) {
-                if (daysUntil == 1) {
-                    statusView.setText("Tomorrow!");
-                } else {
-                    statusView.setText("In " + daysUntil + " days");
+        switch (status) {
+            case COMPLETED:
+                card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
+                if (statusView != null) {
+                    statusView.setText("Completed");
+                    statusView.setTextColor(getResources().getColor(R.color.success, getTheme()));
                 }
-                statusView.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
-                AnimationUtils.startContinuousPulse(statusView);
-            }
-        } else {
-            // Future
-            card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
-            if (statusView != null) {
-                statusView.setText("In " + daysUntil + " days");
-                statusView.setTextColor(getResources().getColor(R.color.text_secondary, getTheme()));
-            }
+                break;
+
+            case TODAY:
+                card.setCardBackgroundColor(getResources().getColor(R.color.warning_light, getTheme()));
+                if (statusView != null) {
+                    statusView.setText("Today!");
+                    statusView.setTextColor(getResources().getColor(R.color.warning, getTheme()));
+                    AnimationUtils.startContinuousPulse(statusView);
+                }
+                break;
+
+            case TOMORROW:
+                card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
+                if (statusView != null) {
+                    statusView.setText("Tomorrow!");
+                    statusView.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
+                    AnimationUtils.startContinuousPulse(statusView);
+                }
+                break;
+
+            case UPCOMING_SOON:
+                card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
+                if (statusView != null) {
+                    statusView.setText("In " + vaccine.getDaysUntil(today) + " days");
+                    statusView.setTextColor(getResources().getColor(R.color.primary_rose, getTheme()));
+                    AnimationUtils.startContinuousPulse(statusView);
+                }
+                break;
+
+            case UPCOMING:
+            default:
+                card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
+                if (statusView != null) {
+                    statusView.setText("In " + vaccine.getDaysUntil(today) + " days");
+                    statusView.setTextColor(getResources().getColor(R.color.text_secondary, getTheme()));
+                }
+                break;
         }
     }
 
-    private void updateVaccineCardSimple(MaterialCardView card, LocalDate today, LocalDate vaccineDate) {
-        long daysUntil = ChronoUnit.DAYS.between(today, vaccineDate);
+    private void updateVaccineCardSimple(MaterialCardView card, VaccinationItem vaccine, LocalDate today) {
+        VaccinationItem.Status status = vaccine.getStatus(today);
 
-        if (daysUntil < 0) {
-            card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
-        } else if (daysUntil <= 3) {
-            card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
-        } else {
-            card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
+        switch (status) {
+            case COMPLETED:
+                card.setCardBackgroundColor(getResources().getColor(R.color.card_completed_bg, getTheme()));
+                break;
+
+            case TODAY:
+            case TOMORROW:
+            case UPCOMING_SOON:
+                card.setCardBackgroundColor(getResources().getColor(R.color.card_usg_bg, getTheme()));
+                break;
+
+            case UPCOMING:
+            default:
+                card.setCardBackgroundColor(getResources().getColor(R.color.background_card, getTheme()));
+                break;
         }
     }
 
     private void scheduleNotifications() {
-        SharedPreferences prefs = getSharedPreferences(SplashActivity.PREFS_NAME, MODE_PRIVATE);
-        boolean notificationsEnabled = prefs.getBoolean(PatientHomeActivity.KEY_NOTIFICATIONS_ENABLED, true);
+        if (!viewModel.areNotificationsEnabled()) return;
 
-        if (!notificationsEnabled || selectedDob == null) return;
+        LocalDate babyDob = viewModel.getBabyDob().getValue();
+        if (babyDob == null) return;
+
+        List<VaccinationItem> schedule = viewModel.getVaccinationSchedule().getValue();
+        if (schedule == null) return;
 
         LocalDate today = LocalDate.now();
 
-        for (int i = 0; i < VACCINATION_SCHEDULE.length; i++) {
-            LocalDate vaccineDate = selectedDob.plusDays(SCHEDULE_DAYS[i]);
-            String vaccineName = VACCINATION_SCHEDULE[i][0] + " Vaccination";
+        for (VaccinationItem vaccine : schedule) {
+            LocalDate vaccineDate = vaccine.getDueDate();
+            String vaccineName = vaccine.getAgeName() + " Vaccination";
 
             // Only schedule for future dates
             if (vaccineDate.isAfter(today)) {
-                // 72 hours before (3 days)
+                // 3 days before
                 LocalDate threeDaysBefore = vaccineDate.minusDays(3);
                 if (threeDaysBefore.isAfter(today)) {
                     NotificationScheduler.scheduleNotification(this, threeDaysBefore,
                             "Upcoming: " + vaccineName,
-                            "Your baby's " + VACCINATION_SCHEDULE[i][0] + " vaccination is in 3 days!");
+                            "Your baby's " + vaccine.getAgeName() + " vaccination is in 3 days!",
+                            Constants.CHANNEL_VACCINATION_REMINDERS);
                 }
 
-                // 48 hours before (2 days)
+                // 2 days before
                 LocalDate twoDaysBefore = vaccineDate.minusDays(2);
                 if (twoDaysBefore.isAfter(today)) {
                     NotificationScheduler.scheduleNotification(this, twoDaysBefore,
                             "Reminder: " + vaccineName,
-                            "Your baby's " + VACCINATION_SCHEDULE[i][0] + " vaccination is in 2 days!");
+                            "Your baby's " + vaccine.getAgeName() + " vaccination is in 2 days!",
+                            Constants.CHANNEL_VACCINATION_REMINDERS);
                 }
 
-                // 24 hours before (1 day)
+                // 1 day before
                 LocalDate oneDayBefore = vaccineDate.minusDays(1);
                 if (oneDayBefore.isAfter(today)) {
                     NotificationScheduler.scheduleNotification(this, oneDayBefore,
                             "Tomorrow: " + vaccineName,
-                            "Your baby's " + VACCINATION_SCHEDULE[i][0] + " vaccination is tomorrow!");
+                            "Your baby's " + vaccine.getAgeName() + " vaccination is tomorrow!",
+                            Constants.CHANNEL_VACCINATION_REMINDERS);
                 }
 
                 // On the day
                 NotificationScheduler.scheduleNotification(this, vaccineDate,
                         "Today: " + vaccineName,
-                        "Your baby's " + VACCINATION_SCHEDULE[i][0] + " vaccination is scheduled for today!");
+                        "Your baby's " + vaccine.getAgeName() + " vaccination is scheduled for today!",
+                        Constants.CHANNEL_VACCINATION_REMINDERS);
             }
         }
     }
