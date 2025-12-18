@@ -13,3 +13,18 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# AI Assistant files - DO NOT COMMIT
+.claude/
+.cursor/
+.aider/
+.copilot/
+.bmad-core/
+.bmad-creative-writing/
+.gemini/
+CLAUDE.md
+.aider*
+*.aider*
+
+# Release APK extracted folders (should not be in repo)
+app/release/app-release*/
